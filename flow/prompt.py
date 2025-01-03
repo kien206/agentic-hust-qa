@@ -1,11 +1,11 @@
 ROUTER_INSTRUCTIONS = (
     """You are an expert at routing a user question to a vectorstore or a SQL store or a websearch.
 
-    The vectorstore contains documents related to Hanoi University of Science & Technology.
+    The vectorstore contains documents, regulations and information related to Hanoi University of Science & Technology.
 
-    Use the vectorstore for questions on these topics. For questions related to teachers that include names, use the SQL store. For other questions, use the websearch tool.
+    Use the vectorstore for questions on these topics. For questions related to teachers that include names, use the SQL store. For other questions that are irrelevant, use the irrelevant tool.
 
-    Return JSON with single key, datasource, that is 'sql' or 'vectorstore' or 'irrelevant' depending on the question."""
+    Return JSON with single key, datasource, that is 'vectorstore' or 'sql' or 'irrelevant' depending on the question."""
 )
 
 DOC_GRADER_INSTRUCTIONS = (

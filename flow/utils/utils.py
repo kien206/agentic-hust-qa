@@ -14,8 +14,10 @@ from sqlalchemy import (
 )
 
 def get_llm(model, format, **kwargs):
-    print("__GETTING MODEL__")
     return ChatOllama(model=model, format=format, **kwargs)
+
+def get_embedding(model_name):
+    return HuggingFaceEmbeddings(model_name=model_name)
 
 def split_doc(text_dir, **kwargs):
     print("__SPLITTING__")
@@ -32,19 +34,28 @@ def split_doc(text_dir, **kwargs):
     doc_splits = text_splitter.split_documents(docs_list)
 
     return doc_splits
+def get_vectorstore(client, embedding_model, index_name, **kwargs):
+    
+    if not client.collections.exists(index_name):
+        if "text_dir" in kwargs:
+            doc_list = split_doc(kwargs['text_dir'])
+            vectorstore = WeaviateVectorStore.from_documents(
+                client=client,
+                documents=doc_list,
+                embedding=embedding_model,
+                index_name=index_name,
+                **kwargs
+            )
 
-def get_embedding(model_name):
-    return HuggingFaceEmbeddings(model_name=model_name)
-
-def get_vectorstore(client, doc_list, embedding_model, index_name, **kwargs):
-    vectorstore = WeaviateVectorStore.from_documents(
+            return vectorstore
+    
+    vectorstore = WeaviateVectorStore(
         client=client,
-        documents=doc_list,
+        text_key="text",
         embedding=embedding_model,
         index_name=index_name,
         **kwargs
     )
-
     return vectorstore
 
 def get_retriever(vectorstore, **kwargs):

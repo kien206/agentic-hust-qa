@@ -8,7 +8,7 @@ from langgraph.graph import StateGraph
 from langchain.schema import Document
 from langgraph.graph import END
 
-from prompt import (
+from flow.prompt import (
     ROUTER_INSTRUCTIONS,
     DOC_GRADER_INSTRUCTIONS,
     DOC_GRADER_PROMPT,
@@ -18,7 +18,7 @@ from prompt import (
     SQL_INSTRUCTIONS,
     SQL_ANSWER_PROMPT,
 )
-from utils.utils import (
+from flow.utils.utils import (
     format_docs,
 )
 import logging
@@ -27,7 +27,7 @@ logging.basicConfig(
     level = logging.INFO,
     filename="chatbot.log",
     encoding="utf-8",
-    filemode="a",
+    filemode="w",
     format="{asctime} - {levelname} - {message}",
     style="{",
     datefmt="%Y-%m-%d %H:%M",
@@ -54,7 +54,8 @@ class Model:
                  llm_json, 
                  retriever, 
                  database, 
-                 web_search_tool, 
+                 web_search_tool,
+                 verbose=False, 
                  **kwargs
                  ):
         
@@ -67,7 +68,7 @@ class Model:
         workflow = self.build_workflow()
         
         self.graph = self.graph(workflow)
-        self._verbose = kwargs['verbose']
+        self._verbose = verbose
         # if self._verbose:
         #     logger.addHandler
 
@@ -83,14 +84,13 @@ class Model:
         Returns:
             state (dict): New key added to state, documents, that contains retrieved documents
         """
-        # print("---RETRIEVE---")
         question = state["question"]
 
         # Write retrieved documents to documents key in state
         documents = self.retriever.invoke(question)
         return {"documents": documents, "sql": False}
 
-    # @log
+    @log
     def generate(self, state):
         """
         Generate answer using RAG on retrieved documents
@@ -101,7 +101,6 @@ class Model:
         Returns:
             state (dict): New key added to state, generation, that contains LLM generation
         """
-        print("---GENERATE---")
         question = state["question"]
         
         loop_step = state.get("loop_step", 0)
@@ -124,7 +123,7 @@ class Model:
         generation = self.llm.invoke([HumanMessage(content=rag_prompt_formatted)])
         return {"generation": generation, "loop_step": loop_step + 1}
 
-    # @log
+    @log
     def web_search(self, state):
         """
         Web search based based on the question
@@ -135,8 +134,6 @@ class Model:
         Returns:
             state (dict): Appended web results to documents
         """
-
-        print("---WEB SEARCH---")
         question = state["question"]
         documents = state.get("documents", [])
 
@@ -148,11 +145,11 @@ class Model:
         return {"documents": documents, 'sql': False}
 
     def irrelevant(self, state):
-        answer = "Câu hỏi không liên quan đến chức năng. Xin hỏi câu khác!!"
+        answer = "Tôi chỉ trả lời những câu hỏi liên quan đến quy định/quy chế và giáo viên của Đại học Bách Khoa. Xin hỏi câu khác!!"
 
         return {"generation": answer}
 
-    # @log
+    @log
     def grade_documents(self, state):
         """
         Determines whether the retrieved documents are relevant to the question
@@ -164,15 +161,13 @@ class Model:
         Returns:
             state (dict): Filtered out irrelevant documents and updated end state
         """
-
-        print("---CHECK DOCUMENT RELEVANCE TO QUESTION---")
         question = state["question"]
         documents = state["documents"]
 
         # Score each doc
         filtered_docs = []
         websearch = "No"
-        for d in documents:
+        for d in documents[:3]:
             doc_grader_prompt_formatted = DOC_GRADER_PROMPT.format(
                 document=d.page_content, question=question
             )
@@ -192,7 +187,7 @@ class Model:
             websearch = 'yes'
         return {"documents": filtered_docs, "web_search": websearch}
 
-    # @log
+    @log
     def rewrite(self, state):
         """
         
@@ -204,7 +199,6 @@ class Model:
         Returns:
             state (dict): The SQL query
         """
-        print("---REWRITING QUERY TO SQL---")
         sql_prompt = SQL_INSTRUCTIONS.format(table_list=self.db.get_usable_table_names())
         question = state["question"]
         result = self.llm_json.invoke(
@@ -218,7 +212,7 @@ class Model:
         query = json.loads(result.content)
         return {"sql_query": query['sql_query'], "sql": True}
 
-    # @log
+    @log
     def run_sql(self, state):
         """
         
@@ -231,7 +225,6 @@ class Model:
             state (dict): Output of SQL query
 
         """
-        print("---RUNNING SQL QUERY---")
         query = state['sql_query']
         try:
             response = self.db.run(query)
@@ -251,7 +244,6 @@ class Model:
         Returns:
             str: Next node to call
         """
-        print("---CHECKING SQL RESULT---")
         response = state["sql_result"]
         if response:
             return "result found"
@@ -267,23 +259,21 @@ class Model:
         Returns:
             str: Next node to call
         """
-
-        print("---ROUTE QUESTION---")
         route_question = self.llm_json.invoke(
             [SystemMessage(content=ROUTER_INSTRUCTIONS)]
             + [HumanMessage(content=state["question"])]
         )
         source = json.loads(route_question.content)["datasource"]
         if source == "sql":
-            print("---ROUTE QUESTION TO SQL---")
+            # print("---ROUTE QUESTION TO SQL---")
             # state['sql'] = True
             return "sql"
         elif source == "vectorstore":
-            print("---ROUTE QUESTION TO RAG---")
+            # print("---ROUTE QUESTION TO RAG---")
             # state['sql'] = False
             return "vectorstore"
         else:
-            print('---ROUTE QUESTION TO WEBSEARCH---')
+            # print('---ROUTE QUESTION TO WEBSEARCH---')
             return 'irrelevant'
 
     def decide_to_generate(self, state):
@@ -296,8 +286,6 @@ class Model:
         Returns:
             str: Binary decision for next node to call
         """
-
-        print("---ASSESS GRADED DOCUMENTS---")
         # question = state["question"]
         web_search = state["web_search"]
         # filtered_documents = state["documents"]
@@ -327,7 +315,6 @@ class Model:
         """
         if state['sql']:
             return 'useful'
-        print("---CHECK HALLUCINATIONS---")
         # question = state["question"]
         
         generation = state["generation"]
@@ -412,8 +399,8 @@ class Model:
             {
                 # "not supported": "generate",
                 "useful": END,
-                "unanswerable": "generate",
-                "max retries": END,
+                "unanswerable": "no answer",
+                "max retries": "no answer",
             },
         )
         workflow.add_edge("websearch", "generate")
@@ -447,6 +434,5 @@ class GraphState(TypedDict):
     web_search: str
     sql: bool # Tag to decide SQL generation or RAG
     max_retries: int  # Max number of retries for answer generation
-    answers: int  # Number of answers generated
     loop_step: Annotated[int, operator.add]
     documents: List[str]  # List of retrieved documents
