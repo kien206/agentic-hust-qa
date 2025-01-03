@@ -8,7 +8,7 @@ from langgraph.graph import StateGraph
 from langchain.schema import Document
 from langgraph.graph import END
 
-from pipeline.prompt import (
+from prompt import (
     ROUTER_INSTRUCTIONS,
     DOC_GRADER_INSTRUCTIONS,
     DOC_GRADER_PROMPT,
@@ -21,21 +21,58 @@ from pipeline.prompt import (
 from utils.utils import (
     format_docs,
 )
-from pipeline.graph import GraphState
+import logging
 
-class Pipeline:
-    def __init__(self, llm, llm_json, retriever, database, web_search_tool, **kwargs):
+logging.basicConfig(
+    level = logging.INFO,
+    filename="chatbot.log",
+    encoding="utf-8",
+    filemode="a",
+    format="{asctime} - {levelname} - {message}",
+    style="{",
+    datefmt="%Y-%m-%d %H:%M",
+)
+logger = logging.getLogger(__name__)
+
+def log(func):
+    def wrapper(*args, **kwargs):
+        args_repr = [repr(a) for a in args]
+        kwargs_repr = [f"{k}={v!r}" for k, v in kwargs.items()]
+        signature = ", ".join(args_repr + kwargs_repr)
+        logger.info(f"--Starting {func.__name__.upper()} with args {signature}--")
+        try:
+           result = func(*args, **kwargs)
+           return result
+        except Exception as e:
+            logger.exception(f"Function {func.__name__} got exception: {str(e)}")
+            raise e
+    return wrapper 
+
+class Model:
+    def __init__(self, 
+                 llm, 
+                 llm_json, 
+                 retriever, 
+                 database, 
+                 web_search_tool, 
+                 **kwargs
+                 ):
+        
         self.llm = llm
         self.llm_json = llm_json
         self.retriever = retriever
         self.db = database
         self.web_search_tool = web_search_tool
 
-        workflow = self._build_workflow()
+        workflow = self.build_workflow()
         
         self.graph = self.graph(workflow)
+        self._verbose = kwargs['verbose']
+        # if self._verbose:
+        #     logger.addHandler
 
     ### Nodes
+    @log
     def retrieve(self, state):
         """
         Retrieve documents from vectorstore
@@ -46,14 +83,14 @@ class Pipeline:
         Returns:
             state (dict): New key added to state, documents, that contains retrieved documents
         """
-        print("---RETRIEVE---")
+        # print("---RETRIEVE---")
         question = state["question"]
 
         # Write retrieved documents to documents key in state
         documents = self.retriever.invoke(question)
         return {"documents": documents, "sql": False}
 
-
+    # @log
     def generate(self, state):
         """
         Generate answer using RAG on retrieved documents
@@ -87,6 +124,7 @@ class Pipeline:
         generation = self.llm.invoke([HumanMessage(content=rag_prompt_formatted)])
         return {"generation": generation, "loop_step": loop_step + 1}
 
+    # @log
     def web_search(self, state):
         """
         Web search based based on the question
@@ -109,7 +147,12 @@ class Pipeline:
         documents.append(web_results)
         return {"documents": documents, 'sql': False}
 
+    def irrelevant(self, state):
+        answer = "Câu hỏi không liên quan đến chức năng. Xin hỏi câu khác!!"
 
+        return {"generation": answer}
+
+    # @log
     def grade_documents(self, state):
         """
         Determines whether the retrieved documents are relevant to the question
@@ -145,12 +188,11 @@ class Pipeline:
             # Document not relevant
             else:
                 print("---GRADE: DOCUMENT NOT RELEVANT---")
-                # We do not include the document in filtered_docs
-                # We set a flag to indicate that we want to run web search
-                websearch = "Yes"
-                continue
+        if len(filtered_docs) == 0:
+            websearch = 'yes'
         return {"documents": filtered_docs, "web_search": websearch}
 
+    # @log
     def rewrite(self, state):
         """
         
@@ -176,6 +218,7 @@ class Pipeline:
         query = json.loads(result.content)
         return {"sql_query": query['sql_query'], "sql": True}
 
+    # @log
     def run_sql(self, state):
         """
         
@@ -263,13 +306,13 @@ class Pipeline:
             # All documents have been filtered check_relevance
             # We will re-generate a new query
             print(
-                "---DECISION: NOT ALL DOCUMENTS ARE RELEVANT TO QUESTION---"
+                "---DECISION: NO DOCUMENTS ARE RELEVANT TO QUESTION---"
             )
-            return "websearch"
+            return 'no documents'
         else:
             # We have relevant documents, so generate answer
             print("---DECISION: GENERATE---")
-            return "generate"
+            return 'generate'
 
 
     def grade_generation_v_documents_and_question(self, state):
@@ -308,7 +351,7 @@ class Pipeline:
         # Check hallucination
         if grade == "yes":
             print("---DECISION: GENERATION IS GROUNDED IN DOCUMENTS---")
-            print("---DECISION: GENERATION ADDRESSES QUESTION---")
+            # print("---DECISION: GENERATION ADDRESSES QUESTION---")
             return "useful"
         elif state["loop_step"] <= max_retries:
             print("---DECISION: GENERATION DOES NOT ADDRESS QUESTION---")
@@ -320,7 +363,7 @@ class Pipeline:
             print("---DECISION: MAX RETRIES REACHED---")
             return "max retries"
     
-    def _build_workflow(self):
+    def build_workflow(self):
         workflow = StateGraph(GraphState)
 
         # Define the nodes
@@ -331,16 +374,17 @@ class Pipeline:
         workflow.add_node("grade_documents", self.grade_documents)  # grade documents
         workflow.add_node("generate", self.generate)  # generate
         workflow.add_node("websearch", self.web_search)
-
+        workflow.add_node("no answer", self.irrelevant)
         # Build graph
         workflow.set_conditional_entry_point(
             self.route_question,
             {
                 "sql": "rewrite",
                 "vectorstore": "retrieve",
-                "irrelevant": "websearch",
+                "irrelevant": "no answer",
             },
         )
+        workflow.add_edge("no answer", END)
         workflow.add_edge("rewrite", "run_sql")
         # workflow.add_edge("run_sql", "generate")
         workflow.add_conditional_edges(
@@ -358,7 +402,7 @@ class Pipeline:
             "grade_documents",
             self.decide_to_generate,
             {
-                "websearch": "websearch",
+                "no documents": "websearch",
                 "generate": "generate",
             },
         )
@@ -379,13 +423,18 @@ class Pipeline:
     def graph(self, workflow):
         return workflow.compile()
     
+    @classmethod
+    def draw_workflow(self):
+        from IPython.display import Image, display
+
+        display(Image(self.graph.get_graph().draw_mermaid_png()))
+
     def chat(self, query):
         inputs = {"question": query, "max_retries": 3}
-        for event in self.graph.stream(inputs, stream_mode="values"):
-            print(event)
-        print("---------")
-        print(event['generation'].content)
+        events = self.graph.invoke(inputs)
 
+        return events
+    
 class GraphState(TypedDict):
     """
     Graph state is a dictionary that contains information we want to propagate to, and modify in, each graph node.

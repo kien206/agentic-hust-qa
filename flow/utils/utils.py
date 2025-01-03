@@ -13,9 +13,9 @@ from sqlalchemy import (
     String,
 )
 
-def get_llm(model, format):
+def get_llm(model, format, **kwargs):
     print("__GETTING MODEL__")
-    return ChatOllama(model=model, format=format)
+    return ChatOllama(model=model, format=format, **kwargs)
 
 def split_doc(text_dir, **kwargs):
     print("__SPLITTING__")
@@ -56,8 +56,8 @@ def format_docs(docs):
     return "\n\n".join(doc.page_content for doc in docs)
 
 def get_websearch():
-    print("__WEB SEARCH__")
     from langchain_community.tools.tavily_search import TavilySearchResults
+    
     if not os.environ.get("TAVILY_API_KEY"):
         os.environ["TAVILY_API_KEY"] = "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"
     web_search_tool = TavilySearchResults(k=3)
@@ -80,5 +80,5 @@ def get_sql_engine():
 def get_database(engine, metadata_obj):
     metadata_obj.create_all(engine)
     db=SQLDatabase(engine=engine, include_tables=['teacher'])
-
+    
     return db

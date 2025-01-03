@@ -15,8 +15,10 @@ from utils.utils import (
     get_sql_engine,
     get_database
 )
-from pipeline.graph import Pipeline
+from pipeline.workflow import Pipeline
 
+def eval():
+    pass
 
 if __name__ == "__main__":
     model = "llama3.1"
