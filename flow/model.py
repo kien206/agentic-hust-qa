@@ -145,9 +145,10 @@ class Model:
         return {"documents": documents, 'sql': False}
 
     def irrelevant(self, state):
+        from langchain_core.messages import AIMessage
         answer = "Tôi chỉ trả lời những câu hỏi liên quan đến quy định/quy chế và giáo viên của Đại học Bách Khoa. Xin hỏi câu khác!!"
 
-        return {"generation": answer}
+        return {"generation": AIMessage(content=answer)}
 
     @log
     def grade_documents(self, state):
@@ -393,16 +394,17 @@ class Model:
                 "generate": "generate",
             },
         )
-        workflow.add_conditional_edges(
-            "generate",
-            self.grade_generation_v_documents_and_question,
-            {
-                # "not supported": "generate",
-                "useful": END,
-                "unanswerable": "no answer",
-                "max retries": "no answer",
-            },
-        )
+        workflow.add_edge("generate", END)
+        # workflow.add_conditional_edges(
+        #     "generate",
+        #     self.grade_generation_v_documents_and_question,
+        #     {
+        #         # "not supported": "generate",
+        #         "useful": END,
+        #         "unanswerable": "no answer",
+        #         "max retries": "no answer",
+        #     },
+        # )
         workflow.add_edge("websearch", "generate")
 
         return workflow

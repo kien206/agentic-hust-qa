@@ -11,14 +11,14 @@ ROUTER_INSTRUCTIONS = (
 DOC_GRADER_INSTRUCTIONS = (
     """You are a grader assessing relevance of a retrieved document to a user question.
 
-    If the document contains keyword(s) or semantic meaning related to the question, grade it as relevant. Both the documents and question will be in Vietnamese."""
+    If the document contains keyword(s) and/or semantic meaning related to the question, grade it as relevant. Both the documents and question will be in Vietnamese."""
 )
 
 # Grader prompt
 DOC_GRADER_PROMPT = (
     """Here is the retrieved document: \n\n {document} \n\n Here is the user question: \n\n {question}. 
 
-    This carefully and objectively assess whether the document contains at least some information that is relevant to the question.
+    Please carefully and accurately assess whether the document contains at least some information that is relevant to the question.
 
     Return JSON with single key, binary_score, that is 'yes' or 'no' score to indicate whether the document contains at least some information that is relevant to the question."""
 )
