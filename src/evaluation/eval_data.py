@@ -1,28 +1,28 @@
-import pandas as pd
 import json
-import weaviate
+
+import pandas as pd
+from sqlalchemy import MetaData
 from tqdm import tqdm
-from sqlalchemy import (
-    MetaData,
-)
-from flow.utils.utils import (
+
+import weaviate
+from flow.model import Model
+from src.flow.utils import (
+    get_database,
+    get_embedding,
     get_llm,
     get_retriever,
-    split_doc,
-    get_embedding,
-    get_vectorstore,
-    get_retriever,
-    get_websearch,
-    get_table,
     get_sql_engine,
-    get_database
+    get_table,
+    get_vectorstore,
+    get_websearch,
+    split_doc,
 )
-from flow.model import Model
 
 client = weaviate.connect_to_local()
+
+
 def build_comp():
     model = "llama3.1"
-    text_dir = "data/parse/text"
 
     # GET LLM
     llm = get_llm(model=model, format="", temperature=0)
@@ -32,10 +32,11 @@ def build_comp():
     # doc_list = split_doc(text_dir)
     embedding = get_embedding(model_name="BAAI/BGE-M3")
 
-    
-    vectorstore = get_vectorstore(client=client, embedding_model=embedding, index_name="Hust_doc_final")
+    vectorstore = get_vectorstore(
+        client=client, embedding_model=embedding, index_name="Hust_doc_final"
+    )
     retriever = get_retriever(vectorstore=vectorstore, k=3)
-    
+
     web_search_tool = get_websearch()
 
     # Build SQL Database
@@ -46,35 +47,35 @@ def build_comp():
 
     return llm, llm_json_mode, retriever, db, web_search_tool
 
-def rag_eval(model, df, output_file):
-   
-    file = {'question': [], 'answer': [], 'contexts': [], 'ground_truths': []}
+
+def build_rag_eval(model, df, output_file):
+    file = {"question": [], "answer": [], "contexts": [], "ground_truths": []}
     for _, row in tqdm(df.iterrows()):
-        
-        question = row['User input']
-        ground_truths = row['Reference (Reference answer)']
-        
+        question = row["User input"]
+        ground_truths = row["Reference (Reference answer)"]
+
         response = model.chat(query=question)
 
-        answer = response['generation'].content
+        answer = response["generation"].content
         try:
-            ctx = [r.page_content for r in response['documents']]
+            ctx = [r.page_content for r in response["documents"]]
             contexts = list(set(ctx))
         except:
             contexts = []
 
-        with open(output_file, 'w', encoding="utf-8") as f:
-            file['question'].append(question)
-            file['ground_truths'].append(ground_truths)
-            file['answer'].append(answer)
-            file['contexts'].append(contexts)    
+        with open(output_file, "w", encoding="utf-8") as f:
+            file["question"].append(question)
+            file["ground_truths"].append(ground_truths)
+            file["answer"].append(answer)
+            file["contexts"].append(contexts)
             content = json.dumps(file, indent=2, ensure_ascii=False)
             f.write(content)
     client.close()
 
+
 if __name__ == "__main__":
-    df = pd.read_csv('data/eval/test.csv', encoding='utf-8')    
+    df = pd.read_csv("data/eval/test.csv", encoding="utf-8")
     llm, llm_json_mode, retriever, db, web_search_tool = build_comp()
     pipeline = Model(llm, llm_json_mode, retriever, db, web_search_tool, verbose=True)
 
-    rag_eval(model=pipeline, df=df, output_file="remaining.json")
+    build_rag_eval(model=pipeline, df=df, output_file="remaining.json")

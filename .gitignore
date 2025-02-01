@@ -1,4 +1,8 @@
+# Log files
 *.log
-test*.ipynb
+
+# Pycache folders
 __pycache__
-*.json
+
+# Data files
+data

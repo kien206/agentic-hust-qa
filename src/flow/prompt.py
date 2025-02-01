@@ -1,31 +1,24 @@
-ROUTER_INSTRUCTIONS = (
-    """You are an expert at routing a user question to a vectorstore or a SQL store or a websearch.
+ROUTER_INSTRUCTIONS = """You are an expert at routing a user question to a vectorstore or a SQL store or a websearch.
 
     The vectorstore contains documents, regulations and information related to Hanoi University of Science & Technology.
 
     Use the vectorstore for questions on these topics. For questions related to teachers that include names, use the SQL store. For other questions that are irrelevant, use the irrelevant tool.
 
     Return JSON with single key, datasource, that is 'vectorstore' or 'sql' or 'irrelevant' depending on the question."""
-)
 
-DOC_GRADER_INSTRUCTIONS = (
-    """You are a grader assessing relevance of a retrieved document to a user question.
+DOC_GRADER_INSTRUCTIONS = """You are a grader assessing relevance of a retrieved document to a user question.
 
     If the document contains keyword(s) and/or semantic meaning related to the question, grade it as relevant. Both the documents and question will be in Vietnamese."""
-)
 
 # Grader prompt
-DOC_GRADER_PROMPT = (
-    """Here is the retrieved document: \n\n {document} \n\n Here is the user question: \n\n {question}. 
+DOC_GRADER_PROMPT = """Here is the retrieved document: \n\n {document} \n\n Here is the user question: \n\n {question}. 
 
     Please carefully and accurately assess whether the document contains at least some information that is relevant to the question.
 
     Return JSON with single key, binary_score, that is 'yes' or 'no' score to indicate whether the document contains at least some information that is relevant to the question."""
-)
 
 # RAG
-RAG_PROMPT = (
-    """You are an expert for question-answering tasks. 
+RAG_PROMPT = """You are an expert for question-answering tasks. 
 
     Here is the context to use to answer the question:
 
@@ -42,10 +35,8 @@ RAG_PROMPT = (
     Keep the answer concise, detailed and ALWAYS USE VIETNAMESE TO RESPOND.
 
     Answer:"""
-)
 
-HALLUCINATION_GRADER_INSTRUCTIONS = (
-    """
+HALLUCINATION_GRADER_INSTRUCTIONS = """
     You are a teacher grading a quiz. 
 
     You will be given FACTS and a STUDENT ANSWER. 
@@ -65,17 +56,13 @@ HALLUCINATION_GRADER_INSTRUCTIONS = (
     Explain your reasoning in a step-by-step manner to ensure your reasoning and conclusion are correct. 
 
     Avoid simply stating the correct answer at the outset."""
-)
 
 # Grader prompt
-HALLUCINATION_GRADER_PROMPT = (
-    """FACTS: \n\n {documents} \n\n STUDENT ANSWER: {generation}. 
+HALLUCINATION_GRADER_PROMPT = """FACTS: \n\n {documents} \n\n STUDENT ANSWER: {generation}. 
 
     Return JSON with two two keys, binary_score is 'yes' or 'no' score to indicate whether the STUDENT ANSWER is grounded in the FACTS. And a key, explanation, that contains an explanation of the score."""
-)
 
-SQL_INSTRUCTIONS = (
-    """
+SQL_INSTRUCTIONS = """
     You are an expert in question-answering tasks.
 
     You will be given a question relating to a person/teacher of Hanoi University of Science & Technology.
@@ -84,10 +71,8 @@ SQL_INSTRUCTIONS = (
 
     Your job is to rewrite the question into a SQL query. Return a JSON format with a single key, sql_query, with the result query as its value.
     """
-)
 
-SQL_ANSWER_PROMPT =(
-    """
+SQL_ANSWER_PROMPT = """
     You are an expert in questions-answering tasks.
 
     You are given a question from the user and an output from a SQL query.
@@ -102,4 +87,3 @@ SQL_ANSWER_PROMPT =(
 
     Answer:
     """
-)

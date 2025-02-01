@@ -1,24 +1,17 @@
-import pandas as pd
-import json
+from sqlalchemy import MetaData
+
 import weaviate
-from tqdm import tqdm
-from sqlalchemy import (
-    MetaData,
-)
-from flow.utils.utils import (
+from src.flow.model import Model
+from src.flow.utils import (
+    get_database,
+    get_embedding,
     get_llm,
     get_retriever,
-    split_doc,
-    get_embedding,
-    get_vectorstore,
-    get_retriever,
-    get_websearch,
-    get_table,
     get_sql_engine,
-    get_database
+    get_table,
+    get_vectorstore,
+    get_websearch,
 )
-from flow.model import Model
-
 
 
 def build_comp():
@@ -34,9 +27,11 @@ def build_comp():
     embedding = get_embedding(model_name="BAAI/BGE-M3")
 
     client = weaviate.connect_to_local()
-    vectorstore = get_vectorstore(client=client, embedding_model=embedding, index_name="Hust_doc_final")
+    vectorstore = get_vectorstore(
+        client=client, embedding_model=embedding, index_name="Hust_doc_final"
+    )
     retriever = get_retriever(vectorstore=vectorstore, k=3)
-    
+
     web_search_tool = get_websearch()
 
     # Build SQL Database
@@ -47,17 +42,27 @@ def build_comp():
 
     return llm, llm_json_mode, retriever, db, web_search_tool
 
-def rag_eval():
-   llm, llm_json_mode, retriever, db, web_search_tool = build_comp()
-   pipeline = Model(llm, llm_json_mode, retriever, db, web_search_tool, verbose=True)
 
-   while True:
-       pass
-    
-
-if __name__ == "__main__":
-    df = pd.read_csv('data/eval/test.csv', encoding='utf-8')    
+def main():
     llm, llm_json_mode, retriever, db, web_search_tool = build_comp()
     pipeline = Model(llm, llm_json_mode, retriever, db, web_search_tool, verbose=True)
 
-    rag_eval(model=pipeline, df=df)
+    while True:
+        query = str(input("Question: "))
+        if query.lower() in ["end", "exit"]:
+            break
+        response = pipeline.chat(query=query)
+        main_answer = response["generation"].content
+        reference = ""
+        if "documents" in response.keys():
+            reference = response["documents"].source.split("\\")[1]
+
+        answer = main_answer + "\n\n" + "Nguồn:" + reference
+        print("Answer: ", answer)
+
+
+if __name__ == "__main__":
+    llm, llm_json_mode, retriever, db, web_search_tool = build_comp()
+    pipeline = Model(llm, llm_json_mode, retriever, db, web_search_tool, verbose=True)
+
+    main()
