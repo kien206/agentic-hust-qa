@@ -13,7 +13,7 @@ from langgraph.graph import END, StateGraph
 from pydantic import BaseModel
 from typing_extensions import TypedDict
 
-from src.flow.prompt import (
+from .prompt import (
     DOC_GRADER_INSTRUCTIONS,
     DOC_GRADER_PROMPT,
     HALLUCINATION_GRADER_INSTRUCTIONS,
@@ -23,7 +23,7 @@ from src.flow.prompt import (
     SQL_ANSWER_PROMPT,
     SQL_INSTRUCTIONS,
 )
-from src.flow.utils import format_docs
+from .utils import format_docs
 
 logging.basicConfig(
     level=logging.INFO,
@@ -436,7 +436,7 @@ class Model:
 
         return workflow
 
-    def graph(self, workflow: StateGraph):
+    def _graph(self, workflow: StateGraph):
         return workflow.compile()
 
     @classmethod
