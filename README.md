@@ -16,8 +16,10 @@ python -m main
 ```
 
 # TODO List
-[ ] Build API endpoints
-[ ] Triton deploy for faster inference
-[ ] Build frontend
-[ ] Test Docker deployment
-[ ] Finetune model for better answer??
+- [ ] Crawl lecturer data
+- [ ] Redesign SQL database
+- [ ] Build API endpoints
+- [ ] Triton deploy for faster inference
+- [ ] Build frontend
+- [ ] Test Docker deployment
+- [ ] Finetune model for better answer??
