@@ -7,8 +7,6 @@ ENV PIP_NO_CACHE_DIR=1 \
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 COPY . .
-COPY src/ src/
-COPY . .
 
 CMD ["python", "main.py"]
 
