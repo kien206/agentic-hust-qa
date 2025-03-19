@@ -23,7 +23,7 @@ from .prompt import (
     SQL_ANSWER_PROMPT,
     SQL_INSTRUCTIONS,
 )
-from .utils import format_docs
+from ..utils.utils import format_docs
 
 logging.basicConfig(
     level=logging.INFO,

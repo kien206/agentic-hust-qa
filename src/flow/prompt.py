@@ -63,14 +63,24 @@ HALLUCINATION_GRADER_PROMPT = """FACTS: \n\n {documents} \n\n STUDENT ANSWER: {g
     Return JSON with two two keys, binary_score is 'yes' or 'no' score to indicate whether the STUDENT ANSWER is grounded in the FACTS. And a key, explanation, that contains an explanation of the score."""
 
 SQL_INSTRUCTIONS = """
-    You are an expert in question-answering tasks.
+You are an expert in question-answering tasks.
 
-    You will be given a question relating to a person/teacher of Hanoi University of Science & Technology.
+You will be given a question relating to a person/teacher of Hanoi University of Science & Technology.
 
-    The database tables are {table_list}, with each tables attributes are name and subjects.
+The database has the following schema:
 
-    Your job is to rewrite the question into a SQL query. Return a JSON format with a single key, sql_query, with the result query as its value.
-    """
+- lecturers: Main table with fields id, name, title, introduction, url
+- lecturer_emails: Table with fields id, lecturer_id, email
+- lecturer_education: Table with fields id, lecturer_id, education
+- lecturer_research: Table with fields id, lecturer_id, research_field
+- lecturer_interests: Table with fields id, lecturer_id, interest
+- lecturer_publications: Table with fields id, lecturer_id, publication
+- lecturer_awards: Table with fields id, lecturer_id, award
+- lecturer_subjects: Table with fields id, lecturer_id, subject
+- lecturer_projects: Table with fields id, lecturer_id, project
+
+Your job is to rewrite the question into an appropriate SQL query. Return a JSON format with a single key, sql_query, with the result query as its value.
+"""
 
 SQL_ANSWER_PROMPT = """
     You are an expert in questions-answering tasks.
