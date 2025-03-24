@@ -1,7 +1,7 @@
 import os
-from sqlalchemy import MetaData
-from src.utils.db_utils import setup_database, get_database
-from src.sql_dataloader import load_lecturer_data, initialize_database
+from src.database.db_utils import setup_database
+from src.utils.utils import get_database
+from src.database.sql_dataloader import initialize_database
 from src.utils.utils import (
     get_embedding,
     get_llm,
@@ -10,6 +10,11 @@ from src.utils.utils import (
     get_websearch,
 )
 from src.flow.model import Model
+from src.agents.router import RouterAgent
+from src.agents.retriever import RetrievalAgent
+from src.agents.generator import LLMAgent
+from src.agents.sql import SQLAgent
+from src.agents.web_search import WebSearchAgent
 import weaviate
 
 def update_build_comp(client, lecturer_data_path=None, db_path="sqlite:///lecturers.db"):
@@ -51,61 +56,38 @@ def update_build_comp(client, lecturer_data_path=None, db_path="sqlite:///lectur
 
     return llm, llm_json_mode, retriever, db, web_search_tool
 
-# This is a simpler function to just set up the lecturer database
-def setup_lecturer_database(lecturer_data_path, db_path="sqlite:///lecturers.db"):
-    """
-    Set up just the lecturer database from a JSON file
-    
-    Args:
-        lecturer_data_path (str): Path to the JSON file containing lecturer data
-        db_path (str): SQLAlchemy compatible database URL
-        
-    Returns:
-        tuple: (engine, db) - SQLAlchemy engine and LangChain SQLDatabase object
-    """
-    engine, db = initialize_database(lecturer_data_path, db_path)
-    return engine, db
-
-# Example usage
-if __name__ == "__main__":
-    import argparse
-    
-    parser = argparse.ArgumentParser(description='Set up components for the QA system')
-    parser.add_argument('--data-path', help='Path to the JSON file containing lecturer data')
-    parser.add_argument('--db-path', default="sqlite:///lecturers.db", help='SQLAlchemy compatible database URL')
-    
-    args = parser.parse_args()
-    
-    # Either just set up the lecturer database
-    if args.data_path:
-        engine, db = setup_lecturer_database(args.data_path, args.db_path)
-        print(f"Successfully set up lecturer database at {args.db_path}")
-        print(f"Tables: {db.get_usable_table_names()}")
-    
-    # Or build all components
+def main():
     with weaviate.connect_to_local() as client:
-        llm, llm_json_mode, retriever, db, web_search_tool = update_build_comp(
-            client,
-            lecturer_data_path=args.data_path, 
-            db_path=args.db_path
-        )
-    
-        # Initialize the QA pipeline
-        pipeline = Model(llm, llm_json_mode, retriever, db, web_search_tool, verbose=True)
-        print("QA pipeline initialized successfully")
+        llm, llm_json_mode, retriever, db, web_search_tool = update_build_comp(client, 
+                                                                               "data/lecturers/soict_lecturers.json")
+
+        agents = {
+            "router": RouterAgent(llm_json=llm_json_mode, verbose=True),
+            "retriever": RetrievalAgent(llm, llm_json_mode, retriever, verbose=True),
+            "sql": SQLAgent(llm, llm_json_mode, db, verbose=True),
+            "web_search": WebSearchAgent(llm, web_search_tool, verbose=True),
+            "generator": LLMAgent(llm, verbose=True)
+        }
+
+        pipeline = Model(agents, verbose=True)
         while True:
             query = input("Question: ").lower()
             if query in ["end", "exit"]:
                 break
-            with weaviate.connect_to_local():
-                response = pipeline.chat(query=query)
-                main_answer = response["generation"].content
-                reference = ""
-                try:
-                    if "documents" in response.keys():
-                        reference = response["documents"][0].metadata["source"].split("\\")[1]
-                except:
-                    pass
-                answer = main_answer + "\n\n" + "Nguồn:" + reference
-                print("Answer: ", answer)
-  
+
+            response = pipeline.chat(query=query)
+            main_answer = response["generation"].content
+            reference = ""
+            try:
+                if "documents" in response.keys() and len(response["documents"]) > 0:
+                    reference = response["documents"][0].metadata["source"].split("\\")[1]
+                    answer = main_answer + "\n\n" + "Nguồn:" + reference
+                else:
+                    answer = main_answer
+            except:
+                answer = main_answer
+            print("Answer: ", answer)
+
+
+if __name__ == "__main__":
+    main()

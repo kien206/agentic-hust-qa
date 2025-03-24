@@ -1,10 +1,10 @@
 import json
 
 import pandas as pd
+import weaviate
 from sqlalchemy import MetaData
 from tqdm import tqdm
 
-import weaviate
 from flow.model import Model
 from utils.utils import (
     get_database,

@@ -16,10 +16,11 @@ python -m main
 ```
 
 # TODO List
-- [ ] Crawl lecturer data
-- [ ] Redesign SQL database
-- [ ] Build API endpoints
-- [ ] Triton deploy for faster inference
+- [x] Crawl lecturer data
+- [ ] Implement a Memory management Agent
+- [ ] Implement for parallel Agent usage
+- [ ] Improve RAG (HyDE?) and Text2SQL (prompting, finetune?)
+- [ ] Triton deploy for faster inference (OPTIONAL)
 - [ ] Build frontend
 - [ ] Test Docker deployment
 - [ ] Finetune model for better answer??

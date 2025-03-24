@@ -6,7 +6,7 @@ from langchain_community.utilities import SQLDatabase
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_ollama import ChatOllama
 from langchain_weaviate import WeaviateVectorStore
-from sqlalchemy import Column, String, Table, create_engine
+from sqlalchemy import Column, String, Table, create_engine, inspect
 
 
 def get_llm(model, format, **kwargs):
@@ -96,8 +96,20 @@ def get_sql_engine():
     return create_engine("sqlite:///:memory:", future=True)
 
 
-def get_database(engine, metadata_obj):
-    metadata_obj.create_all(engine)
-    db = SQLDatabase(engine=engine, include_tables=["teacher"])
+def get_database(engine):
+    """
+    Create a LangChain SQLDatabase object for the given engine
 
+    Args:
+        engine: SQLAlchemy engine
+
+    Returns:
+        SQLDatabase: LangChain SQLDatabase object
+    """
+    # Get all table names
+    inspector = inspect(engine)
+    all_tables = inspector.get_table_names()
+
+    # Create a SQLDatabase instance with all tables
+    db = SQLDatabase(engine=engine, include_tables=all_tables)
     return db
