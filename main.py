@@ -9,17 +9,18 @@ from src.utils.utils import (
     get_vectorstore,
     get_websearch,
 )
-from src.flow.model import Model
+from src.model import Model
 from src.agents.router import RouterAgent
 from src.agents.retriever import RetrievalAgent
 from src.agents.generator import LLMAgent
 from src.agents.sql import SQLAgent
 from src.agents.web_search import WebSearchAgent
 import weaviate
+from config.settings import Settings
 
-def update_build_comp(client, lecturer_data_path=None, db_path="sqlite:///lecturers.db"):
+def build_comp(client, settings: Settings):
     """
-    Updated version of the build_comp function that uses the new lecturer database
+    Build system components including retriever, database, web_search tool
     
     Args:
         lecturer_data_path (str): Path to the JSON file containing lecturer data (optional)
@@ -28,25 +29,28 @@ def update_build_comp(client, lecturer_data_path=None, db_path="sqlite:///lectur
     Returns:
         tuple: Components needed for the QA system
     """
-    model = "llama3.1"
-    text_dir = "data/parse/text"
 
+    
+    model = settings.llm.model
+    embedding_model = settings.vectorstore.embedding_model
+    lecturer_data_path = settings.database.lecturer_data_path
+    db_path = settings.database.db_path
+    
     # GET LLM
     llm = get_llm(model=model, format="")
     llm_json_mode = get_llm(model=model, format="json")
 
     # BUILD RETRIEVER
-    embedding = get_embedding(model_name="BAAI/BGE-M3")
+    embedding = get_embedding(model_name=embedding_model)
 
-    
     vectorstore = get_vectorstore(
-        client=client, embedding_model=embedding, index_name="Hust_doc_final"
+        client=client, embedding_model=embedding, index_name=settings.vectorstore.index_name, text_dir=settings.vectorstore.text_dir
     )
-    retriever = get_retriever(vectorstore=vectorstore, k=3)
-    web_search_tool = get_websearch()
+    retriever = get_retriever(vectorstore=vectorstore, k=settings.agent.top_k)
+    web_search_tool = get_websearch(k=settings.websearch.search_depth)
 
     # Set up or connect to existing lecturer database
-    if lecturer_data_path and os.path.exists(lecturer_data_path):
+    if os.path.exists(lecturer_data_path):
         # If data file is provided and exists, initialize database with it
         engine, db = initialize_database(lecturer_data_path, db_path)
     else:
@@ -57,9 +61,10 @@ def update_build_comp(client, lecturer_data_path=None, db_path="sqlite:///lectur
     return llm, llm_json_mode, retriever, db, web_search_tool
 
 def main():
+    settings = Settings()
+
     with weaviate.connect_to_local() as client:
-        llm, llm_json_mode, retriever, db, web_search_tool = update_build_comp(client, 
-                                                                               "data/lecturers/soict_lecturers.json")
+        llm, llm_json_mode, retriever, db, web_search_tool = build_comp(client, settings)
 
         agents = {
             "router": RouterAgent(llm_json=llm_json_mode, verbose=True),

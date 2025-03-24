@@ -70,6 +70,7 @@ class SQLAgent(BaseAgent):
             self.log(f"SQL query result: {sql_result}")
         except Exception as e:
             self.log(f"Error executing SQL query: {e}", level="error")
+            sql_result = ""
 
         # Generate answer based on SQL query result
         if not sql_result:

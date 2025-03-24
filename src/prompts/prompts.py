@@ -79,7 +79,38 @@ The database has the following schema:
 - lecturer_subjects: Table with fields id, lecturer_id, subject
 - lecturer_projects: Table with fields id, lecturer_id, project
 
-Your job is to rewrite the question into an appropriate SQL query. Return a JSON format with a single key, sql_query, with the result query as its value.
+Your job is to rewrite the question into an appropriate SQL query. All of the information is in Vietnamese. Return a JSON format with a single key, sql_query, with the result query as its value. Here is an example sample of the data in JSON:
+
+"name": "Tạ Hải Tùng",
+        "title": "Hiệu trưởng Trường Công nghệ Thông tin và Truyền thông\nPhó Giáo sư, Khoa Kỹ thuật Máy tính",
+        "email": [
+            ...
+        ],
+        "education_path": [
+            ...
+        ],
+        "research_field": [
+            ...
+        ],
+        "interested_field": [
+            ...
+        ],
+        "introduction": "...",
+        "notable_publication": [
+            ...
+        ],
+        "awards": [
+            ...
+        ],
+        "teaching_subjects": [
+            "IT4690: Mạng không dây và Truyền thông di động",
+            "IT4700: Các hệ thống thông tin vệ tinh",
+            "IT3082: Mạng máy tính"
+        ],
+        "current_project": [
+            ...
+        ],
+        "url": "https://soict.hust.edu.vn/pgs-ts-ta-hai-tung.html"
 """
 
 SQL_ANSWER_PROMPT = """
@@ -96,4 +127,4 @@ SQL_ANSWER_PROMPT = """
     SQL Query Output: {output}.
 
     Answer:
-    """
+"""
