@@ -37,19 +37,21 @@ def split_doc(text_dir, **kwargs):
     return doc_splits
 
 
-def get_vectorstore(client, embedding_model, index_name, **kwargs):
+def get_vectorstore(client, embedding_model, index_name, text_dir, reset=False, **kwargs):
+    if reset:
+        client.collections.delete_all()
     if not client.collections.exists(index_name):
-        if "text_dir" in kwargs:
-            doc_list = split_doc(kwargs["text_dir"])
-            vectorstore = WeaviateVectorStore.from_documents(
-                client=client,
-                documents=doc_list,
-                embedding=embedding_model,
-                index_name=index_name,
-                **kwargs
-            )
+        
+        doc_list = split_doc(text_dir)
+        vectorstore = WeaviateVectorStore.from_documents(
+            client=client,
+            documents=doc_list,
+            embedding=embedding_model,
+            index_name=index_name,
+            **kwargs
+        )
 
-            return vectorstore
+        return vectorstore
 
     vectorstore = WeaviateVectorStore(
         client=client,
@@ -71,12 +73,12 @@ def format_docs(docs):
     return "\n\n".join(doc.page_content for doc in docs)
 
 
-def get_websearch():
+def get_websearch(k):
     from langchain_community.tools.tavily_search import TavilySearchResults
 
     if not os.environ.get("TAVILY_API_KEY"):
         os.environ["TAVILY_API_KEY"] = "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"
-    web_search_tool = TavilySearchResults(k=3)
+    web_search_tool = TavilySearchResults(k=k)
 
     return web_search_tool
 
