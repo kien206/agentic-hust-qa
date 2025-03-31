@@ -1,5 +1,5 @@
 import operator
-from typing import Annotated, Dict, List, Optional
+from typing import Annotated, List
 
 from typing_extensions import TypedDict
 

@@ -37,26 +37,9 @@ class RetrievalAgent(BaseAgent):
         self.retriever = retriever
         self.top_k = top_k
 
-    def run(self, state: Dict, **kwargs) -> Dict[str, Any]:
-        """
-        Process the query by retrieving relevant documents and generating an answer.
-
-        Args:
-            query (str): The query to process.
-            **kwargs: Additional arguments.
-
-        Returns:
-            Dict[str, Any]: The result of processing the query.
-        """
-        query = state["question"]
-        self.log(f"Processing query: {query}")
-
-        # Retrieve relevant documents
-        documents = self.retriever.invoke(query)
-        self.log(f"Retrieved {len(documents)} documents")
-
-        # Grade documents for relevance
+    def filter_docs(self, query, documents):
         filtered_docs = []
+
         for doc in documents[: self.top_k]:
             doc_grader_prompt = DOC_GRADER_PROMPT.format(
                 document=doc.page_content, question=query
@@ -78,6 +61,28 @@ class RetrievalAgent(BaseAgent):
                 # Include document if grading fails (better to have potentially irrelevant docs than miss relevant ones)
                 filtered_docs.append(doc)
 
+        return filtered_docs
+
+    def run(self, state: Dict, **kwargs) -> Dict[str, Any]:
+        """
+        Process the query by retrieving relevant documents and generating an answer.
+
+        Args:
+            query (str): The query to process.
+            **kwargs: Additional arguments.
+
+        Returns:
+            Dict[str, Any]: The result of processing the query.
+        """
+        query = state["question"]
+        self.log(f"Processing query: {query}")
+
+        # Retrieve relevant documents
+        documents = self.retriever.invoke(query)
+        self.log(f"Retrieved {len(documents)} documents")
+
+        filtered_docs = self.filter_docs(query, documents)
+
         # If no relevant documents, return empty result
         web_search = False
         if not filtered_docs:
@@ -89,37 +94,3 @@ class RetrievalAgent(BaseAgent):
             "web_search": web_search,
             "source": "retrieval",
         }
-
-        # # Generate answer based on filtered documents
-        # docs_text = format_docs(filtered_docs)
-        # rag_prompt = RAG_PROMPT.format(
-        #     context=docs_text,
-        #     question=query
-        # )
-
-        # generation = self.llm.invoke([HumanMessage(content=rag_prompt)])
-
-        # # Check for hallucinations
-        # hallucination_prompt = HALLUCINATION_GRADER_PROMPT.format(
-        #     documents=docs_text,
-        #     generation=generation.content
-        # )
-
-        # result = self.llm_json.invoke(
-        #     [SystemMessage(content=HALLUCINATION_GRADER_INSTRUCTIONS)] +
-        #     [HumanMessage(content=hallucination_prompt)]
-        # )
-
-        # try:
-        #     grade = json.loads(result.content)["binary_score"]
-        #     if grade.lower() != "yes":
-        #         self.log("Generation contains hallucinations", level="warning")
-        #         # Could regenerate here, but for now we'll just flag it
-        # except (json.JSONDecodeError, KeyError) as e:
-        #     self.log(f"Error checking for hallucinations: {e}", level="error")
-
-        # return {
-        #     "documents": filtered_docs,
-        #     "generation": generation,
-        #     "source": "retrieval"
-        # }

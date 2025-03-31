@@ -1,8 +1,10 @@
 import os
 
+from chunking_utils import get_chunks_with_metadata
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import TextLoader
 from langchain_community.utilities import SQLDatabase
+from langchain_core.documents import Document
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_ollama import ChatOllama
 from langchain_weaviate import WeaviateVectorStore
@@ -15,6 +17,25 @@ def get_llm(model, format, **kwargs):
 
 def get_embedding(model_name):
     return HuggingFaceEmbeddings(model_name=model_name)
+
+
+def split_md(dir, **kwargs):
+    doc_list = []
+    for file in os.listdir(dir):
+        full_path = os.path.join(dir, file)
+        with open(full_path, "r") as f:
+            content = f.read()
+
+        chunks = get_chunks_with_metadata(content)
+
+        for chunk in chunks:
+            chunk_metadata = chunk["metadata"]
+            chunk_metadata["source"] = file
+            doc_list.append(
+                Document(page_content=chunk["text"], metadata=chunk_metadata, **kwargs)
+            )
+
+    return doc_list
 
 
 def split_doc(text_dir, **kwargs):
@@ -37,12 +58,13 @@ def split_doc(text_dir, **kwargs):
     return doc_splits
 
 
-def get_vectorstore(client, embedding_model, index_name, text_dir, reset=False, **kwargs):
+def get_vectorstore(
+    client, embedding_model, index_name, text_dir, reset=False, **kwargs
+):
     if reset:
         client.collections.delete_all()
     if not client.collections.exists(index_name):
-        
-        doc_list = split_doc(text_dir)
+        doc_list = split_md(text_dir)
         vectorstore = WeaviateVectorStore.from_documents(
             client=client,
             documents=doc_list,

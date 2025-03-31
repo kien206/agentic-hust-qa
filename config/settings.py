@@ -30,7 +30,7 @@ class VectorStoreSettings(BaseSettings):
         description="Weaviate index name"
     )
     text_dir: str = Field(
-        "data/parse/text", 
+        "data/parse/markdown_v2", 
         description="Directory containing text files"
     )
     chunk_size: int = Field(1024, description="Chunk size for text splitting")

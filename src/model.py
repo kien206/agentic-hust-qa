@@ -1,14 +1,10 @@
-import json
 import logging
-import operator
 from typing import Dict, Optional
 
 from langgraph.graph import END, StateGraph
-from pydantic import BaseModel
 
 from src.agents.base import BaseAgent
-
-from .state import GraphState
+from src.state import GraphState
 
 logging.basicConfig(
     level=logging.INFO,
@@ -73,7 +69,6 @@ class Model:
         """
 
         source = state["datasource"]
-        logger.info(f"Routing query {state["question"]} to {source}.")
         if source == "sql":
             # print("---ROUTE QUESTION TO SQL---")
             # state['sql'] = True

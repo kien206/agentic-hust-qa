@@ -7,9 +7,9 @@ from src.prompts.prompts import RAG_PROMPT, SQL_ANSWER_PROMPT
 from src.utils.utils import format_docs
 
 
-class LLMAgent(BaseAgent):
+class LLM(BaseAgent):
     """
-    Agent that handles retrieval from a vector store.
+    LLM wrapper
     """
 
     def __init__(

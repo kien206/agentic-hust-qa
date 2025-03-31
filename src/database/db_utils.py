@@ -48,7 +48,7 @@ def insert_lecturer_data(engine, lecturer_data):
     try:
         # Create new lecturer
         lecturer = Lecturer(
-            name=lecturer_data.get("name", "").lower(),
+            name=lecturer_data.get("name", ""),
             title=lecturer_data.get("title", ""),
             introduction=lecturer_data.get("introduction", ""),
             url=lecturer_data.get("url", ""),
