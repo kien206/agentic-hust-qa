@@ -1,7 +1,5 @@
 import os
-from src.database.db_utils import setup_database
-from src.utils.utils import get_database
-from src.database.sql_dataloader import initialize_database
+from src.database.db_init import initialize_database
 from src.utils.utils import (
     get_embedding,
     get_llm,
@@ -12,7 +10,7 @@ from src.utils.utils import (
 from src.model import Model
 from src.agents.router import RouterAgent
 from src.agents.retriever import RetrievalAgent
-from src.agents.generator import LLMAgent
+from src.agents.generator import LLM
 from src.agents.sql import SQLAgent
 from src.agents.web_search import WebSearchAgent
 import weaviate
@@ -29,8 +27,7 @@ def build_comp(client, settings: Settings):
     Returns:
         tuple: Components needed for the QA system
     """
-
-    
+ 
     model = settings.llm.model
     embedding_model = settings.vectorstore.embedding_model
     lecturer_data_path = settings.database.lecturer_data_path
@@ -51,14 +48,10 @@ def build_comp(client, settings: Settings):
 
     # Set up or connect to existing lecturer database
     if os.path.exists(lecturer_data_path):
-        # If data file is provided and exists, initialize database with it
-        engine, db = initialize_database(lecturer_data_path, db_path)
-    else:
-        # Otherwise, just connect to the existing database
-        engine = setup_database(db_path)
-        db = get_database(engine)
+        engine, db = initialize_database(lecturer_data_path, db_path, reload=True)
 
     return llm, llm_json_mode, retriever, db, web_search_tool
+
 
 def main():
     settings = Settings()
@@ -71,7 +64,7 @@ def main():
             "retriever": RetrievalAgent(llm, llm_json_mode, retriever, verbose=True),
             "sql": SQLAgent(llm, llm_json_mode, db, verbose=True),
             "web_search": WebSearchAgent(llm, web_search_tool, verbose=True),
-            "generator": LLMAgent(llm, verbose=True)
+            "generator": LLM(llm, verbose=True)
         }
 
         pipeline = Model(agents, verbose=True)

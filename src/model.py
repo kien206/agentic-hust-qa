@@ -135,8 +135,6 @@ class Model:
             },
         )
         workflow.add_edge("no answer", END)
-        # workflow.add_edge("rewrite", "run_sql")
-        # # workflow.add_edge("run_sql", "generate")
         workflow.add_conditional_edges(
             "text2sql",
             self.check_sql,
