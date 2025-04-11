@@ -43,12 +43,12 @@ class BaseAgent(ABC):
     def run(self, state: Dict, **kwargs) -> Dict[str, Any]:
         """
         Process the given query and return a result.
+        """
+        pass
 
-        Args:
-            query (str): The query to process.
-            **kwargs: Additional arguments.
-
-        Returns:
-            Dict[str, Any]: The result of processing the query.
+    @abstractmethod
+    async def arun(self, state: Dict, **kwargs) -> Dict[str, Any]:
+        """
+        Asynchronously process the given query and return a result.
         """
         pass

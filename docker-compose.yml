@@ -19,7 +19,9 @@ services:
     - --scheme
     - http
     image: cr.weaviate.io/semitechnologies/weaviate:1.27.0
-    network_mode: host
+    ports:
+    - 8080:8080
+    - 50051:50051 
     volumes:
     - weaviate_data:/var/lib/weaviate
     restart: on-failure:0

@@ -1,7 +1,9 @@
-from schema import Base
-from sqlalchemy import create_engine
-
-from ..utils.db_utils import batch_insert_lecturers, get_database, load_lecturer_data, get_engine
+from ..utils.db_utils import (
+    batch_insert_lecturers,
+    get_database,
+    load_lecturer_data,
+    get_engine,
+)
 
 
 def initialize_database(json_file_path, db_path="sqlite:///lecturers.db", reload=False):

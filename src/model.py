@@ -45,12 +45,6 @@ class Model:
     def check_sql(self, state: Dict) -> str:
         """
         Determines whether to generate or use web_search
-
-        Args:
-            state (dict): The current graph state
-
-        Returns:
-            str: Next node to call
         """
         response = state["sql_result"]
         if response:
@@ -59,26 +53,20 @@ class Model:
 
     def route_question(self, state: Dict) -> str:
         """
-        Route question to web search or RAG
-
-        Args:
-            state (dict): The current graph state
-
-        Returns:
-            str: Next node to call
+        Route question to Text2SQL or RAG.
         """
 
         source = state["datasource"]
         if source == "sql":
-            # print("---ROUTE QUESTION TO SQL---")
+            # logger.debug("---ROUTE QUESTION TO SQL---")
             # state['sql'] = True
             return "sql"
         elif source == "vectorstore":
-            # print("---ROUTE QUESTION TO RAG---")
+            # logger.debug("---ROUTE QUESTION TO RAG---")
             # state['sql'] = False
             return "vectorstore"
         else:
-            # print('---ROUTE QUESTION TO WEBSEARCH---')
+            # logger.debug('---ROUTE QUESTION TO WEBSEARCH---')
             return "irrelevant"
 
     def check_documents(self, state: Dict) -> str:
@@ -89,12 +77,6 @@ class Model:
     def decide_to_generate(self, state: Dict) -> str:
         """
         Determines whether to generate an answer, or add web search
-
-        Args:
-            state (dict): The current graph state
-
-        Returns:
-            str: Binary decision for next node to call
         """
         # question = state["question"]
         web_search = state["web_search"]
@@ -151,7 +133,7 @@ class Model:
         )
 
         workflow.add_edge("websearch", "generator")
-        workflow.add_edge("generator", END)
+        # workflow.add_edge("generator", END)
 
         return workflow
 
@@ -170,11 +152,12 @@ class Model:
 
         return events
 
-    def stream(self, query: str):
-        for message, metadata in self.graph.stream(
-            {"question": query},
-            stream_mode="messages",
-        ):
-            if metadata["langgraph_node"] == "generate":
-                print(message.content)
-        print(metadata)
+    # def stream(self, query: str):
+    #     # should be an iterator of response chunks
+    #     for chunk, metadata in self.graph.stream(
+    #         {"question": query},
+    #         stream_mode="messages",
+    #     ):
+    #         if chunk.content and "generation" in metadata.get("tags", []):
+    #             yield chunk.content
+    #             print("Yielding")

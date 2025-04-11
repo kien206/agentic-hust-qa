@@ -1,45 +1,84 @@
 import os
 
-from chunking_utils import get_chunks_with_metadata
+from ..utils.chunking_utils import get_chunks_with_metadata, get_chunks_with_metadata_new
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import TextLoader
 from langchain_community.utilities import SQLDatabase
 from langchain_core.documents import Document
-from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings, HuggingFacePipeline, HuggingFaceEndpoint
 from langchain_ollama import ChatOllama
 from langchain_weaviate import WeaviateVectorStore
 from sqlalchemy import Column, String, Table, create_engine, inspect
 
 
-def get_llm(model, format, **kwargs):
-    return ChatOllama(model=model, format=format, **kwargs)
+def get_llm(model, format, provider="ollama", **kwargs):
+    if provider.lower() == "ollama":
+        return ChatOllama(model=model, format=format, **kwargs)
+    elif provider.lower() == "huggingface":
+        hf = HuggingFacePipeline.from_model_id(
+            model_id="gpt2",
+            task="text-generation",
+            pipeline_kwargs={"max_new_tokens": 10},
+        )
+
+        return hf
 
 
 def get_embedding(model_name):
     return HuggingFaceEmbeddings(model_name=model_name)
 
+def format_metadata(metadata):
+    section_mapping = {
+        0: "Chương",
+        1: "Mục",
+        2: "Điều"
+    }
+
+    source_mapping = {
+        "QC": "Quy chế",
+        "QĐ": "Quy định",
+        "HD": "Hướng dẫn",
+        "QtĐ": "Quyết định"
+    }
+
+    source = metadata.get("source").split(".md")[0]
+
+    for k, v in source_mapping.items():
+        if source.startswith(k):
+            source = source.replace(k, v).upper()
+
+    numbers = (metadata['chapter_number'], metadata['section_number'], metadata['article_number'])
+    titles = (metadata['chapter_title'], metadata['section_title'], metadata['article_title'])
+    
+    formatted_metadata = f"{source}\n"
+    for i in range(len(titles)):
+
+        if titles[i] is not None:
+            formatted_metadata += f"{section_mapping[i]} {numbers[i]}: {titles[i].upper().strip("# ")}\n\n"
+    
+    return formatted_metadata
 
 def split_md(dir, **kwargs):
     doc_list = []
     for file in os.listdir(dir):
         full_path = os.path.join(dir, file)
-        with open(full_path, "r") as f:
+        with open(full_path, "r", encoding="utf-8") as f:
             content = f.read()
-
-        chunks = get_chunks_with_metadata(content)
+        if file.startswith("HD"):
+            chunks = get_chunks_with_metadata_new(content)
+        else:
+            chunks = get_chunks_with_metadata(content)
 
         for chunk in chunks:
             chunk_metadata = chunk["metadata"]
             chunk_metadata["source"] = file
-            doc_list.append(
-                Document(page_content=chunk["text"], metadata=chunk_metadata, **kwargs)
-            )
+            formatted_metadata = format_metadata(chunk_metadata)
+            doc_list.append(Document(page_content=formatted_metadata + chunk["text"], metadata=chunk_metadata, **kwargs))
 
     return doc_list
 
 
 def split_doc(text_dir, **kwargs):
-    print("__SPLITTING__")
     text_files = os.listdir(text_dir)
     # Load documents
 

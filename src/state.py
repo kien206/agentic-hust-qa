@@ -1,6 +1,6 @@
 import operator
 from typing import Annotated, List
-
+from langchain_core.messages import AIMessage
 from typing_extensions import TypedDict
 
 
@@ -10,7 +10,7 @@ class GraphState(TypedDict):
     """
 
     question: str  # User question
-    generation: str  # LLM generation
+    generation: AIMessage  # LLM generation
     sql_query: str  # Binary decision to run web search
     sql_result: str  # Result of SQL query
     end: str  # Decision to end the conversation

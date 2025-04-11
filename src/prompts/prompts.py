@@ -1,8 +1,8 @@
-ROUTER_INSTRUCTIONS = """You are an expert at routing a user question to a vectorstore or a SQL store or a websearch.
+ROUTER_INSTRUCTIONS = """You are an expert at routing a user question to a vectorstore or a SQL store.
 
     The vectorstore contains documents, regulations and information related to Hanoi University of Science & Technology.
 
-    Use the vectorstore for questions on these topics. For questions related to teachers that include names, use the SQL store. For other questions that are irrelevant, use the irrelevant tool.
+    Use the vectorstore for questions on these topics and any other university-related topics besides people information. For questions related to teachers that include names, use the SQL store. For other questions that are irrelevant, use the irrelevant tool.
 
     Return JSON with single key, datasource, that is 'vectorstore' or 'sql' or 'irrelevant' depending on the question."""
 
@@ -62,69 +62,57 @@ HALLUCINATION_GRADER_PROMPT = """FACTS: \n\n {documents} \n\n STUDENT ANSWER: {g
 
     Return JSON with two two keys, binary_score is 'yes' or 'no' score to indicate whether the STUDENT ANSWER is grounded in the FACTS. And a key, explanation, that contains an explanation of the score."""
 
-SQL_INSTRUCTIONS = """
-You are an expert in question-answering tasks.
+INTENT_PROMPT = """
+You are an expert at information extraction for a SQL database. Your job is to read the question, and determine which information the user want to ask about to add to the SELECT query.
+The questions will be about Hanoi University of Science and Technology lecturers and courses.
 
-You will be given a question relating to a person/teacher of Hanoi University of Science & Technology.
+The list of information user can ask about is:
+- name: the name of the lecturer or personnel. This is strictly a person name.
+- title: the title of the lecturer.
+- education_path: the universities that the lecturers studied in.
+- introduction: introduction about the lecturer.
+- publications: paper publications of the lecturer.
+- subjects: the subjects or courses that the lecturer teaches.
+- research_field: the current research field of the lecturer.
+- interested_field: the interested research field of the lecturer.
 
-The database has the following schema:
+If the do not specify which type of information fields to give them, just return all of the provided labels. If the question inquire about total numbers, always set 'count' to 'True'. In any other case, set it to 'False'.
 
-- lecturers: Main table with fields id, name, title, introduction, url
-- lecturer_emails: Table with fields id, lecturer_id, email
-- lecturer_education: Table with fields id, lecturer_id, education
-- lecturer_research: Table with fields id, lecturer_id, research_field
-- lecturer_interests: Table with fields id, lecturer_id, interest
-- lecturer_publications: Table with fields id, lecturer_id, publication
-- lecturer_awards: Table with fields id, lecturer_id, award
-- lecturer_subjects: Table with fields id, lecturer_id, subject
-- lecturer_projects: Table with fields id, lecturer_id, project
-
-Your job is to rewrite the question into an appropriate SQL query. All of the information is in Vietnamese. Return a JSON format with a single key, sql_query, with the result query as its value. Here is an example sample of the data in JSON:
-
-"name": "Tạ Hải Tùng",
-        "title": "Hiệu trưởng Trường Công nghệ Thông tin và Truyền thông\nPhó Giáo sư, Khoa Kỹ thuật Máy tính",
-        "email": [
-            ...
-        ],
-        "education_path": [
-            ...
-        ],
-        "research_field": [
-            ...
-        ],
-        "interested_field": [
-            ...
-        ],
-        "introduction": "...",
-        "notable_publication": [
-            ...
-        ],
-        "awards": [
-            ...
-        ],
-        "teaching_subjects": [
-            "IT4690: Mạng không dây và Truyền thông di động",
-            "IT4700: Các hệ thống thông tin vệ tinh",
-            "IT3082: Mạng máy tính"
-        ],
-        "current_project": [
-            ...
-        ],
-        "url": "https://soict.hust.edu.vn/pgs-ts-ta-hai-tung.html"
+Return JSON with 2 key(s), 'information', with the list of information the user want to ask about as its value, and 'count' with True or False as its value.
 """
 
-SQL_ANSWER_PROMPT = """
-    You are an expert in questions-answering tasks.
+NER_PROMPT = """
+You are a Name Entity Recognition expert that detects enities based on a question. The question will be about lecturers or a course in Hanoi University of Science and Technology. Here are the labels and their description:
 
-    You are given a question from the user and an output from a SQL query.
+- names: the name of the lecturer .For example, one's name can 'Đinh Viết Sang', but can also be 'Sang' in another question.
+- title: the title of the lecturer. This can be 'Phó Hiệu trưởng', 'Hiệu trưởng',.....
+- courses: the course/subject name, referring to the course/subject name.
+- research_field: the field of research of the lecturer.
+- projects: the project that the researcher currently participating in.
 
-    Your job is to generate an answer based on the question and the query result. If there is no SQL output, simply ask the user to ask again.
 
-    Keep the answer consise and ALWAYS RESPOND IN VIETNAMESE.
+The lectuer names will be in Vietnames, but the course name can be in English or Vietnamese. For the names, only return the names, without anything else.
 
-    Question: {question}.
-    SQL Query: {query}.
-    SQL Query Output: {output}.
+Return JSON with 5 keys, as the 5 labels. Their values is be a list of entities name. If there are no answer, return an empty JSON with the main keys only. ALWAYS use what in the question.
 
-    Answer:
+Here are a few example:
+
+Question: Cho xin thông tin về các thầy Đinh Viết Sang, Tạ Hải Tùng dạy môn Tối ưu hóa, thầy Hiếu và thầy Đức Anh dạy môn machine learning.
+Output: {'names': ['Đinh Viết Sang', 'Tạ Hải Tùng', 'Hiếu', 'Đức Anh'], 'courses': ['machine learning', 'Tối ưu hóa'], 'research_field': [], 'projects': []}
+
+Question: Có những ai đang nghiên cứu lĩnh vực xử lý ngôn ngữ tự nhiên và thị giác máy tính?
+Output: {'names': [], 'courses': [], 'research_field': ['Xử lý ngôn ngữ tự nhiên', 'Thị giác máy tính'], 'projects': []}
+
+Question: Có bao nhiêu giảng viên là giảng viên chính?
+Output: {'names': [], 'courses': [], 'research_field': [], 'projects': []}
+"""
+
+REVIEWER_PROMPT = """
+You are a SQL Query reviewer. Given a user question and a SQL query, your job is to make changes to the query to correctly address the question. ONLY switch the order of WHERE conditions. DO NOT fix anything else
+
+Here is the inputs:
+Question: {question}
+SQL query: {query}
+
+Return a JSON with a single key 'fixed_query', with the fixed query as its result.
 """

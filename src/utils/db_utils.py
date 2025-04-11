@@ -67,7 +67,6 @@ def insert_lecturer_data(engine, lecturer_data):
 def batch_insert_lecturers(engine, lecturer_data_list):
     ids = []
     for lecturer_data in lecturer_data_list:
-        print(lecturer_data)
         lecturer_id = insert_lecturer_data(engine, lecturer_data)
         ids.append(lecturer_id)
     return ids

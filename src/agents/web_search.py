@@ -7,7 +7,7 @@ from src.agents.base import BaseAgent
 
 class WebSearchAgent(BaseAgent):
     """
-    Agent that handles web search queries.
+    Agent that handles web search logic.
     """
 
     def __init__(
@@ -32,13 +32,6 @@ class WebSearchAgent(BaseAgent):
     def run(self, state: Dict, **kwargs) -> Dict[str, Any]:
         """
         Process the query by searching the web and generating an answer.
-
-        Args:
-            query (str): The query to process.
-            **kwargs: Additional arguments.
-
-        Returns:
-            Dict[str, Any]: The result of processing the query.
         """
         query = state["question"]
         self.log(f"Processing query: {query}")
@@ -46,6 +39,35 @@ class WebSearchAgent(BaseAgent):
         # Perform web search
         try:
             search_results = self.web_search_tool.invoke({"query": query})
+            self.log(f"Retrieved {len(search_results)} search results")
+
+            # Convert search results to documents
+            documents = []
+            for result in search_results:
+                doc = Document(
+                    page_content=result.get("content", ""),
+                    metadata={
+                        "source": result.get("url", ""),
+                        "title": result.get("title", ""),
+                    },
+                )
+                documents.append(doc)
+
+        except Exception as e:
+            self.log(f"Error performing web search: {e}", level="error")
+
+        if not documents:
+            self.log("No search results found")
+
+        return {"documents": documents, "datasource": "web", "source": "websearch"}
+
+    async def arun(self, state: Dict, **kwargs) -> Dict[str, Any]:
+        query = state["question"]
+        self.log(f"Processing query: {query}")
+
+        # Perform web search
+        try:
+            search_results = await self.web_search_tool.ainvoke({"query": query})
             self.log(f"Retrieved {len(search_results)} search results")
 
             # Convert search results to documents
