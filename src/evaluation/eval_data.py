@@ -5,7 +5,7 @@ import weaviate
 from sqlalchemy import MetaData
 from tqdm import tqdm
 
-from model import Model
+from src.graph import Model
 from utils.utils import (
     get_database,
     get_embedding,

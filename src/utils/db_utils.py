@@ -2,10 +2,10 @@ import json
 import os
 
 from langchain_community.utilities import SQLDatabase
-from sqlalchemy import inspect, create_engine
+from sqlalchemy import create_engine, inspect
 from sqlalchemy.orm import sessionmaker
 
-from src.database.schema import Lecturer, Base
+from src.database.schema import Base, Lecturer
 
 
 def get_engine(db_path="sqlite:///lecturers.db"):
@@ -40,6 +40,7 @@ def insert_lecturer_data(engine, lecturer_data):
         lecturer = Lecturer(
             name=join_list(lecturer_data.get("name", "")),
             title=join_list(lecturer_data.get("title", "")),
+            education_path=join_list(lecturer_data.get("education_path", "")),
             introduction=join_list(lecturer_data.get("introduction", "")),
             url=join_list(lecturer_data.get("url", "")),
             email=join_list(lecturer_data.get("email", "")),

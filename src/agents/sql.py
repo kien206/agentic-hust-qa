@@ -1,14 +1,14 @@
-import json
 import ast
+import json
 from typing import Any, Dict
 
 from langchain_core.messages import HumanMessage, SystemMessage
 
 from src.agents.base import BaseAgent
-from src.prompts.prompts import NER_PROMPT, INTENT_PROMPT, REVIEWER_PROMPT
+from src.prompts.prompts import INTENT_PROMPT, NER_PROMPT, REVIEWER_PROMPT
 
 template = """
-SELECT {information} FROM lecturers
+SELECT DISTINCT {information} FROM lecturers
 {conditions}
 """
 
@@ -39,14 +39,7 @@ class SQLAgent(BaseAgent):
 
     def run(self, state: Dict, **kwargs) -> Dict[str, Any]:
         """
-        Process the query by converting it to a SQL query and executing it.
-
-        Args:
-            query (str): The query to process.
-            **kwargs: Additional arguments.
-
-        Returns:
-            Dict[str, Any]: The result of processing the query.
+        Run the Text2SQL flow.
         """
         question = state["question"]
         self.log(f"Processing question: {question}")
@@ -56,6 +49,14 @@ class SQLAgent(BaseAgent):
         self.log("Extracting relations")
         information, entities = self.extract_relations(question)
         self.log("Finish relation extraction")
+
+        if (len(information['information']) == 0 or len(entities) == 0) and (not information['count']):
+            self.log("No entities found in question.") # route to web search if there is no information
+            return {
+                "source": "sql",
+                "sql_result": ""
+            }
+        
         sql_query = self.condition_parse(information, entities)
 
         cnt = 0
@@ -75,15 +76,17 @@ class SQLAgent(BaseAgent):
         sql_output = ast.literal_eval(
             self.db.run(fixed_sql_query, include_columns=True)
         )
-        if sql_output != "":
-            return {"source": "sql", "sql_query": fixed_sql_query, "sql_result": sql_output}
-        else:
-            return {"source": "sql", "sql_query": fixed_sql_query}
 
-    
+        return {
+            "source": "sql",
+            "sql_query": fixed_sql_query,
+            "sql_result": sql_output,
+        }
+
+
     async def arun(self):
+        # TODO
         pass
-
 
     def extract_relations(self, question: str):
         """
@@ -144,7 +147,12 @@ class SQLAgent(BaseAgent):
         if information["count"] == True:
             sql_information = "COUNT(*)"
         else:
-            sql_information = ", ".join(information["information"])
+            if "introduction" not in information["information"]:
+                sql_information = ", ".join(
+                    information["information"] + ["introduction", "url"]
+                )
+            else:
+                sql_information = ", ".join(information["information"] + ["url"])
 
         sql_query = template.format(
             information=sql_information, conditions=sql_conditions

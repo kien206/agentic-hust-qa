@@ -1,8 +1,10 @@
+import os
+
 from ..utils.db_utils import (
     batch_insert_lecturers,
     get_database,
-    load_lecturer_data,
     get_engine,
+    load_lecturer_data,
 )
 
 
@@ -11,6 +13,7 @@ def initialize_database(json_file_path, db_path="sqlite:///lecturers.db", reload
     engine = get_engine(db_path)
 
     if reload:
+        print("Ingesting")
         # Load lecturer data
         lecturer_data_list = load_lecturer_data(json_file_path)
 

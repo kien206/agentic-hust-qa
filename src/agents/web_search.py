@@ -38,7 +38,8 @@ class WebSearchAgent(BaseAgent):
 
         # Perform web search
         try:
-            search_results = self.web_search_tool.invoke({"query": query})
+            query += " Đại học Bách Khoa Hà Nội"
+            search_results = self.web_search_tool.invoke({"query": query, **kwargs})
             self.log(f"Retrieved {len(search_results)} search results")
 
             # Convert search results to documents
@@ -89,3 +90,4 @@ class WebSearchAgent(BaseAgent):
             self.log("No search results found")
 
         return {"documents": documents, "datasource": "web", "source": "websearch"}
+    

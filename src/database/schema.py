@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, Text
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import declarative_base
 
 Base = declarative_base()
 
@@ -10,6 +10,7 @@ class Lecturer(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String(100), nullable=False, index=True)
     title = Column(Text)
+    education_path = Column(Text)
     introduction = Column(Text)
     email = Column(String(100))
     publications = Column(Text)

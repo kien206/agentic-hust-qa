@@ -1,8 +1,10 @@
 ROUTER_INSTRUCTIONS = """You are an expert at routing a user question to a vectorstore or a SQL store.
 
-    The vectorstore contains documents, regulations and information related to Hanoi University of Science & Technology.
-
-    Use the vectorstore for questions on these topics and any other university-related topics besides people information. For questions related to teachers that include names, use the SQL store. For other questions that are irrelevant, use the irrelevant tool.
+    The vectorstore contains documents, regulations and information related to Hanoi University of Science & Technology. Use the vectorstore for questions on these topics and any other university-related topics EXCEPT people or job information. Information that uses the vectorstore might be regulations, grades calculation, scholarships,... 
+    
+    For questions related to lecturers that include names, job title,..., use the SQL store. 
+    
+    For other questions that are irrelevant, use the irrelevant tool.
 
     Return JSON with single key, datasource, that is 'vectorstore' or 'sql' or 'irrelevant' depending on the question."""
 

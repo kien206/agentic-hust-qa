@@ -1,22 +1,10 @@
 from typing import Any, Dict
 
-from langchain_core.messages import HumanMessage, AIMessage
-
+from langchain_core.messages import AIMessage, HumanMessage
+from langgraph.types import StreamWriter
 from src.agents.base import BaseAgent
 from src.prompts.prompts import RAG_PROMPT
-from src.utils.utils import format_docs
-
-column_mapping = {
-    "name": "Tên",
-    "subjects": "Môn giảng dạy",
-    "interested_field": "Lĩnh vực quan tâm",
-    "introduction": "Giới thiệu",
-    "publications": "Các công bố khoa học tiêu biểu",
-    "research_field": "Lĩnh vực nghiên cứu",
-    "title": "Chức vụ",
-    "projects": "Các dự án đã tham gia",
-    "awards": "Giải thưởng tiêu biểu",
-}
+from src.utils.utils import format_docs, format_rag_metadata, format_sql_output
 
 
 class LLM(BaseAgent):
@@ -32,30 +20,19 @@ class LLM(BaseAgent):
         super().__init__(name="LLMAgent", verbose=verbose)
         self.llm = llm
 
-    def format_sql_output(self, sql_output):
-        response = f"Có {len(sql_output)} giảng viên được tìm thấy.\n"
-        for output_dict in sql_output:
-            for attribute, value in output_dict.items():
-                if attribute == "COUNT(*)":
-                    pass
-                response += f"{column_mapping[attribute]}: \n{value.replace('/n', '\n- ')}\n\n"
 
-            response += f"{'-'*40}\n"
-
-        return response
-
-    def run(self, state: Dict, **kwargs) -> Dict[str, Any]:
+    def run(self, state: Dict, writer: StreamWriter, **kwargs) -> Dict[str, Any]:
         question = state["question"]
         loop_step = state.get("loop_step", 0)
 
         # RAG generation
-        if "sql_result" in state.keys():
+        if len(state.get("sql_result", "")) > 0:
             self.log("Generating with SQL")
 
             # query = state["sql_query"]
             sql_result = state["sql_result"]
             return {
-                "generation": AIMessage(content=self.format_sql_output(sql_result)),
+                "generation": AIMessage(content=format_sql_output(sql_result)),
                 "loop_step": loop_step + 1,
             }
 
@@ -65,8 +42,27 @@ class LLM(BaseAgent):
         rag_prompt_formatted = RAG_PROMPT.format(context=docs_txt, question=question)
 
         generation = self.llm.invoke([HumanMessage(content=rag_prompt_formatted)])
+        
+        # TODO: add metadata to state
+        citation = "\nNguồn: "
+        for doc in documents:
+            metadata = doc.metadata
+            if state['web_search']:
+                # metadata: source (url), title
+                url = metadata.get("source")
+                title = metadata.get("title")
+                citation += f"\n- {url}: {title}"
+            else:
+                # metadata
+                formatted_rag_metadata = format_rag_metadata(metadata)
+                citation += f"\n- {formatted_rag_metadata}"
+        writer({"citation": citation})
 
-        return {"generation": generation, "loop_step": loop_step + 1}
+        return {
+            "generation": generation, 
+            "loop_step": loop_step + 1,
+            # "citation": citation,
+        }
 
     async def arun(self, state: Dict, **kwargs) -> Dict[str, Any]:
         pass

@@ -1,5 +1,6 @@
 import operator
 from typing import Annotated, List
+
 from langchain_core.messages import AIMessage
 from typing_extensions import TypedDict
 
@@ -21,3 +22,4 @@ class GraphState(TypedDict):
     documents: List[str]  # List of retrieved documents
     datasource: str
     source: str
+    # citation: str

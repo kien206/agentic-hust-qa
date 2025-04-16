@@ -13,12 +13,12 @@ logging.basicConfig(
     filemode="w",
     format="{asctime} - {levelname} - {message}",
     style="{",
-    datefmt="%Y-%m-%d %H:%M",
+    datefmt="%Y-%m-%d %H:%M:%S",
 )
 logger = logging.getLogger(__name__)
 
 
-class Model:
+class Graph:
     def __init__(
         self,
         agents: Dict[str, BaseAgent],
@@ -31,8 +31,6 @@ class Model:
 
         self.graph = self._graph(workflow)
         self._verbose = verbose
-        # if self._verbose:
-        #     logger.addHandler
 
     def irrelevant(self, state: Dict) -> Dict:
         from langchain_core.messages import AIMessage
@@ -47,7 +45,7 @@ class Model:
         Determines whether to generate or use web_search
         """
         response = state["sql_result"]
-        if response:
+        if len(response) > 0:
             return "result found"
         return "no result"
 
@@ -57,17 +55,13 @@ class Model:
         """
 
         source = state["datasource"]
-        if source == "sql":
-            # logger.debug("---ROUTE QUESTION TO SQL---")
-            # state['sql'] = True
-            return "sql"
-        elif source == "vectorstore":
-            # logger.debug("---ROUTE QUESTION TO RAG---")
-            # state['sql'] = False
-            return "vectorstore"
-        else:
-            # logger.debug('---ROUTE QUESTION TO WEBSEARCH---')
-            return "irrelevant"
+        match source:
+            case "sql":
+                return "sql"
+            case "vectorstore":
+                return "vectorstore"
+            case "irrelevant":
+                return "irrelevant"
 
     def check_documents(self, state: Dict) -> str:
         if state["web_search"]:
@@ -152,12 +146,3 @@ class Model:
 
         return events
 
-    # def stream(self, query: str):
-    #     # should be an iterator of response chunks
-    #     for chunk, metadata in self.graph.stream(
-    #         {"question": query},
-    #         stream_mode="messages",
-    #     ):
-    #         if chunk.content and "generation" in metadata.get("tags", []):
-    #             yield chunk.content
-    #             print("Yielding")

@@ -26,7 +26,6 @@ class RetrievalAgent(BaseAgent):
         self.retriever = retriever
         self.top_k = top_k
 
-
     def run(self, state: Dict, **kwargs) -> Dict[str, Any]:
         """
         Process the query by retrieving relevant documents and generating an answer.
@@ -99,8 +98,7 @@ class RetrievalAgent(BaseAgent):
             "web_search": web_search,
             "source": "retrieval",
         }
-    
-    
+
     def filter_docs(self, query, documents):
         """
         Filter out irrelevant documents
