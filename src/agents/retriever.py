@@ -51,6 +51,28 @@ class RetrievalAgent(BaseAgent):
             "source": "retrieval",
         }
 
+    async def arun(self, state: Dict, **kwargs) -> Dict[str, Any]:
+        query = state["question"]
+        self.log(f"Processing query: {query}")
+
+        # Retrieve relevant documents
+        documents = await self.retriever.ainvoke(query)
+        self.log(f"Retrieved {len(documents)} documents")
+
+        filtered_docs = await self.afilter_docs(query, documents)
+
+        # If no relevant documents, return empty result
+        web_search = False
+        if not filtered_docs:
+            self.log("No relevant documents found, falling back to web search")
+            web_search = True
+
+        return {
+            "documents": filtered_docs,
+            "web_search": web_search,
+            "source": "retrieval",
+        }
+
     async def afilter_docs(self, query, documents):
         filtered_docs = []
 
@@ -77,35 +99,13 @@ class RetrievalAgent(BaseAgent):
 
         return filtered_docs
 
-    async def arun(self, state: Dict, **kwargs) -> Dict[str, Any]:
-        query = state["question"]
-        self.log(f"Processing query: {query}")
-
-        # Retrieve relevant documents
-        documents = await self.retriever.ainvoke(query)
-        self.log(f"Retrieved {len(documents)} documents")
-
-        filtered_docs = await self.afilter_docs(query, documents)
-
-        # If no relevant documents, return empty result
-        web_search = False
-        if not filtered_docs:
-            self.log("No relevant documents found, falling back to web search")
-            web_search = True
-
-        return {
-            "documents": filtered_docs,
-            "web_search": web_search,
-            "source": "retrieval",
-        }
-
     def filter_docs(self, query, documents):
         """
         Filter out irrelevant documents
         """
         filtered_docs = []
         for i, doc in enumerate(documents[: self.top_k]):
-            self.log(f"Filtering document {doc}")
+            # self.log(f"Filtering document {doc}")
             doc_grader_prompt = DOC_GRADER_PROMPT.format(
                 document=doc.page_content, question=query
             )

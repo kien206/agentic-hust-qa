@@ -1,8 +1,7 @@
+import json
 import logging
 import os
-import json
 
-import streamlit as st
 import weaviate
 
 from config.settings import Settings
@@ -48,12 +47,6 @@ def build_comp(client, settings: Settings):
     return llm, llm_json_mode, retriever, db, web_search_tool
 
 
-def format_ref(documents):
-    # Combine ref: Điều x khoản/mục y của tài liệu z
-    # Format lại tên điều khoản
-    pass
-
-
 def main(agents, **kwargs):
     pipeline = Graph(agents, **kwargs)
     while True:
@@ -84,12 +77,6 @@ def main_stream(agents, **kwargs):
         if query in ["end", "exit"] or not query:
             break
 
-        # for chunk, metadata in pipeline.graph.stream(
-        #     {"question": query}, stream_mode="messages"
-        # ):
-        #     if chunk.content and metadata.get("langgraph_node") == "generator":
-        #         print(chunk.content, end="", flush=True)
-
         for mode, payload in pipeline.graph.stream(
             {"question": query}, stream_mode=["messages", "custom"]
         ):
@@ -98,89 +85,7 @@ def main_stream(agents, **kwargs):
                 if chunk.content and metadata.get("langgraph_node") == "generator":
                     print(chunk.content, end="", flush=True)
             elif mode == "custom":
-                print(json.loads(payload)['citation'])
-
-def create_streamlit_app(agents):
-    """
-    Creates a Streamlit app for the LangGraph chatbot.
-    """
-    st.set_page_config(page_title="HUST Chatbot", page_icon="💬", layout="wide")
-
-    with st.sidebar:
-        st.title("Chats created")
-
-        # Add a button to clear the conversation
-        if st.button("Clear"):
-            st.session_state.conversation = []
-            st.rerun()
-
-    st.header("Hỏi về quy chế, quy định và giảng viên Bách Khoa.")
-
-    # Initialize session state for conversation history
-    if "conversation" not in st.session_state:
-        st.session_state.conversation = []
-
-    # Initialize pipeline
-    if "pipeline" not in st.session_state:
-        st.session_state.pipeline = Graph(agents, verbose=True)
-
-    # Display conversation history
-    for message in st.session_state.conversation:
-        with st.chat_message(message["role"]):
-            st.markdown(message["content"])
-
-    # Get user input
-    user_query = st.chat_input(">:")
-
-    # Process user query
-    if user_query:
-        # Add user message to conversation
-        st.session_state.conversation.append({"role": "user", "content": user_query})
-
-        # Display user message
-        with st.chat_message("user"):
-            st.markdown(user_query)
-
-        # Process with LangGraph pipeline
-        with st.chat_message("assistant"):
-            message_placeholder = st.empty()
-            full_response = ""
-
-            # Stream the response
-            try:
-                # for chunk, metadata in st.session_state.pipeline.graph.stream(
-                #     {"question": user_query.lower()}, stream_mode=["messages", "custom"]
-                # ):
-                #     if chunk.content and metadata.get("langgraph_node") == "generator":
-                #         full_response += chunk.content
-                #         # Show streaming response with cursor
-                #         message_placeholder.markdown(full_response + "▌")
-
-                for mode, payload in st.session_state.pipeline.graph.stream(
-                    {"question": user_query.lower()}, stream_mode=["messages", "custom"]
-                ):
-                    if mode == "messages":
-                        chunk, metadata = payload
-                        if chunk.content and metadata.get("langgraph_node") == "generator":
-                            full_response += chunk.content
-                            # Show streaming response with cursor
-                            message_placeholder.markdown(full_response + "▌")
-                    elif mode == "custom":
-                        full_response += "\n"
-                        full_response += payload['citation']
-                        message_placeholder.markdown(full_response + "▌")
-
-                logger.debug(f"Full response: {full_response}")
-                # Display the final response without cursor
-                message_placeholder.markdown(full_response)
-
-                # Add assistant response to conversation
-                st.session_state.conversation.append(
-                    {"role": "assistant", "content": full_response}
-                )
-
-            except Exception as e:
-                st.error(f"An error occurred: {str(e)}")
+                print(json.loads(payload)["citation"])
 
 
 if __name__ == "__main__":
@@ -199,5 +104,4 @@ if __name__ == "__main__":
     }
     logger.debug("Finished loading Agents.")
 
-    create_streamlit_app(agents)
-    # main_stream(agents)
+    main_stream(agents)

@@ -1,60 +1,62 @@
 import json
+import os
 
 import pandas as pd
 import weaviate
-from sqlalchemy import MetaData
 from tqdm import tqdm
 
-from src.graph import Model
-from utils.utils import (
-    get_database,
-    get_embedding,
-    get_llm,
-    get_retriever,
-    get_sql_engine,
-    get_table,
-    get_vectorstore,
-    get_websearch,
-    split_doc,
-)
+from config.settings import Settings
+from src.agents import LLM, RetrievalAgent, RouterAgent, SQLAgent, WebSearchAgent
+from src.database.db_init import initialize_database
+from src.graph import Graph
+from src.utils.utils import get_embedding, get_llm, get_websearch
+from src.utils.vectordb_utils import get_retriever, get_vectorstore
 
 client = weaviate.connect_to_local()
 
 
-def build_comp():
-    model = "llama3.1"
+def build_comp(client, settings: Settings):
+    model = settings.llm.model
+    embedding_model = settings.vectorstore.embedding_model
+    lecturer_data_path = settings.database.lecturer_data_path
+    db_path = settings.database.db_path
 
     # GET LLM
-    llm = get_llm(model=model, format="", temperature=0)
-    llm_json_mode = get_llm(model=model, format="json", temperature=0)
+    llm = get_llm(model=model, format="")
+    llm_json_mode = get_llm(model=model, format="json")
 
     # BUILD RETRIEVER
-    # doc_list = split_doc(text_dir)
-    embedding = get_embedding(model_name="BAAI/BGE-M3")
+    embedding = get_embedding(model_name=embedding_model)
 
     vectorstore = get_vectorstore(
-        client=client, embedding_model=embedding, index_name="Hust_doc_final"
+        client=client,
+        embedding_model=embedding,
+        index_name="Hust_doc_md_final",
+        text_dir=settings.vectorstore.text_dir,
     )
-    retriever = get_retriever(vectorstore=vectorstore, k=3)
 
-    web_search_tool = get_websearch()
+    retriever = get_retriever(vectorstore=vectorstore, k=settings.agent.top_k)
+    web_search_tool = get_websearch(k=settings.websearch.search_depth)
 
-    # Build SQL Database
-    metadata_obj = MetaData()
-    table = get_table(table_name="teacher", metadata_obj=metadata_obj)
-    engine = get_sql_engine()
-    db = get_database(engine=engine, metadata_obj=metadata_obj)
+    # Set up or connect to existing lecturer database
+    if os.path.exists(lecturer_data_path):
+        reload = True
+        if os.path.exists("lecturers.db"):
+            reload = False
+        _, db = initialize_database(lecturer_data_path, db_path, reload=reload)
 
     return llm, llm_json_mode, retriever, db, web_search_tool
 
 
-def build_rag_eval(model, df, output_file):
+def build_rag_eval(agents, df, output_file, **kwargs):
+    pipeline = Graph(agents, **kwargs)
     file = {"question": [], "answer": [], "contexts": [], "ground_truths": []}
+
     for _, row in tqdm(df.iterrows()):
         question = row["User input"]
         ground_truths = row["Reference (Reference answer)"]
 
-        response = model.chat(query=question)
+        response = pipeline.chat(query=question)
 
         answer = response["generation"].content
         try:
@@ -74,8 +76,19 @@ def build_rag_eval(model, df, output_file):
 
 
 if __name__ == "__main__":
+    settings = Settings()
+    client = weaviate.connect_to_local()
+
+    llm, llm_json_mode, retriever, db, web_search_tool = build_comp(client, settings)
+    agents = {
+        "router": RouterAgent(llm_json=llm_json_mode, verbose=True),
+        "retriever": RetrievalAgent(llm, llm_json_mode, retriever, verbose=True),
+        "sql": SQLAgent(llm, llm_json_mode, db, verbose=True),
+        "web_search": WebSearchAgent(llm, web_search_tool, verbose=True),
+        "generator": LLM(llm, verbose=True),
+    }
+
     df = pd.read_csv("data/eval/test.csv", encoding="utf-8")
     llm, llm_json_mode, retriever, db, web_search_tool = build_comp()
-    pipeline = Model(llm, llm_json_mode, retriever, db, web_search_tool, verbose=True)
 
-    build_rag_eval(model=pipeline, df=df, output_file="remaining.json")
+    build_rag_eval(agents, df=df, output_file="data/eval/qwen2.5.json")

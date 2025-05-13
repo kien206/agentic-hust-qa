@@ -90,4 +90,3 @@ class WebSearchAgent(BaseAgent):
             self.log("No search results found")
 
         return {"documents": documents, "datasource": "web", "source": "websearch"}
-    

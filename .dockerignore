@@ -1,3 +1,9 @@
 /data
 
 /notebooks
+
+/scripts
+
+*.log
+
+__pycache__

@@ -18,21 +18,18 @@ column_mapping = {
     "education_path": "Con đường học vấn",
     "projects": "Một số dự án đã tham gia",
     "awards": "Giải thưởng tiêu biểu",
-    "url": "Nguồn"
+    "url": "Nguồn",
 }
 
-section_mapping = {
-    0: "Chương",
-    1: "Mục",
-    2: "Điều"
-}
+section_mapping = {0: "Chương", 1: "Mục", 2: "Điều"}
 
 source_mapping = {
     "QC": "Quy chế",
     "QĐ": "Quy định",
     "HD": "Hướng dẫn",
-    "QtĐ": "Quyết định"
+    "QtĐ": "Quyết định",
 }
+
 
 def get_llm(model, format, provider="ollama", **kwargs):
     if provider.lower() == "ollama":
@@ -98,15 +95,22 @@ def format_rag_metadata(metadata) -> str:
         if source.startswith(k):
             source = source.replace(k, v).upper()
 
-    numbers = (metadata['chapter_number'], metadata['section_number'], metadata['article_number'])
-    titles = (metadata['chapter_title'], metadata['section_title'], metadata['article_title'])
-    
+    numbers = (
+        metadata["chapter_number"],
+        metadata["section_number"],
+        metadata["article_number"],
+    )
+    titles = (
+        metadata["chapter_title"],
+        metadata["section_title"],
+        metadata["article_title"],
+    )
+
     formatted_metadata = [f"{source}"]
     for i in range(len(titles)):
-
         if titles[i] is not None:
             formatted_metadata.append(f"{section_mapping[i]} {numbers[i]}")
-    
+
     return ", ".join(formatted_metadata)
 
 
@@ -121,17 +125,17 @@ def format_sql_output(sql_output):
             if attribute == "COUNT(*)":
                 count_response = f"Có {value} giảng viên được tìm thấy."
                 return count_response
-            
+
             if attribute == "id":
-                pass # do nothing
+                pass  # do nothing
 
             if ("/n" in value or "\n" in value) and len(value) > 0:
-                fixed_value = value.replace("\n", "\n- ").replace('/n', '\n- ')
+                fixed_value = value.replace("\n", "\n- ").replace("/n", "\n- ")
                 response += f"{column_mapping[attribute]}: \n- {fixed_value}\n\n"
             elif len(value) == 0:
                 response += f"{column_mapping[attribute]}: Không có thông tin\n\n"
             else:
-                response += f"{column_mapping[attribute]}: {value}\n\n"    
+                response += f"{column_mapping[attribute]}: {value}\n\n"
 
         response += f"{'-'*40}\n"
 

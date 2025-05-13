@@ -50,13 +50,14 @@ class SQLAgent(BaseAgent):
         information, entities = self.extract_relations(question)
         self.log("Finish relation extraction")
 
-        if (len(information['information']) == 0 or len(entities) == 0) and (not information['count']):
-            self.log("No entities found in question.") # route to web search if there is no information
-            return {
-                "source": "sql",
-                "sql_result": ""
-            }
-        
+        if (len(information["information"]) == 0 or len(entities) == 0) and (
+            not information["count"]
+        ):
+            self.log(
+                "No entities found in question."
+            )  # route to web search if there is no information
+            return {"source": "sql", "sql_result": ""}
+
         sql_query = self.condition_parse(information, entities)
 
         cnt = 0
@@ -83,10 +84,77 @@ class SQLAgent(BaseAgent):
             "sql_result": sql_output,
         }
 
+    async def arun(self, state: Dict, **kwargs) -> Dict[str, Any]:
+        """
+        Asynchronously run the Text2SQL flow.
+        """
+        question = state["question"]
+        self.log(f"Processing question: {question}")
 
-    async def arun(self):
-        # TODO
-        pass
+        self.log("Extracting relations")
+        information, entities = await self.aextract_relations(question)
+        self.log("Finish relation extraction")
+
+        if (len(information["information"]) == 0 or len(entities) == 0) and (
+            not information["count"]
+        ):
+            self.log("No entities found in question.")
+            return {"source": "sql", "sql_result": ""}
+
+        sql_query = self.condition_parse(information, entities)
+
+        cnt = 0
+        fix_flag = False
+        for v in entities.values():
+            if len(v) > 0:
+                cnt += 1
+                if cnt >= 2:
+                    fix_flag = True
+                    break
+
+        if fix_flag:
+            fixed_sql_query = await self.afix_query(question, sql_query)
+        else:
+            fixed_sql_query = sql_query
+
+        # Assume self.db has an async run method, otherwise run in thread
+        import asyncio
+
+        loop = asyncio.get_event_loop()
+        sql_output = await loop.run_in_executor(
+            None,
+            lambda: ast.literal_eval(
+                self.db.run(fixed_sql_query, include_columns=True)
+            ),
+        )
+
+        return {
+            "source": "sql",
+            "sql_query": fixed_sql_query,
+            "sql_result": sql_output,
+        }
+
+    async def aextract_relations(self, question: str):
+        self.log("Extracting entities and intent (async)")
+        information = await self.llm_json.ainvoke(
+            [SystemMessage(content=INTENT_PROMPT)] + [HumanMessage(content=question)]
+        )
+        entities = await self.llm_json.ainvoke(
+            [SystemMessage(content=NER_PROMPT)] + [HumanMessage(content=question)]
+        )
+        return json.loads(information.content), json.loads(entities.content)
+
+    async def afix_query(self, question: str, query: str):
+        self.log(f"Fixing query: {query} (async)")
+        resp = await self.llm_json.ainvoke(
+            [
+                SystemMessage(
+                    content=REVIEWER_PROMPT.format(question=question, query=query)
+                )
+            ]
+            + [HumanMessage(content=question)]
+        )
+        return resp.content
 
     def extract_relations(self, question: str):
         """

@@ -1,15 +1,16 @@
 services:
-  # main:
-  #   build: deploy/Dockerfile
-  #   network_mode: host
-  #   environment:
-  #     - LLAMA_CLOUD_API_KEY=${LLAMA_CLOUD_API_KEY}
-  #     - OPENAI_API_KEY=${OPENAI_API_KEY}
-  #     - RAGAS_APP_TOKEN=${RAGAS_APP_TOKEN}
+  # app:
+  #   build: ./deploy
+  #   ports:
+  #     - 8501:8501
+  #   volumes:
+  #     - .:/app
   #   depends_on:
   #     - weaviate
-  #     - ollama
-    
+  #   environment:
+  #     - PYTHONUNBUFFERED=1
+  #     - PYTHONDONTWRITEBYTECODE=1
+  #     - PIP_NO_CACHE_DIR=1
   weaviate:
     command:
     - --host
