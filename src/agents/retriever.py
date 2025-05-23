@@ -41,7 +41,7 @@ class RetrievalAgent(BaseAgent):
 
         # If no relevant documents, return empty result
         web_search = False
-        if not filtered_docs:
+        if len(filtered_docs) == 0:
             self.log("No relevant documents found, falling back to web search")
             web_search = True
 

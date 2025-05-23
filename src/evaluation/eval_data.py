@@ -50,11 +50,11 @@ def build_comp(client, settings: Settings):
 
 def build_rag_eval(agents, df, output_file, **kwargs):
     pipeline = Graph(agents, **kwargs)
-    file = {"question": [], "answer": [], "contexts": [], "ground_truths": []}
+    record = []
 
     for _, row in tqdm(df.iterrows()):
         question = row["User input"]
-        ground_truths = row["Reference (Reference answer)"]
+        ground_truth = row["Reference (Reference answer)"]
 
         response = pipeline.chat(query=question)
 
@@ -66,11 +66,14 @@ def build_rag_eval(agents, df, output_file, **kwargs):
             contexts = []
 
         with open(output_file, "w", encoding="utf-8") as f:
-            file["question"].append(question)
-            file["ground_truths"].append(ground_truths)
-            file["answer"].append(answer)
-            file["contexts"].append(contexts)
-            content = json.dumps(file, indent=2, ensure_ascii=False)
+            obj = {
+                "user_input": question,
+                "retrieved_contexts": contexts,
+                "response": answer,
+                "reference": ground_truth,
+            }
+            record.append(obj)
+            content = json.dumps(obj, indent=2, ensure_ascii=False)
             f.write(content)
     client.close()
 

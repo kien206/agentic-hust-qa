@@ -406,7 +406,7 @@ def format_metadata(metadata):
     for i in range(len(titles)):
 
         if titles[i] is not None:
-            formatted_metadata += f"{section_mapping[i]} {numbers[i]}: {titles[i].upper().strip("# ")}\n\n"
+            formatted_metadata += f"{section_mapping[i]} {numbers[i]}: {titles[i].upper().strip('# ')}\n\n"
     
     return formatted_metadata
 
@@ -453,7 +453,7 @@ def get_vectorstore(
     client, embedding_model, index_name, text_dir, reset=False, **kwargs
 ):
     if reset:
-        client.collections.delete_all()
+        client.collections.delete(index_name)
     if not client.collections.exists(index_name):
         doc_list = split_md(text_dir)
         vectorstore = WeaviateVectorStore.from_documents(

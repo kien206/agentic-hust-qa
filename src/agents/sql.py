@@ -50,8 +50,8 @@ class SQLAgent(BaseAgent):
         information, entities = self.extract_relations(question)
         self.log("Finish relation extraction")
 
-        if (len(information["information"]) == 0 or len(entities) == 0) and (
-            not information["count"]
+        if (len(information.get("information", "")) == 0 or len(entities) == 0) and (
+            len(information["count"]) == 0
         ):
             self.log(
                 "No entities found in question."

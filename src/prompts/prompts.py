@@ -1,12 +1,17 @@
 ROUTER_INSTRUCTIONS = """You are an expert at routing a user question to a vectorstore or a SQL store.
 
-    The vectorstore contains documents, regulations and information related to Hanoi University of Science & Technology. Use the vectorstore for questions on these topics and any other university-related topics EXCEPT people or job information. Information that uses the vectorstore might be regulations, grades calculation, scholarships,... 
+    The vectorstore contains documents, regulations and information related to Hanoi University of Science & Technology. Use the vectorstore for questions on these topics and any other university-related topics. Information that uses the vectorstore might be regulations, grades calculation, scholarships, internal... 
     
-    For questions related to lecturers that include names, job title,..., use the SQL store. 
+    For questions related to lecturers that include names, teaching courses,..., use the SQL store. 
     
     For other questions that are irrelevant, use the irrelevant tool.
-
-    Return JSON with single key, datasource, that is 'vectorstore' or 'sql' or 'irrelevant' depending on the question."""
+    
+    Return JSON with single key, datasource, that is 'vectorstore' for the vectorstore or 'sql' for SQL store or 'irrelevant' depending on the question.
+    
+    Here is an example: 
+    
+    Question: Hội đồng thi tiếng anh nội bộ gồm những ai?
+    Output: vectorstore"""
 
 DOC_GRADER_INSTRUCTIONS = """You are a grader assessing relevance of a retrieved document to a user question.
 
@@ -86,7 +91,7 @@ Return JSON with 2 key(s), 'information', with the list of information the user 
 NER_PROMPT = """
 You are a Name Entity Recognition expert that detects enities based on a question. The question will be about lecturers or a course in Hanoi University of Science and Technology. Here are the labels and their description:
 
-- names: the name of the lecturer .For example, one's name can 'Đinh Viết Sang', but can also be 'Sang' in another question.
+- names: the name of the lecturer. For example, one's name can 'Đinh Viết Sang', but can also be 'Sang' in another question.
 - title: the title of the lecturer. This can be 'Phó Hiệu trưởng', 'Hiệu trưởng',.....
 - courses: the course/subject name, referring to the course/subject name.
 - research_field: the field of research of the lecturer.

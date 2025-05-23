@@ -32,6 +32,7 @@ def build_comp(client, settings: Settings):
         embedding_model=embedding,
         index_name="Hust_doc_md_final",
         text_dir=settings.vectorstore.text_dir,
+        # reset=True
     )
 
     retriever = get_retriever(vectorstore=vectorstore, k=settings.agent.top_k)
@@ -44,7 +45,15 @@ def build_comp(client, settings: Settings):
             reload = False
         _, db = initialize_database(lecturer_data_path, db_path, reload=reload)
 
-    return llm, llm_json_mode, retriever, db, web_search_tool
+    agents = {
+        "router": RouterAgent(llm_json=llm_json_mode, verbose=True),
+        "retriever": RetrievalAgent(llm, llm_json_mode, retriever, verbose=True),
+        "sql": SQLAgent(llm, llm_json_mode, db, verbose=True),
+        "web_search": WebSearchAgent(llm, web_search_tool, verbose=True),
+        "generator": LLM(llm, verbose=True),
+    }
+
+    return agents
 
 
 def main(agents, **kwargs):
@@ -85,23 +94,12 @@ def main_stream(agents, **kwargs):
                 if chunk.content and metadata.get("langgraph_node") == "generator":
                     print(chunk.content, end="", flush=True)
             elif mode == "custom":
-                print(json.loads(payload)["citation"])
+                print(payload["citation"])
 
 
 if __name__ == "__main__":
     settings = Settings()
     client = weaviate.connect_to_local()
 
-    logger.debug("Getting components")
-    llm, llm_json_mode, retriever, db, web_search_tool = build_comp(client, settings)
-    logger.debug("Finished loading components.")
-    agents = {
-        "router": RouterAgent(llm_json=llm_json_mode, verbose=True),
-        "retriever": RetrievalAgent(llm, llm_json_mode, retriever, verbose=True),
-        "sql": SQLAgent(llm, llm_json_mode, db, verbose=True),
-        "web_search": WebSearchAgent(llm, web_search_tool, verbose=True),
-        "generator": LLM(llm, verbose=True),
-    }
-    logger.debug("Finished loading Agents.")
-
+    agents = build_comp(client, settings)
     main_stream(agents)

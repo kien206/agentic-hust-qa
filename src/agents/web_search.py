@@ -34,11 +34,11 @@ class WebSearchAgent(BaseAgent):
         Process the query by searching the web and generating an answer.
         """
         query = state["question"]
-        self.log(f"Processing query: {query}")
 
         # Perform web search
         try:
             query += " Đại học Bách Khoa Hà Nội"
+            self.log(f"Processing query: {query}")
             search_results = self.web_search_tool.invoke({"query": query, **kwargs})
             self.log(f"Retrieved {len(search_results)} search results")
 
