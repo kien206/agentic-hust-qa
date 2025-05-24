@@ -7,7 +7,7 @@ from pydantic_settings import BaseSettings
 class LLMSettings(BaseSettings):
     """Settings for LLM models."""
 
-    model: str = Field("qwen3:8b", description="Default LLM model to use")
+    model: str = Field("qwen2.5:7b", description="Default LLM model to use")
     provider: str = Field("ollama", description="The provider of the LLM")
     temperature: float = Field(0, description="Temperature for text generation")
     max_tokens: Optional[int] = Field(None, description="Maximum tokens to generate")
