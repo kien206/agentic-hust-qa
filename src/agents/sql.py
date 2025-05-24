@@ -1,5 +1,6 @@
 import ast
 import json
+from sqlite3 import OperationalError
 from typing import Any, Dict
 
 from langchain_core.messages import HumanMessage, SystemMessage
@@ -50,13 +51,13 @@ class SQLAgent(BaseAgent):
         information, entities = self.extract_relations(question)
         self.log("Finish relation extraction")
 
-        if (len(information.get("information", "")) == 0 or len(entities) == 0) and (
-            len(information["count"]) == 0
+        if (all(len(v) == 0 for v in entities.values())) and (
+            information["count"] is False
         ):
             self.log(
                 "No entities found in question."
             )  # route to web search if there is no information
-            return {"source": "sql", "sql_result": ""}
+            return {"source": "sql", "sql_result": "", "web_search": True}
 
         sql_query = self.condition_parse(information, entities)
 
@@ -73,15 +74,33 @@ class SQLAgent(BaseAgent):
             fixed_sql_query = self.fix_query(question, sql_query)
         else:
             fixed_sql_query = sql_query
+            
+        try:
+            db_output = self.db.run(
+                fixed_sql_query, include_columns=True
+            )  # This is returning "[{'column a': 'value',...}, ....]"
+            if db_output:
+                sql_output = ast.literal_eval(db_output)
 
-        sql_output = ast.literal_eval(
-            self.db.run(fixed_sql_query, include_columns=True)
-        )
+                return {
+                    "source": "sql",
+                    "sql_query": fixed_sql_query,
+                    "sql_result": sql_output,
+                }
+
+        except:
+            return {
+                "source": "sql",
+                "sql_query": fixed_sql_query,
+                "sql_result": "",
+                "web_search": True,
+            }
 
         return {
             "source": "sql",
             "sql_query": fixed_sql_query,
-            "sql_result": sql_output,
+            "sql_result": "",
+            "web_search": True,
         }
 
     async def arun(self, state: Dict, **kwargs) -> Dict[str, Any]:
@@ -99,7 +118,10 @@ class SQLAgent(BaseAgent):
             not information["count"]
         ):
             self.log("No entities found in question.")
-            return {"source": "sql", "sql_result": ""}
+            return {
+                "source": "sql",
+                "sql_result": "",
+            }
 
         sql_query = self.condition_parse(information, entities)
 
@@ -234,13 +256,12 @@ class SQLAgent(BaseAgent):
         """
         self.log("Fixing query: {query}.")
 
-        resp = self.llm_json.invoke(
+        resp = self.llm.invoke(
             [
-                SystemMessage(
+                HumanMessage(
                     content=REVIEWER_PROMPT.format(question=question, query=query)
                 )
             ]
-            + [HumanMessage(content=question)]
         )
 
         return resp.content

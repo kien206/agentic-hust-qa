@@ -41,7 +41,7 @@ class WebSearchSettings(BaseSettings):
     tavily_api_key: Optional[str] = Field(
         None, description="Tavily API key for web search", env="TAVILY_API_KEY"
     )
-    search_depth: int = Field(3, description="Number of search results to return")
+    search_depth: int = Field(5, description="Number of search results to return")
 
 
 class AgentSettings(BaseSettings):

@@ -380,17 +380,13 @@ def get_chunks_with_metadata_new(text: str):
 
 
 def format_metadata(metadata):
-    section_mapping = {
-        0: "Chương",
-        1: "Mục",
-        2: "Điều"
-    }
+    section_mapping = {0: "Chương", 1: "Mục", 2: "Điều"}
 
     source_mapping = {
         "QC": "Quy chế",
         "QĐ": "Quy định",
         "HD": "Hướng dẫn",
-        "QtĐ": "Quyết định"
+        "QtĐ": "Quyết định",
     }
 
     source = metadata.get("source").split(".md")[0]
@@ -399,16 +395,24 @@ def format_metadata(metadata):
         if source.startswith(k):
             source = source.replace(k, v).upper()
 
-    numbers = (metadata['chapter_number'], metadata['section_number'], metadata['article_number'])
-    titles = (metadata['chapter_title'], metadata['section_title'], metadata['article_title'])
-    
+    numbers = (
+        metadata["chapter_number"],
+        metadata["section_number"],
+        metadata["article_number"],
+    )
+    titles = (
+        metadata["chapter_title"],
+        metadata["section_title"],
+        metadata["article_title"],
+    )
+
     formatted_metadata = f"{source}\n"
     for i in range(len(titles)):
-
         if titles[i] is not None:
             formatted_metadata += f"{section_mapping[i]} {numbers[i]}: {titles[i].upper().strip('# ')}\n\n"
-    
+
     return formatted_metadata
+
 
 def split_md(dir, **kwargs):
     doc_list = []
@@ -425,7 +429,13 @@ def split_md(dir, **kwargs):
             chunk_metadata = chunk["metadata"]
             chunk_metadata["source"] = file
             formatted_metadata = format_metadata(chunk_metadata)
-            doc_list.append(Document(page_content=formatted_metadata + chunk["text"], metadata=chunk_metadata, **kwargs))
+            doc_list.append(
+                Document(
+                    page_content=formatted_metadata + chunk["text"],
+                    metadata=chunk_metadata,
+                    **kwargs,
+                )
+            )
 
     return doc_list
 
@@ -461,7 +471,7 @@ def get_vectorstore(
             documents=doc_list,
             embedding=embedding_model,
             index_name=index_name,
-            **kwargs
+            **kwargs,
         )
 
         return vectorstore
@@ -471,7 +481,7 @@ def get_vectorstore(
         text_key="text",
         embedding=embedding_model,
         index_name=index_name,
-        **kwargs
+        **kwargs,
     )
     return vectorstore
 

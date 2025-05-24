@@ -57,7 +57,7 @@ def build_comp(client, settings: Settings):
     return agents
 
 
-def create_streamlit_app(agents):
+def create_streamlit_app(agents, config={}):
     """
     Creates a Streamlit app for the LangGraph chatbot.
     """
@@ -115,7 +115,7 @@ def create_streamlit_app(agents):
             # Stream the response
             try:
                 for mode, payload in st.session_state.pipeline.graph.stream(
-                    {"question": user_query.lower()}, stream_mode=["messages", "custom"]
+                    {"question": user_query.lower()}, stream_mode=["messages", "custom"], config=config
                 ):
                     if mode == "messages":
                         chunk, metadata = payload
@@ -149,4 +149,9 @@ if __name__ == "__main__":
     client = weaviate.connect_to_local()
 
     agents = build_comp(client, settings)
-    create_streamlit_app(agents)
+    config = {
+        "configurable": {
+            "thread_id": "1"
+        }
+    }
+    create_streamlit_app(agents, config)

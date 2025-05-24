@@ -4,14 +4,14 @@ ROUTER_INSTRUCTIONS = """You are an expert at routing a user question to a vecto
     
     For questions related to lecturers that include names, teaching courses,..., use the SQL store. 
     
-    For other questions that are irrelevant, use the irrelevant tool.
+    For other questions that are irrelevant to the above two categories, PLEASE use the irrelevant tool.
     
-    Return JSON with single key, datasource, that is 'vectorstore' for the vectorstore or 'sql' for SQL store or 'irrelevant' depending on the question.
+    Return JSON with single key, datasource, that is 'vectorstore' for the vectorstore or 'sql' for SQL store or 'irrelevant' for irrelevant tool depending on the question.
     
     Here is an example: 
     
     Question: Hội đồng thi tiếng anh nội bộ gồm những ai?
-    Output: vectorstore"""
+    Output: {'datasource': 'vectorstore'}"""
 
 DOC_GRADER_INSTRUCTIONS = """You are a grader assessing relevance of a retrieved document to a user question.
 
@@ -105,21 +105,20 @@ Return JSON with 5 keys, as the 5 labels. Their values is be a list of entities 
 Here are a few example:
 
 Question: Cho xin thông tin về các thầy Đinh Viết Sang, Tạ Hải Tùng dạy môn Tối ưu hóa, thầy Hiếu và thầy Đức Anh dạy môn machine learning.
-Output: {'names': ['Đinh Viết Sang', 'Tạ Hải Tùng', 'Hiếu', 'Đức Anh'], 'courses': ['machine learning', 'Tối ưu hóa'], 'research_field': [], 'projects': []}
+Output: {'names': ['Đinh Viết Sang', 'Tạ Hải Tùng', 'Hiếu', 'Đức Anh'], 'title': [], 'courses': ['machine learning', 'Tối ưu hóa'], 'research_field': [], 'projects': []}
 
 Question: Có những ai đang nghiên cứu lĩnh vực xử lý ngôn ngữ tự nhiên và thị giác máy tính?
-Output: {'names': [], 'courses': [], 'research_field': ['Xử lý ngôn ngữ tự nhiên', 'Thị giác máy tính'], 'projects': []}
+Output: {'names': [], 'title': [], 'courses': [], 'research_field': ['Xử lý ngôn ngữ tự nhiên', 'Thị giác máy tính'], 'projects': []}
 
 Question: Có bao nhiêu giảng viên là giảng viên chính?
-Output: {'names': [], 'courses': [], 'research_field': [], 'projects': []}
+Output: {'names': [], 'title': ['Giảng viên chính'], 'courses': [], 'research_field': [], 'projects': []}
 """
 
 REVIEWER_PROMPT = """
-You are a SQL Query reviewer. Given a user question and a SQL query, your job is to make changes to the query to correctly address the question. ONLY switch the order of WHERE conditions. DO NOT fix anything else
+You are a SQL Query reviewer. Given a user question and a SQL query, your job is to make changes to the query to correctly address the question. ONLY switch the order of WHERE conditions OR remove the WHERE clause. DO NOT fix anything else.
 
-Here is the inputs:
+Here are the inputs:
 Question: {question}
 SQL query: {query}
 
-Return a JSON with a single key 'fixed_query', with the fixed query as its result.
-"""
+Fixed query:"""

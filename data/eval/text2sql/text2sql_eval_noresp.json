@@ -1,0 +1,1157 @@
+{
+  "version": "1.0.0",
+  "data": [
+    {
+      "user_input": "Cho xin thông tin về giảng viên Mai.",
+      "reference": "SELECT name, title, introduction, email, url FROM lecturers WHERE name LIKE '%Mai%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Cho xin thông tin về giảng viên Trang.",
+      "reference": "SELECT name, title, introduction, email, url FROM lecturers WHERE name LIKE '%Trang%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Cho xin thông tin về giảng viên Nguyễn Hồng Quang.",
+      "reference": "SELECT name, title, introduction, email, url FROM lecturers WHERE name LIKE '%Nguyễn Hồng Quang%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Giảng viên Nguyễn Mạnh Tuấn là ai?",
+      "reference": "SELECT name, title, introduction, email, url FROM lecturers WHERE name LIKE '%Nguyễn Mạnh Tuấn%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Giảng viên Hiên là ai?",
+      "reference": "SELECT name, title, introduction, email, url FROM lecturers WHERE name LIKE '%Hiên%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Giảng viên Vũ Tuyết Trinh là ai?",
+      "reference": "SELECT name, title, introduction, email, url FROM lecturers WHERE name LIKE '%Vũ Tuyết Trinh%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Cung cấp thông tin của thầy/cô Đỗ Công Thuần.",
+      "reference": "SELECT name, title, introduction, email, url FROM lecturers WHERE name LIKE '%Đỗ Công Thuần%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Cung cấp thông tin của thầy/cô Tùng.",
+      "reference": "SELECT name, title, introduction, email, url FROM lecturers WHERE name LIKE '%Tùng%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Cung cấp thông tin của thầy/cô Trịnh Thành Trung.",
+      "reference": "SELECT name, title, introduction, email, url FROM lecturers WHERE name LIKE '%Trịnh Thành Trung%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Thông tin chi tiết của giảng viên Nguyễn Văn Hiên là gì?",
+      "reference": "SELECT name, title, introduction, email, publications, awards, subjects, projects, research_field, interested_field, url FROM lecturers WHERE name LIKE '%Nguyễn Văn Hiên%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Thông tin chi tiết của giảng viên Hoàng Văn Hiệp là gì?",
+      "reference": "SELECT name, title, introduction, email, publications, awards, subjects, projects, research_field, interested_field, url FROM lecturers WHERE name LIKE '%Hoàng Văn Hiệp%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Thông tin chi tiết của giảng viên Thắng là gì?",
+      "reference": "SELECT name, title, introduction, email, publications, awards, subjects, projects, research_field, interested_field, url FROM lecturers WHERE name LIKE '%Thắng%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Giới thiệu về giảng viên Hoa.",
+      "reference": "SELECT introduction, url FROM lecturers WHERE name LIKE '%Hoa%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Giới thiệu về giảng viên Trịnh Văn Loan.",
+      "reference": "SELECT introduction, url FROM lecturers WHERE name LIKE '%Trịnh Văn Loan%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Giới thiệu về giảng viên Ngọc.",
+      "reference": "SELECT introduction, url FROM lecturers WHERE name LIKE '%Ngọc%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Trang web cá nhân của giảng viên Tuyết là gì?",
+      "reference": "SELECT url FROM lecturers WHERE name LIKE '%Tuyết%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Trang web cá nhân của giảng viên Trần Nhật Hóa là gì?",
+      "reference": "SELECT url FROM lecturers WHERE name LIKE '%Trần Nhật Hóa%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Trang web cá nhân của giảng viên Phạm Duy Đạt là gì?",
+      "reference": "SELECT url FROM lecturers WHERE name LIKE '%Phạm Duy Đạt%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Tìm giảng viên có tên là Nguyễn Tiến Thành.",
+      "reference": "SELECT name, title, email, url FROM lecturers WHERE name LIKE '%Nguyễn Tiến Thành%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Tìm giảng viên có tên là Tùng.",
+      "reference": "SELECT name, title, email, url FROM lecturers WHERE name LIKE '%Tùng%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Tìm giảng viên có tên là Trương Thị Diệu Linh.",
+      "reference": "SELECT name, title, email, url FROM lecturers WHERE name LIKE '%Trương Thị Diệu Linh%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Danh sách các giảng viên có tên chứa \"Đỗ Tiến Dũng\".",
+      "reference": "SELECT name, title, email, url FROM lecturers WHERE name LIKE '%Đỗ Tiến Dũng%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Danh sách các giảng viên có tên chứa \"Trịnh Văn Chiến\".",
+      "reference": "SELECT name, title, email, url FROM lecturers WHERE name LIKE '%Trịnh Văn Chiến%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Danh sách các giảng viên có tên chứa \"Đỗ Công Thuần\".",
+      "reference": "SELECT name, title, email, url FROM lecturers WHERE name LIKE '%Đỗ Công Thuần%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Hiện có bao nhiêu giảng viên có tên là Bành Thị Quỳnh Mai?",
+      "reference": "SELECT COUNT(id) FROM lecturers WHERE name LIKE '%Bành Thị Quỳnh Mai%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Hiện có bao nhiêu giảng viên có tên là Lê Thanh Hương?",
+      "reference": "SELECT COUNT(id) FROM lecturers WHERE name LIKE '%Lê Thanh Hương%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Hiện có bao nhiêu giảng viên có tên là Lã Thế Vinh?",
+      "reference": "SELECT COUNT(id) FROM lecturers WHERE name LIKE '%Lã Thế Vinh%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Hiện có bao nhiêu giảng viên trong danh sách?",
+      "reference": "SELECT COUNT(id) FROM lecturers",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Hiện có bao nhiêu giảng viên trong danh sách?",
+      "reference": "SELECT COUNT(id) FROM lecturers",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Hiện có bao nhiêu giảng viên trong danh sách?",
+      "reference": "SELECT COUNT(id) FROM lecturers",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Cho biết chức danh của giảng viên Nguyễn Thị Hoàng Lan.",
+      "reference": "SELECT title, url FROM lecturers WHERE name LIKE '%Nguyễn Thị Hoàng Lan%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Cho biết chức danh của giảng viên Nguyễn Khanh Văn.",
+      "reference": "SELECT title, url FROM lecturers WHERE name LIKE '%Nguyễn Khanh Văn%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Cho biết chức danh của giảng viên Đỗ Bá Lâm.",
+      "reference": "SELECT title, url FROM lecturers WHERE name LIKE '%Đỗ Bá Lâm%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Những giảng viên nào có chức danh là Trưởng Khoa, Khoa Kỹ thuật Máy tính?",
+      "reference": "SELECT name, email, url FROM lecturers WHERE title LIKE '%Trưởng Khoa, Khoa Kỹ thuật Máy tính%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Những giảng viên nào có chức danh là Giám đốc, Trung tâm An toàn An ninh Thông tin?",
+      "reference": "SELECT name, email, url FROM lecturers WHERE title LIKE '%Giám đốc, Trung tâm An toàn An ninh Thông tin%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Những giảng viên nào có chức danh là Phó trưởng khoa, Khoa Khoa học Máy tính?",
+      "reference": "SELECT name, email, url FROM lecturers WHERE title LIKE '%Phó trưởng khoa, Khoa Khoa học Máy tính%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Có bao nhiêu giảng viên có chức danh là Giám đốc, Trung tâm An toàn An ninh Thông tin?",
+      "reference": "SELECT COUNT(id) FROM lecturers WHERE title LIKE '%Giám đốc, Trung tâm An toàn An ninh Thông tin%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Có bao nhiêu giảng viên có chức danh là Phó Trưởng Văn phòng, Văn phòng Trường?",
+      "reference": "SELECT COUNT(id) FROM lecturers WHERE title LIKE '%Phó Trưởng Văn phòng, Văn phòng Trường%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Có bao nhiêu giảng viên có chức danh là PGS. TS. GVC?",
+      "reference": "SELECT COUNT(id) FROM lecturers WHERE title LIKE '%PGS. TS. GVC%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Email của giảng viên Nguyễn Hữu Đức là gì?",
+      "reference": "SELECT email, url FROM lecturers WHERE name LIKE '%Nguyễn Hữu Đức%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Email của giảng viên Hiếu là gì?",
+      "reference": "SELECT email, url FROM lecturers WHERE name LIKE '%Hiếu%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Email của giảng viên Anh là gì?",
+      "reference": "SELECT email, url FROM lecturers WHERE name LIKE '%Anh%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Cho xin địa chỉ email của thầy/cô Thân Quang Khoát.",
+      "reference": "SELECT email, url FROM lecturers WHERE name LIKE '%Thân Quang Khoát%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Cho xin địa chỉ email của thầy/cô Nguyễn Kiêm Hiếu.",
+      "reference": "SELECT email, url FROM lecturers WHERE name LIKE '%Nguyễn Kiêm Hiếu%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Cho xin địa chỉ email của thầy/cô Lã Thế Vinh.",
+      "reference": "SELECT email, url FROM lecturers WHERE name LIKE '%Lã Thế Vinh%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Làm sao để liên hệ với giảng viên Thu?",
+      "reference": "SELECT email, url FROM lecturers WHERE name LIKE '%Thu%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Làm sao để liên hệ với giảng viên Phạm Thị Ánh Tuyết?",
+      "reference": "SELECT email, url FROM lecturers WHERE name LIKE '%Phạm Thị Ánh Tuyết%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Làm sao để liên hệ với giảng viên Trần Hoàng Hải?",
+      "reference": "SELECT email, url FROM lecturers WHERE name LIKE '%Trần Hoàng Hải%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Tìm giảng viên có email là haith@soict.hust.edu.vn.",
+      "reference": "SELECT name, title, url FROM lecturers WHERE email LIKE '%haith@soict.hust.edu.vn%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Tìm giảng viên có email là quangnh@soict.hust.edu.vn.",
+      "reference": "SELECT name, title, url FROM lecturers WHERE email LIKE '%quangnh@soict.hust.edu.vn%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Tìm giảng viên có email là trungtt@soict.hust.edu.vn.",
+      "reference": "SELECT name, title, url FROM lecturers WHERE email LIKE '%trungtt@soict.hust.edu.vn%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Những giảng viên nào có email chứa \"quang.nguyenhong@hust.edu.vn\"?",
+      "reference": "SELECT name, email, url FROM lecturers WHERE email LIKE '%quang.nguyenhong@hust.edu.vn%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Những giảng viên nào có email chứa \"thunq@soict.hust.edu.vn\"?",
+      "reference": "SELECT name, email, url FROM lecturers WHERE email LIKE '%thunq@soict.hust.edu.vn%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Những giảng viên nào có email chứa \"thang.huynhquyet@hust.edu.vn\"?",
+      "reference": "SELECT name, email, url FROM lecturers WHERE email LIKE '%thang.huynhquyet@hust.edu.vn%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Tìm giảng viên tên Lê Đức Trung và dạy môn IT3220: C Programming (Basic).",
+      "reference": "SELECT name, email, title, url FROM lecturers WHERE name LIKE '%Lê Đức Trung%' AND subjects LIKE '%IT3220: C Programming (Basic)%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Tìm giảng viên tên Ngọc và dạy môn Thuật toán và cấu trúc dữ liệu.",
+      "reference": "SELECT name, email, title, url FROM lecturers WHERE name LIKE '%Ngọc%' AND subjects LIKE '%Thuật toán và cấu trúc dữ liệu%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Tìm giảng viên tên Thiệu và dạy môn IT4403: Phát triển hệ thống web an toàn.",
+      "reference": "SELECT name, email, title, url FROM lecturers WHERE name LIKE '%Thiệu%' AND subjects LIKE '%IT4403: Phát triển hệ thống web an toàn%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Cho biết email của giảng viên Hiền nghiên cứu về Trí tuệ nhân tạo (AI) diễn giải.",
+      "reference": "SELECT email, url FROM lecturers WHERE name LIKE '%Hiền%' AND research_field LIKE '%Trí tuệ nhân tạo (AI) diễn giải%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Cho biết email của giảng viên Văn nghiên cứu về Tính toán song song và phân tán.",
+      "reference": "SELECT email, url FROM lecturers WHERE name LIKE '%Văn%' AND research_field LIKE '%Tính toán song song và phân tán%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Cho biết email của giảng viên Nguyễn Nhất Hải nghiên cứu về Hệ Điều Hành.",
+      "reference": "SELECT email, url FROM lecturers WHERE name LIKE '%Nguyễn Nhất Hải%' AND research_field LIKE '%Hệ Điều Hành%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Liệt kê các giảng viên có chức danh Giảng viên, Khoa Kỹ thuật Máy tính và quan tâm đến lĩnh vực Công nghệ trò chơi.",
+      "reference": "SELECT name, email, url FROM lecturers WHERE title LIKE '%Giảng viên, Khoa Kỹ thuật Máy tính%' AND interested_field LIKE '%Công nghệ trò chơi%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Liệt kê các giảng viên có chức danh Phó Giám đốc, Trung tâm Mạng thông tin và quan tâm đến lĩnh vực Ứng dụng của học máy cho hệ thống truyền dẫn thông tin và xử lý tín hiệu.",
+      "reference": "SELECT name, email, url FROM lecturers WHERE title LIKE '%Phó Giám đốc, Trung tâm Mạng thông tin%' AND interested_field LIKE '%Ứng dụng của học máy cho hệ thống truyền dẫn thông tin và xử lý tín hiệu%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Liệt kê các giảng viên có chức danh Giảng viên Chính, Khoa Khoa học máy tính và quan tâm đến lĩnh vực Tổng hợp tiếng nói có biểu cảm.",
+      "reference": "SELECT name, email, url FROM lecturers WHERE title LIKE '%Giảng viên Chính, Khoa Khoa học máy tính%' AND interested_field LIKE '%Tổng hợp tiếng nói có biểu cảm%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Có giảng viên nào tên Trịnh Tuấn Đạt HOẶC có email là trangntt@soict.hust.edu.vn không?",
+      "reference": "SELECT name, title, email, url FROM lecturers WHERE name LIKE '%Trịnh Tuấn Đạt%' OR email LIKE '%trangntt@soict.hust.edu.vn%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Có giảng viên nào tên Trần Văn Đặng HOẶC có email là hai.tranhoang@hust.edu.vn không?",
+      "reference": "SELECT name, title, email, url FROM lecturers WHERE name LIKE '%Trần Văn Đặng%' OR email LIKE '%hai.tranhoang@hust.edu.vn%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Có giảng viên nào tên Hùng HOẶC có email là ductv@soict.hust.edu.vn không?",
+      "reference": "SELECT name, title, email, url FROM lecturers WHERE name LIKE '%Hùng%' OR email LIKE '%ductv@soict.hust.edu.vn%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Tìm giảng viên dạy môn IT3312E: Cấu trúc dữ liệu và giải thuật HOẶC môn IT4450: Cơ sở pháp y số.",
+      "reference": "SELECT name, email, url FROM lecturers WHERE subjects LIKE '%IT3312E: Cấu trúc dữ liệu và giải thuật%' OR subjects LIKE '%IT4450: Cơ sở pháp y số%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Tìm giảng viên dạy môn IT4831: Phòng chống tấn công mạng HOẶC môn IT4778: Lập trình hệ thống.",
+      "reference": "SELECT name, email, url FROM lecturers WHERE subjects LIKE '%IT4831: Phòng chống tấn công mạng%' OR subjects LIKE '%IT4778: Lập trình hệ thống%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Tìm giảng viên dạy môn IT6020: Nguyên lý các ngôn ngữ lập trinh HOẶC môn IT4735 Internet vạn vật và ứng dụng.",
+      "reference": "SELECT name, email, url FROM lecturers WHERE subjects LIKE '%IT6020: Nguyên lý các ngôn ngữ lập trinh%' OR subjects LIKE '%IT4735 Internet vạn vật và ứng dụng%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Có bao nhiêu giảng viên tên Nguyễn Văn Hiên và dạy môn IT3402E: Hệ thống thông tin Web?",
+      "reference": "SELECT COUNT(id) FROM lecturers WHERE name LIKE '%Nguyễn Văn Hiên%' AND subjects LIKE '%IT3402E: Hệ thống thông tin Web%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Có bao nhiêu giảng viên tên Khánh và dạy môn IT3292: Cơ sở dữ liệu?",
+      "reference": "SELECT COUNT(id) FROM lecturers WHERE name LIKE '%Khánh%' AND subjects LIKE '%IT3292: Cơ sở dữ liệu%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Có bao nhiêu giảng viên tên Trang và dạy môn Kiến thức máy tính?",
+      "reference": "SELECT COUNT(id) FROM lecturers WHERE name LIKE '%Trang%' AND subjects LIKE '%Kiến thức máy tính%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Tìm các giảng viên có lĩnh vực nghiên cứu là Ứng dụng học máy HOẶC Phân tích và xử lý dữ liệu và có chức danh Phó giám đốc Trung tâm, Trung tâm An toàn – An ninh thông tin.",
+      "reference": "SELECT name, email, url FROM lecturers WHERE (research_field LIKE '%Ứng dụng học máy%' OR research_field LIKE '%Phân tích và xử lý dữ liệu%') AND title LIKE '%Phó giám đốc Trung tâm, Trung tâm An toàn – An ninh thông tin%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Tìm các giảng viên có lĩnh vực nghiên cứu là Tối ưu tổ hợp HOẶC Mạng khả trình và có chức danh Giảng viên, Khoa Kỹ thuật Máy tính.",
+      "reference": "SELECT name, email, url FROM lecturers WHERE (research_field LIKE '%Tối ưu tổ hợp%' OR research_field LIKE '%Mạng khả trình%') AND title LIKE '%Giảng viên, Khoa Kỹ thuật Máy tính%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Tìm các giảng viên có lĩnh vực nghiên cứu là Tính toán mềm (Fuzzy logics, Fuzzy systems, Kansei evaluation, rule-based and Knowledge-based system) HOẶC Khai phá văn bản và có chức danh Giám đốc, Trung tâm Công nghệ Dữ liệu và Tính toán.",
+      "reference": "SELECT name, email, url FROM lecturers WHERE (research_field LIKE '%Tính toán mềm (Fuzzy logics, Fuzzy systems, Kansei evaluation, rule-based and Knowledge-based system)%' OR research_field LIKE '%Khai phá văn bản%') AND title LIKE '%Giám đốc, Trung tâm Công nghệ Dữ liệu và Tính toán%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Liệt kê giảng viên có bài báo về \"Tung Doan, and Takasu Atsuhiro. “Deep multi-view learning from sequential data without correspondence.” In 2019 International Joint Conference on Neural Net-works (IJCNN), pp. 1–8. IEEE, 2019.\" và tham gia dự án \"Trung tâm Máy tính và Thực hành\".",
+      "reference": "SELECT name, email, url FROM lecturers WHERE publications LIKE '%Tung Doan, and Takasu Atsuhiro. “Deep multi-view learning from sequential data without correspondence.” In 2019 International Joint Conference on Neural Net-works (IJCNN), pp. 1–8. IEEE, 2019.%' AND projects LIKE '%Trung tâm Máy tính và Thực hành%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Liệt kê giảng viên có bài báo về \"DGA Botnet Detection Using Supervised Learning Methods H. Mac, D. Tran, V. Tong, L. G. Nguyen, H. A. Tran The Eighth International Symposium on Information and Communication Technology (SoICT 2017), Ho Chi Minh, Vietnam, 2017\" và tham gia dự án \"Xây dựng trình biên dịch SML# cho ngôn ngữ StandardML, thành viên chính\".",
+      "reference": "SELECT name, email, url FROM lecturers WHERE publications LIKE '%DGA Botnet Detection Using Supervised Learning Methods H. Mac, D. Tran, V. Tong, L. G. Nguyen, H. A. Tran The Eighth International Symposium on Information and Communication Technology (SoICT 2017), Ho Chi Minh, Vietnam, 2017%' AND projects LIKE '%Xây dựng trình biên dịch SML# cho ngôn ngữ StandardML, thành viên chính%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Liệt kê giảng viên có bài báo về \"Nguyen, Thuan D., Vinh T. Tuan, Tung H. Ta, and Letizia Lo Presti (2016) “An ultra-low-cost antenna array frontend for GNSS application.” International Global Navigation Satellite Systems (IGNSS) 2016\" và tham gia dự án \"Văn phòng Trường\".",
+      "reference": "SELECT name, email, url FROM lecturers WHERE publications LIKE '%Nguyen, Thuan D., Vinh T. Tuan, Tung H. Ta, and Letizia Lo Presti (2016) “An ultra-low-cost antenna array frontend for GNSS application.” International Global Navigation Satellite Systems (IGNSS) 2016%' AND projects LIKE '%Văn phòng Trường%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Giảng viên nào có chức danh Trưởng nhóm nghiên cứu Tối ưu hoá, dạy môn Nhập môn Công nghệ Thông tin và Truyền thông và nghiên cứu về An ninh mạng?",
+      "reference": "SELECT name, email, url FROM lecturers WHERE title LIKE '%Trưởng nhóm nghiên cứu Tối ưu hoá%' AND subjects LIKE '%Nhập môn Công nghệ Thông tin và Truyền thông%' AND research_field LIKE '%An ninh mạng%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Giảng viên nào có chức danh Phó Trưởng Văn phòng, Văn phòng Trường, dạy môn IT3110: Linux và phần mềm nguồn mở và nghiên cứu về Phần mềm tài chính công nghệ cao?",
+      "reference": "SELECT name, email, url FROM lecturers WHERE title LIKE '%Phó Trưởng Văn phòng, Văn phòng Trường%' AND subjects LIKE '%IT3110: Linux và phần mềm nguồn mở%' AND research_field LIKE '%Phần mềm tài chính công nghệ cao%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Giảng viên nào có chức danh Phó trưởng khoa, Khoa Khoa học Máy tính, dạy môn IT4924: Tính toán di động và nghiên cứu về Đồ họa máy tính?",
+      "reference": "SELECT name, email, url FROM lecturers WHERE title LIKE '%Phó trưởng khoa, Khoa Khoa học Máy tính%' AND subjects LIKE '%IT4924: Tính toán di động%' AND research_field LIKE '%Đồ họa máy tính%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Cho xin thông tin những giảng viên có tên chứa \"Trung\" và lĩnh vực quan tâm chứa \"Hệ gợi ý\".",
+      "reference": "SELECT name, title, email, interested_field, url FROM lecturers WHERE name LIKE '%Trung%' AND interested_field LIKE '%Hệ gợi ý%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Cho xin thông tin những giảng viên có tên chứa \"ThS. Trương Thị Vân Thu\" và lĩnh vực quan tâm chứa \"Phân tích dữ liệu lớn\".",
+      "reference": "SELECT name, title, email, interested_field, url FROM lecturers WHERE name LIKE '%ThS. Trương Thị Vân Thu%' AND interested_field LIKE '%Phân tích dữ liệu lớn%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Cho xin thông tin những giảng viên có tên chứa \"Toàn\" và lĩnh vực quan tâm chứa \"Các dịch vụ ứng dụng sử dụng vị trí\".",
+      "reference": "SELECT name, title, email, interested_field, url FROM lecturers WHERE name LIKE '%Toàn%' AND interested_field LIKE '%Các dịch vụ ứng dụng sử dụng vị trí%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Giảng viên Minh có những bài báo khoa học \"Duc Tran, Hieu Mac, Van Tong, Hai Anh Tran, Linh Giang Nguyen, “A LSTM based Frame- work for Handling Multiclass Imbalance in DGA Botnet Detection”, vol 275, pp. 2401-2413, Neurocomputing, 2018.\" nào?",
+      "reference": "SELECT publications, url FROM lecturers WHERE name LIKE '%Minh%' AND publications LIKE '%Duc Tran, Hieu Mac, Van Tong, Hai Anh Tran, Linh Giang Nguyen, “A LSTM based Frame- work for Handling Multiclass Imbalance in DGA Botnet Detection”, vol 275, pp. 2401-2413, Neurocomputing, 2018.%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Giảng viên Phạm Thị Phương Giang có những bài báo khoa học \"Van Hoang H., Nguyen T.D., Ta T.H., Povero G., Troglia Gamba M. (2021) GNSS-Based Solutions for Road Applications in Vietnam. In: Anderle M. (eds) Innovations in Land, Water and Energy for Vietnam’s Sustainable Development. UNIPA Springer Series. Springer, Cham. https:\" nào?",
+      "reference": "SELECT publications, url FROM lecturers WHERE name LIKE '%Phạm Thị Phương Giang%' AND publications LIKE '%Van Hoang H., Nguyen T.D., Ta T.H., Povero G., Troglia Gamba M. (2021) GNSS-Based Solutions for Road Applications in Vietnam. In: Anderle M. (eds) Innovations in Land, Water and Energy for Vietnam’s Sustainable Development. UNIPA Springer Series. Springer, Cham. https:%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Giảng viên Trịnh Tuấn Đạt có những bài báo khoa học \"DOI10.20965\" nào?",
+      "reference": "SELECT publications, url FROM lecturers WHERE name LIKE '%Trịnh Tuấn Đạt%' AND publications LIKE '%DOI10.20965%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Liệt kê các công bố \"Shen, J., Huete, A., Ma, X., Tran, N. N., Joiner, J., Beringer, J., … Yu, Q. (2020). Spatial pattern and seasonal dynamics of the photosynthesis activity across Australian rainfed croplands. Ecological Indicators, 108(November 2018), 105669. https:\" của giảng viên Nguyễn Tiến Thành.",
+      "reference": "SELECT publications, url FROM lecturers WHERE name LIKE '%Nguyễn Tiến Thành%' AND publications LIKE '%Shen, J., Huete, A., Ma, X., Tran, N. N., Joiner, J., Beringer, J., … Yu, Q. (2020). Spatial pattern and seasonal dynamics of the photosynthesis activity across Australian rainfed croplands. Ecological Indicators, 108(November 2018), 105669. https:%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Liệt kê các công bố \"H. Nguyen-An, T. Silverston, T. Yamazaki and T. Miyoshi, “Entropy-based IoT Devices Identification,” 2020 21st Asia-Pacific Network Operations and Management Symposium (APNOMS), Daegu, Korea (South), 2020, pp. 73-78\" của giảng viên Bùi Trọng Tùng.",
+      "reference": "SELECT publications, url FROM lecturers WHERE name LIKE '%Bùi Trọng Tùng%' AND publications LIKE '%H. Nguyen-An, T. Silverston, T. Yamazaki and T. Miyoshi, “Entropy-based IoT Devices Identification,” 2020 21st Asia-Pacific Network Operations and Management Symposium (APNOMS), Daegu, Korea (South), 2020, pp. 73-78%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Liệt kê các công bố \"Nang Hung Nguyen, Phi Le Nguyen, Duc Long Nguyen, Trung Thanh Nguyen, Thuy Dung\" của giảng viên Trung.",
+      "reference": "SELECT publications, url FROM lecturers WHERE name LIKE '%Trung%' AND publications LIKE '%Nang Hung Nguyen, Phi Le Nguyen, Duc Long Nguyen, Trung Thanh Nguyen, Thuy Dung%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Thầy/cô Lê Thanh Hương đã đạt được những giải thưởng \"2023 APEC-Australia Women in Research Fellowship.\" gì?",
+      "reference": "SELECT awards, url FROM lecturers WHERE name LIKE '%Lê Thanh Hương%' AND awards LIKE '%2023 APEC-Australia Women in Research Fellowship.%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Thầy/cô Hùng đã đạt được những giải thưởng \"Chứng nhận sinh viên xuất sắc nhất năm 2014\" gì?",
+      "reference": "SELECT awards, url FROM lecturers WHERE name LIKE '%Hùng%' AND awards LIKE '%Chứng nhận sinh viên xuất sắc nhất năm 2014%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Thầy/cô Phạm Huy Hoàng đã đạt được những giải thưởng \"Best Fellowship Award, granted by Society of Advancement and Technology at Ritsumeikan, June 2011.\" gì?",
+      "reference": "SELECT awards, url FROM lecturers WHERE name LIKE '%Phạm Huy Hoàng%' AND awards LIKE '%Best Fellowship Award, granted by Society of Advancement and Technology at Ritsumeikan, June 2011.%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Giảng viên Khánh giảng dạy những môn học \"IT7921: Nhận dạng đối tượng trong môi trường thực (Dành cho NCS)\" nào?",
+      "reference": "SELECT subjects, url FROM lecturers WHERE name LIKE '%Khánh%' AND subjects LIKE '%IT7921: Nhận dạng đối tượng trong môi trường thực (Dành cho NCS)%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Giảng viên Trang giảng dạy những môn học \"IT1130: Tin học Đại cương\" nào?",
+      "reference": "SELECT subjects, url FROM lecturers WHERE name LIKE '%Trang%' AND subjects LIKE '%IT1130: Tin học Đại cương%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Giảng viên Nguyễn Thị Kim Anh giảng dạy những môn học \"IT2110: Nhập môn công nghệ thông tin và truyền thông\" nào?",
+      "reference": "SELECT subjects, url FROM lecturers WHERE name LIKE '%Nguyễn Thị Kim Anh%' AND subjects LIKE '%IT2110: Nhập môn công nghệ thông tin và truyền thông%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Các môn học \"IT3100: Lập trình hướng đối tượng\" do thầy/cô Michel Toulouse phụ trách là gì?",
+      "reference": "SELECT subjects, url FROM lecturers WHERE name LIKE '%Michel Toulouse%' AND subjects LIKE '%IT3100: Lập trình hướng đối tượng%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Các môn học \"IT3190: Học máy và khai phá dữ liệu\" do thầy/cô Trần Quang Đức phụ trách là gì?",
+      "reference": "SELECT subjects, url FROM lecturers WHERE name LIKE '%Trần Quang Đức%' AND subjects LIKE '%IT3190: Học máy và khai phá dữ liệu%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Các môn học \"IT4600: Internetworking (ICT, HEDSPI\" do thầy/cô Hóa phụ trách là gì?",
+      "reference": "SELECT subjects, url FROM lecturers WHERE name LIKE '%Hóa%' AND subjects LIKE '%IT4600: Internetworking (ICT, HEDSPI%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Tìm các giảng viên dạy môn IT4927: Web thế hệ mới.",
+      "reference": "SELECT name, email, url FROM lecturers WHERE subjects LIKE '%IT4927: Web thế hệ mới%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Tìm các giảng viên dạy môn IT3040: Kỹ thuật Lập trình.",
+      "reference": "SELECT name, email, url FROM lecturers WHERE subjects LIKE '%IT3040: Kỹ thuật Lập trình%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Tìm các giảng viên dạy môn IT3680: Thuật toán ứng dụng.",
+      "reference": "SELECT name, email, url FROM lecturers WHERE subjects LIKE '%IT3680: Thuật toán ứng dụng%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Có bao nhiêu giảng viên dạy môn IT4772E: Natural language processing?",
+      "reference": "SELECT COUNT(id) FROM lecturers WHERE subjects LIKE '%IT4772E: Natural language processing%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Có bao nhiêu giảng viên dạy môn Thiết kế và phát triển phần mềm phân tán?",
+      "reference": "SELECT COUNT(id) FROM lecturers WHERE subjects LIKE '%Thiết kế và phát triển phần mềm phân tán%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Có bao nhiêu giảng viên dạy môn IT3180, IT4082E: Nhập môn Công nghệ phần mềm?",
+      "reference": "SELECT COUNT(id) FROM lecturers WHERE subjects LIKE '%IT3180, IT4082E: Nhập môn Công nghệ phần mềm%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Giảng viên Tuyết đã tham gia những dự án \"Khoa Kỹ thuật Máy tính\" nào?",
+      "reference": "SELECT projects, url FROM lecturers WHERE name LIKE '%Tuyết%' AND projects LIKE '%Khoa Kỹ thuật Máy tính%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Giảng viên Phạm Ngọc Hưng đã tham gia những dự án \"Developing metaheuristic techniques for solving optimization problems in distributed and software systems (funded by National Foundation of Science and Technology – NAFOSTED, Vietnam-Germany bilateral: 2017-2019).\" nào?",
+      "reference": "SELECT projects, url FROM lecturers WHERE name LIKE '%Phạm Ngọc Hưng%' AND projects LIKE '%Developing metaheuristic techniques for solving optimization problems in distributed and software systems (funded by National Foundation of Science and Technology – NAFOSTED, Vietnam-Germany bilateral: 2017-2019).%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Giảng viên Lâm đã tham gia những dự án \"Khoa Khoa học Máy tính\" nào?",
+      "reference": "SELECT projects, url FROM lecturers WHERE name LIKE '%Lâm%' AND projects LIKE '%Khoa Khoa học Máy tính%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Liệt kê các dự án \"A Hybrid Framework for IoT Networks (Thành viên)\" của giảng viên Nguyễn Thị Kim Anh.",
+      "reference": "SELECT projects, url FROM lecturers WHERE name LIKE '%Nguyễn Thị Kim Anh%' AND projects LIKE '%A Hybrid Framework for IoT Networks (Thành viên)%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Liệt kê các dự án \"Triển khai Học tập liên tục để xây dựng các mô hình học máy trong các miền mạng phân tán\" của giảng viên Phạm Huy Hoàng.",
+      "reference": "SELECT projects, url FROM lecturers WHERE name LIKE '%Phạm Huy Hoàng%' AND projects LIKE '%Triển khai Học tập liên tục để xây dựng các mô hình học máy trong các miền mạng phân tán%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Liệt kê các dự án \"KC.01.01\" của giảng viên Chuyết.",
+      "reference": "SELECT projects, url FROM lecturers WHERE name LIKE '%Chuyết%' AND projects LIKE '%KC.01.01%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Lĩnh vực nghiên cứu chính \"Học máy\" của giảng viên Nguyễn Thị Thu Hương là gì?",
+      "reference": "SELECT research_field, url FROM lecturers WHERE name LIKE '%Nguyễn Thị Thu Hương%' AND research_field LIKE '%Học máy%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Lĩnh vực nghiên cứu chính \"Mạng cảm biến không dây và mạng internet vạn vật\" của giảng viên Nguyễn Thị Hoàng Lan là gì?",
+      "reference": "SELECT research_field, url FROM lecturers WHERE name LIKE '%Nguyễn Thị Hoàng Lan%' AND research_field LIKE '%Mạng cảm biến không dây và mạng internet vạn vật%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Lĩnh vực nghiên cứu chính \"Ứng dụng của Internet of Things trong các lĩnh vực khác nhau (nông nghiệp, thuỷ sản…)\" của giảng viên Phạm Quang Dũng là gì?",
+      "reference": "SELECT research_field, url FROM lecturers WHERE name LIKE '%Phạm Quang Dũng%' AND research_field LIKE '%Ứng dụng của Internet of Things trong các lĩnh vực khác nhau (nông nghiệp, thuỷ sản…)%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Thầy/cô Khánh nghiên cứu về mảng \"Phát hiện tri thức từ các cơ sở dữ liệu lớn và mạng xã hội,\" nào?",
+      "reference": "SELECT research_field, url FROM lecturers WHERE name LIKE '%Khánh%' AND research_field LIKE '%Phát hiện tri thức từ các cơ sở dữ liệu lớn và mạng xã hội,%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Thầy/cô Lê nghiên cứu về mảng \"Xử lý ngôn ngư tự nhiên\" nào?",
+      "reference": "SELECT research_field, url FROM lecturers WHERE name LIKE '%Lê%' AND research_field LIKE '%Xử lý ngôn ngư tự nhiên%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Thầy/cô Bùi Quốc Trung nghiên cứu về mảng \"Bảo mật và quyền riêng tư mạng\" nào?",
+      "reference": "SELECT research_field, url FROM lecturers WHERE name LIKE '%Bùi Quốc Trung%' AND research_field LIKE '%Bảo mật và quyền riêng tư mạng%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Tìm các giảng viên có lĩnh vực nghiên cứu là Mạng truyền thông bền vững.",
+      "reference": "SELECT name, email, url FROM lecturers WHERE research_field LIKE '%Mạng truyền thông bền vững%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Tìm các giảng viên có lĩnh vực nghiên cứu là Ứng dụng hệ mờ, logics (Applied fuzzy systems, picture fuzzy set, rule-based system).",
+      "reference": "SELECT name, email, url FROM lecturers WHERE research_field LIKE '%Ứng dụng hệ mờ, logics (Applied fuzzy systems, picture fuzzy set, rule-based system)%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Tìm các giảng viên có lĩnh vực nghiên cứu là Thuật toán và tối ưu.",
+      "reference": "SELECT name, email, url FROM lecturers WHERE research_field LIKE '%Thuật toán và tối ưu%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Có bao nhiêu giảng viên nghiên cứu về Khai phá dữ liệu?",
+      "reference": "SELECT COUNT(id) FROM lecturers WHERE research_field LIKE '%Khai phá dữ liệu%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Có bao nhiêu giảng viên nghiên cứu về Trí tuệ nhân tạo trong game và các hệ tác tử thông minh?",
+      "reference": "SELECT COUNT(id) FROM lecturers WHERE research_field LIKE '%Trí tuệ nhân tạo trong game và các hệ tác tử thông minh%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Có bao nhiêu giảng viên nghiên cứu về Trí tuệ nhân tạo trong game và các hệ tác tử thông minh?",
+      "reference": "SELECT COUNT(id) FROM lecturers WHERE research_field LIKE '%Trí tuệ nhân tạo trong game và các hệ tác tử thông minh%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Lĩnh vực quan tâm \"Thị giác máy tính\" của giảng viên Tuấn là gì?",
+      "reference": "SELECT interested_field, url FROM lecturers WHERE name LIKE '%Tuấn%' AND interested_field LIKE '%Thị giác máy tính%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Lĩnh vực quan tâm \"Mô phỏng song song và phân tán\" của giảng viên Lê Đức Trung là gì?",
+      "reference": "SELECT interested_field, url FROM lecturers WHERE name LIKE '%Lê Đức Trung%' AND interested_field LIKE '%Mô phỏng song song và phân tán%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Lĩnh vực quan tâm \"Tích hợp nhanh dữ liệu\" của giảng viên Bùi Quốc Trung là gì?",
+      "reference": "SELECT interested_field, url FROM lecturers WHERE name LIKE '%Bùi Quốc Trung%' AND interested_field LIKE '%Tích hợp nhanh dữ liệu%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Thầy/cô Toàn quan tâm đến những lĩnh vực \"Quản trị dự án\" nào?",
+      "reference": "SELECT interested_field, url FROM lecturers WHERE name LIKE '%Toàn%' AND interested_field LIKE '%Quản trị dự án%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Thầy/cô Nguyễn Đức Tiến quan tâm đến những lĩnh vực \"Ứng dụng\" nào?",
+      "reference": "SELECT interested_field, url FROM lecturers WHERE name LIKE '%Nguyễn Đức Tiến%' AND interested_field LIKE '%Ứng dụng%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Thầy/cô Trần Văn Đặng quan tâm đến những lĩnh vực \"Mạng cảm biến không dây\" nào?",
+      "reference": "SELECT interested_field, url FROM lecturers WHERE name LIKE '%Trần Văn Đặng%' AND interested_field LIKE '%Mạng cảm biến không dây%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Tìm các giảng viên quan tâm đến lĩnh vực Tối ưu hóa tổ hợp.",
+      "reference": "SELECT name, email, url FROM lecturers WHERE interested_field LIKE '%Tối ưu hóa tổ hợp%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Tìm các giảng viên quan tâm đến lĩnh vực Xử lý dữ liệu video.",
+      "reference": "SELECT name, email, url FROM lecturers WHERE interested_field LIKE '%Xử lý dữ liệu video%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Tìm các giảng viên quan tâm đến lĩnh vực Các giải pháp nâng cao độ tin cậy và an toàn định vị: phát hiện và chống phá sóng và giả mạo tín hiệu;.",
+      "reference": "SELECT name, email, url FROM lecturers WHERE interested_field LIKE '%Các giải pháp nâng cao độ tin cậy và an toàn định vị: phát hiện và chống phá sóng và giả mạo tín hiệu;%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Có bao nhiêu giảng viên quan tâm đến Điện toán lượng tử?",
+      "reference": "SELECT COUNT(id) FROM lecturers WHERE interested_field LIKE '%Điện toán lượng tử%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Có bao nhiêu giảng viên quan tâm đến Các hệ thống thông minh?",
+      "reference": "SELECT COUNT(id) FROM lecturers WHERE interested_field LIKE '%Các hệ thống thông minh%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Có bao nhiêu giảng viên quan tâm đến Trích rút sự kiện?",
+      "reference": "SELECT COUNT(id) FROM lecturers WHERE interested_field LIKE '%Trích rút sự kiện%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Giảng viên nào có bài báo về \"Impact of cross-layer interactions between radio duty cycling and routing on the efficiency of a wireless sensor network: a testbed study involving contikiMAC and RPL, M Bezunartea, M Banh, M Gamallo, J Tiberghien, K Steenhaut, Proceedings of the Second International Conference on Internet of things , 2017\"?",
+      "reference": "SELECT name, email, url FROM lecturers WHERE publications LIKE '%Impact of cross-layer interactions between radio duty cycling and routing on the efficiency of a wireless sensor network: a testbed study involving contikiMAC and RPL, M Bezunartea, M Banh, M Gamallo, J Tiberghien, K Steenhaut, Proceedings of the Second International Conference on Internet of things , 2017%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Giảng viên nào có bài báo về \"ENC48637.2020.9317320.\"?",
+      "reference": "SELECT name, email, url FROM lecturers WHERE publications LIKE '%ENC48637.2020.9317320.%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Giảng viên nào có bài báo về \"Trinh, T. T., & Kimura, M. (2022). Cognitive prediction of obstacle’s movement for reinforcement learning pedestrian interacting model. Journal of Intelligent Systems, 31(1), 127-147.\"?",
+      "reference": "SELECT name, email, url FROM lecturers WHERE publications LIKE '%Trinh, T. T., & Kimura, M. (2022). Cognitive prediction of obstacle’s movement for reinforcement learning pedestrian interacting model. Journal of Intelligent Systems, 31(1), 127-147.%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Giảng viên nào đã nhận giải thưởng \"Giải thưởng bài báo tốt nhất hội nghị KSE 2017: Son Nguyen Van, Dung Pham Quang, Behrouz Babaki, Hoai Nguyen Xuan and Anton Dries. Prediction-based optimization for online People and Parcels share a ride taxis. The 19th International conference on Knowledge and System Engineering, October 2017, pages 42 – 47\"?",
+      "reference": "SELECT name, email, url FROM lecturers WHERE awards LIKE '%Giải thưởng bài báo tốt nhất hội nghị KSE 2017: Son Nguyen Van, Dung Pham Quang, Behrouz Babaki, Hoai Nguyen Xuan and Anton Dries. Prediction-based optimization for online People and Parcels share a ride taxis. The 19th International conference on Knowledge and System Engineering, October 2017, pages 42 – 47%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Giảng viên nào đã nhận giải thưởng \"Giải Nhất tại cuộc thi Tiến hóa đa nhiệm, Tối ưu đa nhiệm đơn mục tiêu, Hội nghị Trí tuệ tính toán toàn cầu của Hiệp hội kỹ thuật Điện Điện tử năm 2018 (First prize in the 2018 IEEE World Congress on Computational Intelligence, Evolutionary Multi-task Optimization Competition, Multi-task Single Objective Optimization).\"?",
+      "reference": "SELECT name, email, url FROM lecturers WHERE awards LIKE '%Giải Nhất tại cuộc thi Tiến hóa đa nhiệm, Tối ưu đa nhiệm đơn mục tiêu, Hội nghị Trí tuệ tính toán toàn cầu của Hiệp hội kỹ thuật Điện Điện tử năm 2018 (First prize in the 2018 IEEE World Congress on Computational Intelligence, Evolutionary Multi-task Optimization Competition, Multi-task Single Objective Optimization).%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Giảng viên nào đã nhận giải thưởng \"Vietnamese Government Fellowship, to study for a Ph.D. degree in the U.S., 2001 – 2005\"?",
+      "reference": "SELECT name, email, url FROM lecturers WHERE awards LIKE '%Vietnamese Government Fellowship, to study for a Ph.D. degree in the U.S., 2001 – 2005%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Giảng viên nào thực hiện dự án \"Knowledge-based exchange for Path Planning Problems (funded by Office of Naval Research (ONR) Global (ONRG) and the U.S. Army Combat Capabilities Development Command Indo-Pacific (DEVCOM Indo-Pacific) , 2023-2025).\"?",
+      "reference": "SELECT name, email, url FROM lecturers WHERE projects LIKE '%Knowledge-based exchange for Path Planning Problems (funded by Office of Naval Research (ONR) Global (ONRG) and the U.S. Army Combat Capabilities Development Command Indo-Pacific (DEVCOM Indo-Pacific) , 2023-2025).%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Giảng viên nào thực hiện dự án \"Triển khai Học tập liên tục để xây dựng các mô hình học máy trong các miền mạng phân tán\"?",
+      "reference": "SELECT name, email, url FROM lecturers WHERE projects LIKE '%Triển khai Học tập liên tục để xây dựng các mô hình học máy trong các miền mạng phân tán%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    },
+    {
+      "user_input": "Giảng viên nào thực hiện dự án \"Sử dụng phương pháp học chuyển giao để nâng cao hiệu suất trong mạng SDN phân tán\"?",
+      "reference": "SELECT name, email, url FROM lecturers WHERE projects LIKE '%Sử dụng phương pháp học chuyển giao để nâng cao hiệu suất trong mạng SDN phân tán%'",
+      "response": "",
+      "reference_context": [
+        "Table: lecturers\n  - id: INTEGER (PRIMARY KEY) NOT NULL\n  - name: VARCHAR(100) NOT NULL\n  - title: TEXT\n  - education_path: TEXT\n  - introduction: TEXT\n  - email: VARCHAR(100)\n  - publications: TEXT\n  - awards: TEXT\n  - subjects: TEXT\n  - projects: TEXT\n  - research_field: TEXT\n  - interested_field: TEXT\n  - url: VARCHAR(255)\n"
+      ]
+    }
+  ]
+}
