@@ -1,0 +1,1005 @@
+{
+  "version": "1.0.0",
+  "data": [
+    {
+      "user_input": "Học phần là gì",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Kết quả thi tiếng Anh nội bộ có hiệu lực bao lâu",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Kết quả thi tiếng Anh nội bộ có hiệu lực bao lâu",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Những ai được miễn học phí",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Những ai được tham gia đội tuyển Olympic",
+      "prediction": "irrelevant",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Chương trình đào tạo tích hợp là gì",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Học được 90 tín được coi là trình độ năm thứ mấy",
+      "prediction": "web",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Chương trình học thạc sĩ yêu cầu học bao nhiêu tín chỉ",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Chương trình học tập bao gồm gì",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Người học thuộc hình thức đào tạo chính quy được thi cuối kỳ bao nhiêu lần cho mỗi học phần?",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Học tiến sĩ mất bao lâu",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "A, B trong các đợt xét tốt nghiệp là gì",
+      "prediction": "web",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Khi nào thì các nhà xưởng sẽ được cải tạo",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Vắng 1 buổi có thể bị trừ bao nhiêu điểm quá trình",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Điểm học phần theo thang 10 từ 4,0 đến 4,9 được quy đổi thành điểm chữ gì và điểm số theo thang 4 là bao nhiêu?",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "GPA 3.6 thì sẽ được cộng bao nhiêu điểm rèn luyện",
+      "prediction": "web",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Cần tối thiểu bao nhiêu sinh viên để mở 1 lớp",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Chương trình học kỹ sư sẽ mất bao lâu",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Điểm rèn luyện bao nhiêu được xếp loại tốt",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Sinh viên năm ba có được chuyển ngành không",
+      "prediction": "web",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Quy trình đánh giá điểm rèn luyện được thực hiện như nào",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Điểm học phần từ 8,0 đến 8,9 được quy đổi thành điểm chữ và điểm số thang 4 như thế nào?",
+      "prediction": "web",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Bàn ghế được sử dụng sai mục đích ban đầu thì sẽ bị xử lý như nào",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Đối tượng được dự thi tiếng Anh nội bộ",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Số lượng tín chỉ tối thiểu để hoàn thành học tiến sĩ",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Điểm quá trình được cho điểm lẻ đến bao nhiêu",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Cần tối thiểu bao nhiêu sinh viên để mở 1 lớp",
+      "prediction": "sql",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "1 tín chỉ tương đương bao nhiêu thời gian học",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Người học có thể tốt nghiệp sớm hoặc chậm so với kế hoạch chuẩn không? Nếu có, quy định như thế nào?",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Điều kiện được dự tuyển bằng kết quả thi trung học phổ thông là gì",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Một học kỳ chính có thể được chia thành mấy đợt và thời gian mỗi đợt như thế nào?",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Điểm rèn luyện bao nhiêu được xếp loại tốt",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Sử dụng nhà xưởng có những yêu cầu chung gì",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Học phần được định danh như nào",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Đăng ký học phần với đăng ký lớp là gì",
+      "prediction": "web",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Muốn thành lập câu lạc bộ mới thì phải có các điều kiện gì",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Không nộp học phí thì có bị sao không",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Điểm học phần từ 8,0 đến 8,9 được quy đổi thành điểm chữ và điểm số thang 4 như thế nào?",
+      "prediction": "web",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Văn bản hợp tác đối ngoại gồm những loại nào",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Đối với hình thức đào tạo vừa làm vừa học, người học được thi lại trong trường hợp nào?",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Người học có thể tốt nghiệp sớm hoặc chậm so với kế hoạch chuẩn không? Nếu có, quy định như thế nào?",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Số lượng tín chỉ tối thiểu để hoàn thành học tiến sĩ",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Quy trình xóa tên Đảng viên đối với Đảng viên dự bị là sinh viên bỏ sinh hoạt Đảng, Đoàn thì được thực hiện như nào",
+      "prediction": "web",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Nội dụng đề thi tiếng Anh nội bộ dựa theo tiêu chuẩn nào để xây dựng",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Những ai được tham gia đội tuyển Olympic",
+      "prediction": "irrelevant",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Đề thi tiếng Anh nội bộ có thay đổi theo từng năm không?",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Trong trường hợp nào người học không được đề nghị phúc tra hoặc khiếu nại điểm",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Điều kiện được xét tuyển thẳng là gì",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Điều kiện được làm đồ án tốt nghiệp là gì",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Điểm học phần theo thang 10 từ 4,0 đến 4,9 được quy đổi thành điểm chữ gì và điểm số theo thang 4 là bao nhiêu?",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Văn bản hợp tác đối ngoại gồm những loại nào",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Những ai được miễn học phí",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Muốn thành lập câu lạc bộ mới thì phải có các điều kiện gì",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Có thể bảo lưu kết quả trúng tuyển không",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Sinh viên có được học 2 ngành 1 lúc không",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Lịch học tập, lịch thi và kế hoạch xét công nhận tốt nghiệp được xây dựng dựa trên gì?",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Tài sản cố định hữu hình là gì",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Người học có thể đề nghị phúc tra hoặc khiếu nại điểm trong thời gian bao lâu kể từ khi điểm được cập nhật?",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Các phương thức xét tuyển hệ vừa học vừa làm cho học sinh trung học phổ thông",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Quỹ học bổng khuyến khích học tập được lấy từ đâu",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Các phương thức xét tuyển hệ vừa học vừa làm cho học sinh trung học phổ thông",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Giải thích khái niệm đoàn vào đoàn ra",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Nguồn học bổng Trần Đại Nghĩa lấy từ đâu",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Bị phát hiện gian lận trong phòng thi thì bị giải quyết như nào",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Học được 90 tín được coi là trình độ năm thứ mấy",
+      "prediction": "web",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "ĐHBK Hà Nội tổ chức đào tạo theo năm học như thế nào?",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Quy trình đăng ký xét tuyển tài năng được tổ chức như nào",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Tiêu chuẩn xét học bổng KKHT là gì",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Tiêu chuẩn xét học bổng KKHT là gì",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Thiết bị phục vụ thi tiếng Anh nội bộ gồm những gì",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Thành viên đội tuyển Olympic được những quyền lợi gì",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Thời gian đào tạo chuẩn của trình độ tiến sĩ là bao lâu?",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Thời gian đào tạo chuẩn của trình độ tiến sĩ là bao lâu?",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Điểm học phần như thế nào được xem là đạt?",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Các phương thức xét tuyển hệ vừa học vừa làm cho học sinh trung học phổ thông",
+      "prediction": "vectorstore",
+      "label": "vectorstore"
+    },
+    {
+      "user_input": "Những giảng viên nào có email chứa \"khangtd@soict.hust.edu.vn\"?",
+      "prediction": "web",
+      "label": "sql"
+    },
+    {
+      "user_input": "Hiện có bao nhiêu giảng viên trong danh sách?",
+      "prediction": "sql",
+      "label": "sql"
+    },
+    {
+      "user_input": "Giảng viên Linh có những bài báo khoa học \"General behavior and motion model for automated lane change. Hossein Tehrani Niknejad, Quoc Huy Do, Masumi Egawa, Kenji Muto, Keisuke Yoneda, Seiichi Mita Intelligent Vehicles Symposium 2015: 1154-1159\" nào?",
+      "prediction": "web",
+      "label": "sql"
+    },
+    {
+      "user_input": "Có bao nhiêu giảng viên dạy môn IT4613: Hệ gợi ý?",
+      "prediction": "sql",
+      "label": "sql"
+    },
+    {
+      "user_input": "Có bao nhiêu giảng viên dạy môn Thuật toán và cấu trúc dữ liệu?",
+      "prediction": "sql",
+      "label": "sql"
+    },
+    {
+      "user_input": "Cho xin thông tin về giảng viên Trần Quang Đức.",
+      "prediction": "sql",
+      "label": "sql"
+    },
+    {
+      "user_input": "Cho xin thông tin về giảng viên Thuận.",
+      "prediction": "web",
+      "label": "sql"
+    },
+    {
+      "user_input": "Những giảng viên nào có email chứa \"khangtd@soict.hust.edu.vn\"?",
+      "prediction": "web",
+      "label": "sql"
+    },
+    {
+      "user_input": "Có bao nhiêu giảng viên tên Ngô Thành Trung và dạy môn IT4110: Tính toán khoa học?",
+      "prediction": "sql",
+      "label": "sql"
+    },
+    {
+      "user_input": "Giảng viên Đỗ Quốc Huy là ai?",
+      "prediction": "sql",
+      "label": "sql"
+    },
+    {
+      "user_input": "Giảng viên Bùi Trọng Tùng giảng dạy những môn học \"Thạc sỹ: Hệ thống dựa tri thức\" nào?",
+      "prediction": "web",
+      "label": "sql"
+    },
+    {
+      "user_input": "Thầy/cô Lê Thanh Hương nghiên cứu về mảng \"Logic mờ và suy luận xấp xỉ\" nào?",
+      "prediction": "web",
+      "label": "sql"
+    },
+    {
+      "user_input": "Thầy/cô Nguyễn Mạnh Tuấn đã đạt được những giải thưởng \"Chứng nhận đạt danh hiệu thủ khoa các trường đại học Hà Nội từTrung ương Hội liên hiệp Thanh niên Việt Nam và Đoàn Thanh niên Cộng sản Hồ Chí Minh, 2011\" gì?",
+      "prediction": "web",
+      "label": "sql"
+    },
+    {
+      "user_input": "Có bao nhiêu giảng viên nghiên cứu về Khai phá dữ liệu lớn?",
+      "prediction": "sql",
+      "label": "sql"
+    },
+    {
+      "user_input": "Giảng viên nào có chức danh Hiệu trưởng Trường Công nghệ Thông tin và Truyền thông, dạy môn IT4182: Thực hành xây dựng Chương trình Dịch và nghiên cứu về An toàn thông tin?",
+      "prediction": "web",
+      "label": "sql"
+    },
+    {
+      "user_input": "Hiện có bao nhiêu giảng viên trong danh sách?",
+      "prediction": "sql",
+      "label": "sql"
+    },
+    {
+      "user_input": "Tìm giảng viên có email là ngocnb@soict.hust.edu.vn.",
+      "prediction": "web",
+      "label": "sql"
+    },
+    {
+      "user_input": "Giảng viên Trần Quang Đức là ai?",
+      "prediction": "sql",
+      "label": "sql"
+    },
+    {
+      "user_input": "Giảng viên nào có chức danh Trưởng khoa, Khoa Khoa học Máy tính, dạy môn IT4220: Quản trị An toàn Thông tin và Rủi ro và nghiên cứu về Đo hiệu năng mạng?",
+      "prediction": "web",
+      "label": "sql"
+    },
+    {
+      "user_input": "Liệt kê các dự án \"Dự án BELS+ về thúc đẩy sự phát triển của Công nghệ định vị sử dụng vệ tinh Châu Âu tại khu vực Đông Nam Á; Tài trợ: Chương trình Horizon 2020 của Liên minh Châu Âu; Thời gian: 2018 – 2020; Vai trò: Chủ trì phía ĐHBK Hà Nội.\" của giảng viên Nguyễn Đình Thuận.",
+      "prediction": "web",
+      "label": "sql"
+    },
+    {
+      "user_input": "Cho biết email của giảng viên Phạm Văn Hải nghiên cứu về Bảo mật và quyền riêng tư mạng.",
+      "prediction": "web",
+      "label": "sql"
+    },
+    {
+      "user_input": "Thông tin chi tiết của giảng viên Phạm Đăng Hải là gì?",
+      "prediction": "sql",
+      "label": "sql"
+    },
+    {
+      "user_input": "Cho biết email của giảng viên Đàm Mạnh Đạt nghiên cứu về Vận trù học.",
+      "prediction": "web",
+      "label": "sql"
+    },
+    {
+      "user_input": "Liệt kê các giảng viên có chức danh Giảng viên, Khoa Khoa học Máy tính và quan tâm đến lĩnh vực Các hệ thống hướng dịch vụ và ứng dụng: chuyển đổi số, e-learning, IoT.",
+      "prediction": "web",
+      "label": "sql"
+    },
+    {
+      "user_input": "Giảng viên Oanh giảng dạy những môn học \"IT4945: Phát triển phần mềm theo chuẩn ITSS\" nào?",
+      "prediction": "web",
+      "label": "sql"
+    },
+    {
+      "user_input": "Danh sách các giảng viên có tên chứa \"Nguyễn Mạnh Tuấn\".",
+      "prediction": "sql",
+      "label": "sql"
+    },
+    {
+      "user_input": "Tìm giảng viên có email là ngocnb@soict.hust.edu.vn.",
+      "prediction": "web",
+      "label": "sql"
+    },
+    {
+      "user_input": "Cho xin thông tin những giảng viên có tên chứa \"Vạn\" và lĩnh vực quan tâm chứa \"Tối ưu hóa tổ hợp\".",
+      "prediction": "web",
+      "label": "sql"
+    },
+    {
+      "user_input": "Giảng viên Bùi Trọng Tùng giảng dạy những môn học \"Thạc sỹ: Hệ thống dựa tri thức\" nào?",
+      "prediction": "web",
+      "label": "sql"
+    },
+    {
+      "user_input": "Có giảng viên nào tên Hóa HOẶC có email là ngantt@soict.hust.edu.vn không?",
+      "prediction": "sql",
+      "label": "sql"
+    },
+    {
+      "user_input": "Tìm các giảng viên quan tâm đến lĩnh vực Trích chọn thông tin.",
+      "prediction": "web",
+      "label": "sql"
+    },
+    {
+      "user_input": "Có bao nhiêu giảng viên dạy môn Thuật toán và cấu trúc dữ liệu?",
+      "prediction": "sql",
+      "label": "sql"
+    },
+    {
+      "user_input": "Có bao nhiêu giảng viên tên CVC. Nguyễn Thị Hiền và dạy môn Lưu trữ và xử lý dữ liệu lớn?",
+      "prediction": "sql",
+      "label": "sql"
+    },
+    {
+      "user_input": "Liệt kê giảng viên có bài báo về \"T. H. Ta, M. Pini, and L. L. Presti, “Combined GPS L1C\" và tham gia dự án \"Xây dựng trình biên dịch SML# cho ngôn ngữ StandardML, thành viên chính\".",
+      "prediction": "sql",
+      "label": "sql"
+    },
+    {
+      "user_input": "Những giảng viên nào có chức danh là Phó giám đốc, Trung tâm Máy tính và Thực hành?",
+      "prediction": "web",
+      "label": "sql"
+    },
+    {
+      "user_input": "Tìm các giảng viên dạy môn IT6620: Quản trị mạng doanh nghiệp.",
+      "prediction": "sql",
+      "label": "sql"
+    },
+    {
+      "user_input": "Cho biết chức danh của giảng viên Đàm Quang Tuấn.",
+      "prediction": "sql",
+      "label": "sql"
+    },
+    {
+      "user_input": "Giảng viên Nguyệt đã tham gia những dự án \"Sử dụng Deep Learning để phân loại lưu lượng truy cập được mã hóa\" nào?",
+      "prediction": "web",
+      "label": "sql"
+    },
+    {
+      "user_input": "Giới thiệu về giảng viên Bùi Thị Mai Anh.",
+      "prediction": "sql",
+      "label": "sql"
+    },
+    {
+      "user_input": "Cho biết chức danh của giảng viên Đàm Quang Tuấn.",
+      "prediction": "sql",
+      "label": "sql"
+    },
+    {
+      "user_input": "Liệt kê các công bố \"Mathematical Fuzzy Logic with Many Dual Hedges, Le Van Hung, Fei Liu, Tran Dinh Khang, in Proceedings of 5th Symposium on ICT 2014, ISBN 978-1-4503-2930-9, Hanoi, Dec. 2014, p. 7-13\" của giảng viên Vũ Đức Vượng.",
+      "prediction": "web",
+      "label": "sql"
+    },
+    {
+      "user_input": "Giảng viên Oanh giảng dạy những môn học \"IT4945: Phát triển phần mềm theo chuẩn ITSS\" nào?",
+      "prediction": "web",
+      "label": "sql"
+    },
+    {
+      "user_input": "Lĩnh vực quan tâm \"Đánh giá an toàn cho các hệ thống thông tin theo cấp độ\" của giảng viên Nguyễn Duy Hiệp là gì?",
+      "prediction": "web",
+      "label": "sql"
+    },
+    {
+      "user_input": "Những giảng viên nào có chức danh là Phó giám đốc, Trung tâm Máy tính và Thực hành?",
+      "prediction": "web",
+      "label": "sql"
+    },
+    {
+      "user_input": "Các môn học \"IT3030: Kiến trúc máy tính\" do thầy/cô Trinh phụ trách là gì?",
+      "prediction": "web",
+      "label": "sql"
+    },
+    {
+      "user_input": "Giảng viên nào có chức danh Hiệu trưởng Trường Công nghệ Thông tin và Truyền thông, dạy môn IT4182: Thực hành xây dựng Chương trình Dịch và nghiên cứu về An toàn thông tin?",
+      "prediction": "web",
+      "label": "sql"
+    },
+    {
+      "user_input": "Cho biết email của giảng viên Phạm Văn Hải nghiên cứu về Bảo mật và quyền riêng tư mạng.",
+      "prediction": "web",
+      "label": "sql"
+    },
+    {
+      "user_input": "Tìm giảng viên có email là ngocnb@soict.hust.edu.vn.",
+      "prediction": "web",
+      "label": "sql"
+    },
+    {
+      "user_input": "Cho xin địa chỉ email của thầy/cô Nguyễn Tuấn Dũng.",
+      "prediction": "sql",
+      "label": "sql"
+    },
+    {
+      "user_input": "Những giảng viên nào có email chứa \"hunglt@soict.hust.edu.vn\"?",
+      "prediction": "web",
+      "label": "sql"
+    },
+    {
+      "user_input": "Thầy/cô Nguyễn Khánh Phương quan tâm đến những lĩnh vực \"Đồ thị tri thức\" nào?",
+      "prediction": "web",
+      "label": "sql"
+    },
+    {
+      "user_input": "Liệt kê các giảng viên có chức danh Giảng viên, Khoa Khoa học Máy tính và quan tâm đến lĩnh vực Các hệ thống hướng dịch vụ và ứng dụng: chuyển đổi số, e-learning, IoT.",
+      "prediction": "web",
+      "label": "sql"
+    },
+    {
+      "user_input": "Tìm các giảng viên có lĩnh vực nghiên cứu là Phân tích và xử lý dữ liệu lớn.",
+      "prediction": "sql",
+      "label": "sql"
+    },
+    {
+      "user_input": "Tìm các giảng viên dạy môn Lưu trữ và xử lý dữ liệu lớn.",
+      "prediction": "sql",
+      "label": "sql"
+    },
+    {
+      "user_input": "Danh sách các giảng viên có tên chứa \"Tuyết\".",
+      "prediction": "web",
+      "label": "sql"
+    },
+    {
+      "user_input": "Giảng viên Oanh giảng dạy những môn học \"IT4945: Phát triển phần mềm theo chuẩn ITSS\" nào?",
+      "prediction": "web",
+      "label": "sql"
+    },
+    {
+      "user_input": "Trang web cá nhân của giảng viên Nguyễn Tuấn Dũng là gì?",
+      "prediction": "sql",
+      "label": "sql"
+    },
+    {
+      "user_input": "Có bao nhiêu giảng viên dạy môn IT4341 Hệ trợ giúp quyết định?",
+      "prediction": "sql",
+      "label": "sql"
+    },
+    {
+      "user_input": "Hiện có bao nhiêu giảng viên có tên là Lê Thanh Hương?",
+      "prediction": "sql",
+      "label": "sql"
+    },
+    {
+      "user_input": "Giảng viên Khánh giảng dạy những môn học \"Lập trình Java\" nào?",
+      "prediction": "web",
+      "label": "sql"
+    },
+    {
+      "user_input": "Lĩnh vực nghiên cứu chính \"An toàn thông tin: an toàn web, tấn công DoS, mật mã ứng dụng\" của giảng viên Tuyết là gì?",
+      "prediction": "web",
+      "label": "sql"
+    },
+    {
+      "user_input": "Cho xin địa chỉ email của thầy/cô Nguyễn Tuấn Dũng.",
+      "prediction": "sql",
+      "label": "sql"
+    },
+    {
+      "user_input": "Trang web cá nhân của giảng viên Cường là gì?",
+      "prediction": "web",
+      "label": "sql"
+    },
+    {
+      "user_input": "Có giảng viên nào tên Hóa HOẶC có email là ngantt@soict.hust.edu.vn không?",
+      "prediction": "sql",
+      "label": "sql"
+    },
+    {
+      "user_input": "Hiện có bao nhiêu giảng viên trong danh sách?",
+      "prediction": "sql",
+      "label": "sql"
+    },
+    {
+      "user_input": "Liệt kê giảng viên có bài báo về \"Hoang-Van, T. Miyoshi, and O. Fourmaux, “A Hierarchical P2P Traffic Localization Method with Bandwidth Limitation,” IEEE International Conference on Communications (ICC 2014), Sydney, Australia, pp.3142-3147, June 2014.\" và tham gia dự án \"V-Chain: A Blockchain-based Platform for Development and Deployment of Decentralized Applications. 2019-2021, Dự án Quỹ Đổi mới Sáng tạo VINGROUP (VINIF) ). Mã số: VINIF.2019.DA07\".",
+      "prediction": "sql",
+      "label": "sql"
+    },
+    {
+      "user_input": "Tìm giảng viên dạy môn IT3061: Quá trình ngẫu nhiên ứng dụng HOẶC môn IT3590: Cơ sở dữ liệu.",
+      "prediction": "sql",
+      "label": "sql"
+    },
+    {
+      "user_input": "Làm sao để liên hệ với giảng viên Loan?",
+      "prediction": "sql",
+      "label": "sql"
+    },
+    {
+      "user_input": "Tìm giảng viên dạy môn Thiết kế và phát triển phần mềm phân tán HOẶC môn IT4290: Xử lý tiếng nói.",
+      "prediction": "sql",
+      "label": "sql"
+    },
+    {
+      "user_input": "Trang web cá nhân của giảng viên Nguyễn Phi Lê là gì?",
+      "prediction": "sql",
+      "label": "sql"
+    },
+    {
+      "user_input": "Lĩnh vực nghiên cứu chính \"Thuật toán và Tối ưu\" của giảng viên Đỗ Công Thuần là gì?",
+      "prediction": "web",
+      "label": "sql"
+    },
+    {
+      "user_input": "Tìm giảng viên tên Nguyễn Thị Kim Anh và dạy môn IT5429: Phân tích đồ thị với dữ liệu lớn.",
+      "prediction": "web",
+      "label": "sql"
+    },
+    {
+      "user_input": "Email của giảng viên Nguyễn Kim Khánh là gì?",
+      "prediction": "sql",
+      "label": "sql"
+    },
+    {
+      "user_input": "Cho biết email của giảng viên Phạm Văn Hải nghiên cứu về Bảo mật và quyền riêng tư mạng.",
+      "prediction": "web",
+      "label": "sql"
+    },
+    {
+      "user_input": "Tìm các giảng viên có lĩnh vực nghiên cứu là Phân tích và xử lý dữ liệu lớn.",
+      "prediction": "sql",
+      "label": "sql"
+    },
+    {
+      "user_input": "Hôm nay thời tiết thế nào?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Bạn thích ăn món gì nhất?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Sở thích của bạn là gì?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Bạn đã đi du lịch ở đâu rồi?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Cuốn sách bạn yêu thích là gì?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Bộ phim gần đây bạn xem là gì?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Bạn thường làm gì vào cuối tuần?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Màu sắc yêu thích của bạn là gì?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Bạn có nuôi thú cưng không?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Ước mơ của bạn là gì?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Bạn học chuyên ngành gì?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Công việc hiện tại của bạn là gì?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Bạn có anh chị em không?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Bạn sinh năm bao nhiêu?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Môn thể thao yêu thích của bạn là gì?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Bạn thích nghe thể loại nhạc nào?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Bạn có thể nói được mấy thứ tiếng?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Bạn có kỷ niệm nào đáng nhớ không?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Điều gì khiến bạn cảm thấy hạnh phúc?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Bạn sợ nhất điều gì?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Thần tượng của bạn là ai?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Bạn có hay đọc tin tức không?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Bạn nghĩ gì về trí tuệ nhân tạo?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Mùa nào trong năm bạn thích nhất?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Nếu có một điều ước, bạn sẽ ước gì?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Bạn thích sống ở thành phố hay nông thôn?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Bạn có hay đi xem hòa nhạc không?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Loại trái cây bạn thích nhất là gì?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Bạn có thường xuyên tập thể dục không?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Kênh YouTube yêu thích của bạn là gì?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Bạn có hay nấu ăn không?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Món ăn Việt Nam nào bạn thấy ngon nhất?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Địa điểm du lịch nào ở Việt Nam bạn muốn đến?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Bạn có chơi game không?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Bạn nghĩ gì về việc học trực tuyến?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Loài hoa bạn yêu thích là gì?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Bạn có hay đi cà phê với bạn bè không?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Mục tiêu trong năm nay của bạn là gì?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Bạn có quan tâm đến chính trị không?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Điều gì quan trọng nhất đối với bạn trong cuộc sống?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Bạn có thích chụp ảnh không?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Bạn có thường xuyên sử dụng mạng xã hội không?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Bài hát nào bạn nghe gần đây nhất?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Bạn có kế hoạch gì cho kỳ nghỉ hè sắp tới không?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Bạn có thích đọc truyện tranh không?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Bạn nghĩ gì về biến đổi khí hậu?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Ai là người có ảnh hưởng lớn nhất đến bạn?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Bạn có hay tham gia các hoạt động tình nguyện không?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Phong cách thời trang của bạn là gì?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    },
+    {
+      "user_input": "Bạn có hay bị căng thẳng không?",
+      "prediction": "irrelevant",
+      "label": "irrelevant"
+    }
+  ]
+}
