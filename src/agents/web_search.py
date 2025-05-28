@@ -60,7 +60,7 @@ class WebSearchAgent(BaseAgent):
         if not documents:
             self.log("No search results found")
 
-        return {"documents": documents, "datasource": "web", "source": "websearch"}
+        return {"documents": documents, "source": "websearch"}
 
     async def arun(self, state: Dict, **kwargs) -> Dict[str, Any]:
         query = state["question"]

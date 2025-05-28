@@ -36,7 +36,7 @@ def build_comp(client, settings: Settings):
         # reset=True
     )
 
-    retriever = get_retriever(vectorstore=vectorstore, k=settings.agent.top_k)
+    # retriever = get_retriever(vectorstore=vectorstore, k=settings.agent.top_k)
     web_search_tool = get_websearch(k=settings.websearch.search_depth)
 
     # Set up or connect to existing lecturer database
@@ -48,7 +48,7 @@ def build_comp(client, settings: Settings):
 
     agents = {
         "router": RouterAgent(llm_json=llm_json_mode, verbose=True),
-        "retriever": RetrievalAgent(llm, llm_json_mode, retriever, verbose=True),
+        "retriever": RetrievalAgent(llm, llm_json_mode, vectorstore, verbose=True),
         "sql": SQLAgent(llm, llm_json_mode, db, verbose=True),
         "web_search": WebSearchAgent(llm, web_search_tool, verbose=True),
         "generator": LLM(llm, verbose=True),
