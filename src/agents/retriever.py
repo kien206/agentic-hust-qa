@@ -34,7 +34,7 @@ class RetrievalAgent(BaseAgent):
         self.log(f"Processing query: {query}")
 
         # Retrieve relevant documents
-        documents = self.retriever.invoke(query)
+        documents = self.retriever.similarity_search(query, k=self.top_k)
         self.log(f"Retrieved {len(documents)} documents")
         # print(documents)
         filtered_docs = self.filter_docs(query, documents)

@@ -118,7 +118,7 @@ def format_sql_output(sql_output):
     """
     Format SQL query result into answer
     """
-    response = f"Có {len(sql_output)} giảng viên được tìm thấy.\n"
+    response = f"Có {len(sql_output)} giảng viên được tìm thấy."
 
     for output_dict in sql_output:
         for attribute, value in output_dict.items():
@@ -131,11 +131,11 @@ def format_sql_output(sql_output):
 
             if ("/n" in value or "\n" in value) and len(value) > 0:
                 fixed_value = value.replace("\n", "\n- ").replace("/n", "\n- ")
-                response += f"{column_mapping[attribute]}: \n- {fixed_value}\n\n"
+                response += f"\n{column_mapping[attribute]}: \n- {fixed_value}\n"
             elif len(value) == 0:
-                response += f"{column_mapping[attribute]}: Không có thông tin\n\n"
+                response += f"\n{column_mapping[attribute]}: Không có thông tin\n"
             else:
-                response += f"{column_mapping[attribute]}: {value}\n\n"
+                response += f"\n{column_mapping[attribute]}: {value}\n"
 
         response += f"{'-'*40}\n"
 

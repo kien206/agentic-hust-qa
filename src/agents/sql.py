@@ -59,6 +59,9 @@ class SQLAgent(BaseAgent):
             )  # route to web search if there is no information
             return {"source": "sql", "sql_result": "", "web_search": True}
 
+        if "name" not in information["information"]:
+            information["information"].insert(0, "name")
+
         sql_query = self.condition_parse(information, entities)
 
         cnt = 0

@@ -8,8 +8,14 @@ This is a multi-agent question answering system for HUST, built using Langgraph,
 
 # HOW TO RUN
 
-To run the demo, simply run the following commands
+To run the demo, first you need to install Ollama. After that, install the Qwen2.5:7b model with the commands:
 
+```sh
+ollama pull qwen2.5:7bg
+ollama run qwen2.5:7b
+```
+
+After that, run the followings:
 ```sh
 pip install -r requirements.txt
 streamlit run app.py

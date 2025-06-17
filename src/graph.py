@@ -31,11 +31,11 @@ class Graph:
 
         self.graph = self._graph(workflow)
         self._verbose = verbose
-        self.config = {
-            "configurable": {
-                "thread_id": "1"
-            }
-        }
+        # self.config = {
+        #     "configurable": {
+        #         "thread_id": "1"
+        #     }
+        # }
 
     def irrelevant(self, state: Dict) -> Dict:
         from langchain_core.messages import AIMessage
@@ -103,7 +103,7 @@ class Graph:
         workflow.add_node("text2sql", self.agents["sql"].run)
         workflow.add_node("generator", self.agents["generator"].run)
         workflow.add_node("websearch", self.agents["web_search"].run)
-        workflow.add_node("no answer", self.irrelevant)
+        # workflow.add_node("no answer", self.irrelevant)
         # Build graph
         workflow.set_entry_point("router")
         workflow.add_conditional_edges(
@@ -112,10 +112,10 @@ class Graph:
             {
                 "sql": "text2sql",
                 "vectorstore": "retriever",
-                "irrelevant": "no answer",
+                "irrelevant": "generator",
             },
         )
-        workflow.add_edge("no answer", END)
+        # workflow.add_edge("no answer", END)
         workflow.add_conditional_edges(
             "text2sql",
             self.check_sql,
@@ -137,8 +137,8 @@ class Graph:
         return workflow
 
     def _graph(self, workflow: StateGraph):
-        checkpointer = InMemorySaver()
-        return workflow.compile(checkpointer=checkpointer)
+        # checkpointer = InMemorySaver()
+        return workflow.compile()
 
     @classmethod
     def draw_workflow(self):
@@ -148,7 +148,7 @@ class Graph:
 
     def chat(self, query: str):
         inputs = {"question": query.lower(), "max_retries": 3}
-        events = self.graph.invoke(inputs, config=self.config)
+        events = self.graph.invoke(inputs)
 
         return events
 

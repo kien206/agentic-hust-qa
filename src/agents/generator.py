@@ -1,10 +1,10 @@
 from typing import Any, Dict
 
-from langchain_core.messages import AIMessage, HumanMessage
+from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
 from langgraph.types import StreamWriter
 
 from src.agents.base import BaseAgent
-from src.prompts.prompts import RAG_PROMPT
+from src.prompts.prompts import RAG_PROMPT, RAG_INSTRUCTIONS
 from src.utils.utils import format_docs, format_rag_metadata, format_sql_output
 
 
@@ -35,23 +35,30 @@ class LLM(BaseAgent):
                 "generation": AIMessage(content=format_sql_output(sql_result)),
                 "loop_step": loop_step + 1,
             }
+        if state["datasource"] in ["vectorstore", "websearch"]:
+            self.log("Generating with RAG")
+            documents = state["documents"]
+            docs_txt = format_docs(documents)
+            rag_prompt_formatted = RAG_PROMPT.format(context=docs_txt, question=question)
 
-        self.log("Generating with RAG")
-        documents = state["documents"]
-        docs_txt = format_docs(documents)
-        rag_prompt_formatted = RAG_PROMPT.format(context=docs_txt, question=question)
+            generation = self.llm.invoke([SystemMessage(content=RAG_INSTRUCTIONS)] + [HumanMessage(content=rag_prompt_formatted)])
 
-        generation = self.llm.invoke([HumanMessage(content=rag_prompt_formatted)])
+            # add metadata
+            citation = self._modify_citations(documents, state)
+            writer({"citation": citation})
 
-        # add metadata
-        citation = self._modify_citations(documents, state)
-        writer({"citation": citation})
+            return {
+                "generation": generation,
+                "loop_step": loop_step + 1,
+                # "citation": citation,
+            }
+        else:
+            answer = "Tôi chỉ trả lời những câu hỏi liên quan đến quy định/quy chế và giảng viên của Đại học Bách Khoa. Bạn hãy tham khảo các nguồn khác!!"
 
-        return {
-            "generation": generation,
-            "loop_step": loop_step + 1,
-            # "citation": citation,
-        }
+            return {
+                "generation": AIMessage(content=answer),
+                "loop_step": loop_step + 1,
+            }
 
     async def arun(self, writer: StreamWriter, state: Dict, **kwargs) -> Dict[str, Any]:
         question = state["question"]

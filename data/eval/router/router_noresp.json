@@ -750,252 +750,252 @@
         "predictions": ""
     },
     {
-        "question": "Hôm nay thời tiết thế nào?",
+        "user_input": "Hôm nay thời tiết thế nào?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Bạn thích ăn món gì nhất?",
+        "user_input": "Bạn thích ăn món gì nhất?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Sở thích của bạn là gì?",
+        "user_input": "Sở thích của bạn là gì?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Bạn đã đi du lịch ở đâu rồi?",
+        "user_input": "Bạn đã đi du lịch ở đâu rồi?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Cuốn sách bạn yêu thích là gì?",
+        "user_input": "Cuốn sách bạn yêu thích là gì?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Bộ phim gần đây bạn xem là gì?",
+        "user_input": "Bộ phim gần đây bạn xem là gì?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Bạn thường làm gì vào cuối tuần?",
+        "user_input": "Bạn thường làm gì vào cuối tuần?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Màu sắc yêu thích của bạn là gì?",
+        "user_input": "Màu sắc yêu thích của bạn là gì?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Bạn có nuôi thú cưng không?",
+        "user_input": "Bạn có nuôi thú cưng không?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Ước mơ của bạn là gì?",
+        "user_input": "Ước mơ của bạn là gì?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Bạn học chuyên ngành gì?",
+        "user_input": "Bạn học chuyên ngành gì?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Công việc hiện tại của bạn là gì?",
+        "user_input": "Công việc hiện tại của bạn là gì?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Bạn có anh chị em không?",
+        "user_input": "Bạn có anh chị em không?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Bạn sinh năm bao nhiêu?",
+        "user_input": "Bạn sinh năm bao nhiêu?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Môn thể thao yêu thích của bạn là gì?",
+        "user_input": "Môn thể thao yêu thích của bạn là gì?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Bạn thích nghe thể loại nhạc nào?",
+        "user_input": "Bạn thích nghe thể loại nhạc nào?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Bạn có thể nói được mấy thứ tiếng?",
+        "user_input": "Bạn có thể nói được mấy thứ tiếng?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Bạn có kỷ niệm nào đáng nhớ không?",
+        "user_input": "Bạn có kỷ niệm nào đáng nhớ không?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Điều gì khiến bạn cảm thấy hạnh phúc?",
+        "user_input": "Điều gì khiến bạn cảm thấy hạnh phúc?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Bạn sợ nhất điều gì?",
+        "user_input": "Bạn sợ nhất điều gì?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Thần tượng của bạn là ai?",
+        "user_input": "Thần tượng của bạn là ai?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Bạn có hay đọc tin tức không?",
+        "user_input": "Bạn có hay đọc tin tức không?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Bạn nghĩ gì về trí tuệ nhân tạo?",
+        "user_input": "Bạn nghĩ gì về trí tuệ nhân tạo?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Mùa nào trong năm bạn thích nhất?",
+        "user_input": "Mùa nào trong năm bạn thích nhất?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Nếu có một điều ước, bạn sẽ ước gì?",
+        "user_input": "Nếu có một điều ước, bạn sẽ ước gì?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Bạn thích sống ở thành phố hay nông thôn?",
+        "user_input": "Bạn thích sống ở thành phố hay nông thôn?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Bạn có hay đi xem hòa nhạc không?",
+        "user_input": "Bạn có hay đi xem hòa nhạc không?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Loại trái cây bạn thích nhất là gì?",
+        "user_input": "Loại trái cây bạn thích nhất là gì?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Bạn có thường xuyên tập thể dục không?",
+        "user_input": "Bạn có thường xuyên tập thể dục không?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Kênh YouTube yêu thích của bạn là gì?",
+        "user_input": "Kênh YouTube yêu thích của bạn là gì?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Bạn có hay nấu ăn không?",
+        "user_input": "Bạn có hay nấu ăn không?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Món ăn Việt Nam nào bạn thấy ngon nhất?",
+        "user_input": "Món ăn Việt Nam nào bạn thấy ngon nhất?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Địa điểm du lịch nào ở Việt Nam bạn muốn đến?",
+        "user_input": "Địa điểm du lịch nào ở Việt Nam bạn muốn đến?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Bạn có chơi game không?",
+        "user_input": "Bạn có chơi game không?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Bạn nghĩ gì về việc học trực tuyến?",
+        "user_input": "Bạn nghĩ gì về việc học trực tuyến?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Loài hoa bạn yêu thích là gì?",
+        "user_input": "Loài hoa bạn yêu thích là gì?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Bạn có hay đi cà phê với bạn bè không?",
+        "user_input": "Bạn có hay đi cà phê với bạn bè không?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Mục tiêu trong năm nay của bạn là gì?",
+        "user_input": "Mục tiêu trong năm nay của bạn là gì?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Bạn có quan tâm đến chính trị không?",
+        "user_input": "Bạn có quan tâm đến chính trị không?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Điều gì quan trọng nhất đối với bạn trong cuộc sống?",
+        "user_input": "Điều gì quan trọng nhất đối với bạn trong cuộc sống?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Bạn có thích chụp ảnh không?",
+        "user_input": "Bạn có thích chụp ảnh không?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Bạn có thường xuyên sử dụng mạng xã hội không?",
+        "user_input": "Bạn có thường xuyên sử dụng mạng xã hội không?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Bài hát nào bạn nghe gần đây nhất?",
+        "user_input": "Bài hát nào bạn nghe gần đây nhất?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Bạn có kế hoạch gì cho kỳ nghỉ hè sắp tới không?",
+        "user_input": "Bạn có kế hoạch gì cho kỳ nghỉ hè sắp tới không?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Bạn có thích đọc truyện tranh không?",
+        "user_input": "Bạn có thích đọc truyện tranh không?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Bạn nghĩ gì về biến đổi khí hậu?",
+        "user_input": "Bạn nghĩ gì về biến đổi khí hậu?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Ai là người có ảnh hưởng lớn nhất đến bạn?",
+        "user_input": "Ai là người có ảnh hưởng lớn nhất đến bạn?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Bạn có hay tham gia các hoạt động tình nguyện không?",
+        "user_input": "Bạn có hay tham gia các hoạt động tình nguyện không?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Phong cách thời trang của bạn là gì?",
+        "user_input": "Phong cách thời trang của bạn là gì?",
         "label": "irrelevant",
         "predictions": ""
     },
     {
-        "question": "Bạn có hay bị căng thẳng không?",
+        "user_input": "Bạn có hay bị căng thẳng không?",
         "label": "irrelevant",
         "predictions": ""
     }

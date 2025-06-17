@@ -36,7 +36,7 @@ def build_comp(client, settings: Settings):
         # reset=True
     )
 
-    retriever = get_retriever(vectorstore=vectorstore, k=settings.agent.top_k)
+    # retriever = get_retriever(vectorstore=vectorstore, k=settings.agent.top_k)
     web_search_tool = get_websearch(k=settings.websearch.search_depth)
 
     # Set up or connect to existing lecturer database
@@ -48,7 +48,7 @@ def build_comp(client, settings: Settings):
 
     agents = {
         "router": RouterAgent(llm_json=llm_json_mode, verbose=True),
-        "retriever": RetrievalAgent(llm, llm_json_mode, retriever, verbose=True),
+        "retriever": RetrievalAgent(llm, llm_json_mode, vectorstore, verbose=True),
         "sql": SQLAgent(llm, llm_json_mode, db, verbose=True),
         "web_search": WebSearchAgent(llm, web_search_tool, verbose=True),
         "generator": LLM(llm, verbose=True),
@@ -80,7 +80,7 @@ def create_streamlit_app(agents, config={}):
             st.session_state.conversation = []
             st.rerun()
 
-    st.header("Hỏi về quy chế, quy định và giảng viên Bách Khoa.")
+    st.header("HUST Assistant 2.0")
 
     # Initialize session state for conversation history
     if "conversation" not in st.session_state:
@@ -96,7 +96,7 @@ def create_streamlit_app(agents, config={}):
             st.markdown(message["content"])
 
     # Get user input
-    user_query = st.chat_input(">:")
+    user_query = st.chat_input("Hỏi đê....")
 
     # Process user query
     if user_query:
